@@ -16,6 +16,8 @@ public:
         try
         {
             setUserId(to_string(user_id));
+            setstudentid(student_id);
+            setemail(_email);
         }
         catch (const char *msg)
         {
@@ -62,5 +64,37 @@ public:
         if (count != 10)
             throw "studentID must be exactly 10 digits.";
         StudentId = _studentID;
+    }
+    void setname(string _name)
+    {
+        Name = _name;
+    }
+    void setemail(string _email)
+    {
+        int i = _email.find('@');
+        if (i == -1)
+        {
+            throw "your email address should have @ !";
+        }
+        int j = _email.find('.', i);
+        if (j == -1)
+        {
+            throw "your email address should have . !";
+        }
+        Email = _email;
+    }
+    void setbalance(float _balance)
+    {
+        Balance = _balance;
+        bool credit;
+        if (Balance < 0)
+        {
+            credit = true;
+            cout << "you are in debt and you cannot reserve food";
+        }
+        else
+        {
+            credit = false;
+        }
     }
 };
