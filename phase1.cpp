@@ -9,6 +9,7 @@ class Student
     string Email;
     float Balance;
     bool IsActive;
+    bool Hasreservation = true; // there is any reserve or no ?
 
 public:
     Student(int user_id, string student_id, string _name, string _email, float _balance, bool is_active = true)
@@ -101,12 +102,9 @@ public:
     {
         IsActive = status;
     }
-    void reservemael()
+    void sethasreservation(bool reservationstatus)
     {
-        if (!IsActive)
-        {
-            cout << " you cannat reserve food because your account is unactive" << endl;
-        }
+        Hasreservation = reservationstatus;
     }
     int getuserid() { return UserId; }
     string getstudentid() { return StudentId; }
@@ -114,4 +112,42 @@ public:
     string getemail() { return Email; }
     float getbalance() { return Balance; }
     bool getisactive() { return IsActive; }
+    bool gethasreservation() { return Hasreservation; }
+    void reservemeal()
+    {
+        if (!IsActive)
+        {
+            cout << "you cannot reserve food because your account not active !" << endl;
+        }
+        else if (Balance < 0)
+        {
+            cout << "you are in debt and you can not reserve meal !" << endl;
+        }
+        else if (Hasreservation)
+        {
+            cout << "you already has a reservation !" << endl;
+        }
+        else
+        {
+            Hasreservation = true;
+            cout << "your meal reserved successfully ." << endl;
+        }
+    }
+    bool cancelreservation()
+    {
+        if (!Hasreservation)
+        {
+            cout << "you do not have any reserve !" << endl;
+            return false;
+        }
+        else
+        {
+            Hasreservation = false;
+            cout << "your reserve has cancelled" << endl;
+            return true;
+        }
+    }
+    void print () {
+        
+    }
 };
