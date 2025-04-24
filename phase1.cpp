@@ -97,4 +97,21 @@ public:
             credit = false;
         }
     }
+    void setisactive(bool status)
+    {
+        IsActive = status;
+    }
+    void reservemael()
+    {
+        if (!IsActive)
+        {
+            cout << " you cannat reserve food because your account is unactive" << endl;
+        }
+    }
+    int getuserid() { return UserId; }
+    string getstudentid() { return StudentId; }
+    string getNmae() { return Name; }
+    string getemail() { return Email; }
+    float getbalance() { return Balance; }
+    bool getisactive() { return IsActive; }
 };
