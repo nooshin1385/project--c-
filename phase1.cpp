@@ -87,15 +87,9 @@ public:
     void setbalance(float _balance)
     {
         Balance = _balance;
-        bool credit;
         if (Balance < 0)
         {
-            credit = true;
             cout << "you are in debt and you cannot reserve food";
-        }
-        else
-        {
-            credit = false;
         }
     }
     void setisactive(bool status)
@@ -147,7 +141,15 @@ public:
             return true;
         }
     }
-    void print () {
-        
+    void print()
+    {
+        cout << "student information :" << endl;
+        cout << "User ID :" << UserId << endl;
+        cout << "Student ID :" << StudentId << endl;
+        cout << "Name :" << Name << endl;
+        cout << "Email :" << Email << endl;
+        cout << "Balance :" << Balance << endl;
+        cout << "Active :" << (IsActive ? "yes" : "no") << endl;
+        cout << "----------------------------------------------------------------" << endl;
     }
 };
