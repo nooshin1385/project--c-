@@ -329,3 +329,26 @@ public:
         cout << endl;
     }
 };
+class DiningHall
+{
+    int HallID;
+    string Name;
+    string Address;
+    int Capacity;
+
+public:
+    DiningHall()
+    {
+        HallID = 0;
+        Name = "";
+        Address = "";
+        Capacity = 0;
+    }
+    DiningHall(int _HallID, string _Name, string _Address, int _Capacity)
+    {
+        HallID = _HallID;
+        Name = _Name;
+        Address = _Address;
+        Capacity = _Capacity;
+    }
+};
