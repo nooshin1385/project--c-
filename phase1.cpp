@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 class Student
@@ -12,6 +13,16 @@ class Student
     bool Hasreservation = true; // there is any reserve or no ?
 
 public:
+    Student()
+    {
+        UserId = 0;
+        StudentId = "0000000000";
+        Name = "ABC";
+        Email = "abc@gmail.com";
+        Balance = 0.0;
+        IsActive = true;
+        Hasreservation = true;
+    }
     Student(int user_id, string student_id, string _name, string _email, float _balance, bool is_active = true)
     {
         try
@@ -30,6 +41,20 @@ public:
         Email = _email;
         Balance = _balance;
         IsActive = is_active;
+    }
+    Student &operator=(Student &ob)
+    {
+        if (this != &ob)
+        {
+            UserId = ob.UserId;
+            StudentId = ob.StudentId;
+            Name = ob.Name;
+            Email = ob.Email;
+            Balance = ob.Balance;
+            IsActive = ob.IsActive;
+            Hasreservation = ob.Hasreservation;
+        }
+        return *this;
     }
 
     void setUserId(string _userID)
@@ -151,5 +176,28 @@ public:
         cout << "Balance :" << Balance << endl;
         cout << "Active :" << (IsActive ? "yes" : "no") << endl;
         cout << "----------------------------------------------------------------" << endl;
+    }
+};
+enum Status
+{
+    Confirmed,
+    Cancelled,
+    Pending
+};
+class Reservation
+{
+    Student student;
+    int Reservation_ID;
+    time_t Created_at;
+    Status status;
+
+public:
+    Reservation(int _ReservationID, Student &S, Status intialstatus)
+    {
+
+        Reservation_ID = _ReservationID;
+        S = student;
+        status = intialstatus;
+        Created_at = time(nullptr);
     }
 };
