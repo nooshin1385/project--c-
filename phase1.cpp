@@ -200,4 +200,25 @@ public:
         status = intialstatus;
         Created_at = time(nullptr);
     }
+    Reservation()
+    {
+        Reservation_ID = 0;
+        status = Pending;
+    }
+    void setReservationID(int _ID)
+    {
+        Reservation_ID = _ID;
+    }
+    void setStudent(Student _student)
+    {
+        student = _student;
+    }
+    void setStatus(Status _status)
+    {
+        status = _status;
+    }
+    void setTime(time_t _createdat)
+    {
+        Created_at = _createdat;
+    }
 };
