@@ -127,7 +127,7 @@ public:
     }
     int getuserid() { return UserId; }
     string getstudentid() { return StudentId; }
-    string getNmae() { return Name; }
+    string getName() { return Name; }
     string getemail() { return Email; }
     float getbalance() { return Balance; }
     bool getisactive() { return IsActive; }
@@ -220,5 +220,29 @@ public:
     void setTime(time_t _createdat)
     {
         Created_at = _createdat;
+    }
+    int getReservationid() const { return Reservation_ID; }
+    const Student& getStudent()const { return student ; }
+    Status getStatus() const { return status; }
+    time_t gettime() const { return Created_at; }
+    bool CancelReservation()
+    {
+        if (status == Confirmed || status == Pending)
+        {
+            status = Cancelled;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    void printReservationinfo()
+    {
+        cout << "Reservation ID :" << Reservation_ID << endl;
+        cout << "Student ID :" << student.getstudentid() << endl;
+        cout << "Student Name :" << student.getName() << endl;
+        cout << "Status :" << getStatus() << endl;
+        cout << "Created at :" << ctime(&Created_at) << endl;
     }
 };
