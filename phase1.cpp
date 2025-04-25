@@ -371,4 +371,14 @@ public:
     string getname() { return Name; }
     string getaddress() { return Address; }
     int getcapacity() { return Capacity; }
+
+    void printdininghallinfo()
+    {
+        cout << "Dining hall info :" << endl;
+        cout << "ID :" << HallID << endl;
+        cout << "Name :" << Name << endl;
+        cout << "Address :" << Address << endl;
+        cout << "Capacity :" << Capacity << endl;
+        cout << "----------------------" << endl;
+    }
 };
