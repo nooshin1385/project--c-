@@ -279,4 +279,19 @@ public:
         Type = _type;
         SideItems = _sideitems;
     }
+    void setmealid(int _MealID) { MealID = _MealID; }
+    void setmealname(string _MealName) { MealName = _MealName; }
+    void setprice(float _Price) { Price = _Price; }
+    void settype(MealType _Type) { Type = _Type; }
+    void setsudeitems(vector<string> _SideItems) { SideItems = _SideItems; }
+    int getmealid() { return MealID; }
+    string getmealname() { return MealName; }
+    float getprice() { return Price; }
+    MealType gettype() { return Type; }
+    vector<string> getsideitems() { return SideItems; }
+    void UpdatPrice(float new_price)
+    {
+        Price = new_price;
+        cout << "new price of" << MealName << "is" << Price << "." << endl;
+    }
 };
