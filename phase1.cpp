@@ -294,4 +294,38 @@ public:
         Price = new_price;
         cout << "new price of" << MealName << "is" << Price << "." << endl;
     }
+    void Addsideitem(string item)
+    {
+        SideItems.push_back(item);
+        cout << item << "Added to" << MealName << "as an item ." << endl;
+    }
+    void printmealinfo()
+    {
+        cout << "Meal ID:" << MealID << endl;
+        cout << "Meal Name :" << MealName << endl;
+        cout << "Price :" << Price << endl;
+        cout << "Type :";
+        switch (Type)
+        {
+        case Appetizer:
+            cout << "Appetizer";
+            break;
+        case Mainmeal:
+            cout << "MainMeal";
+            break;
+        case Dessert:
+            cout << "Dessert";
+            break;
+        case Beverage:
+            cout << "Beverage";
+            break;
+        }
+        cout << endl;
+        cout << "SideItems :";
+        for (int i = 0; i < SideItems.size(); i++)
+        {
+            cout << SideItems[i] << " ";
+        }
+        cout << endl;
+    }
 };
