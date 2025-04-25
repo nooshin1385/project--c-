@@ -351,4 +351,24 @@ public:
         Address = _Address;
         Capacity = _Capacity;
     }
+    void sethallid(int _hallID)
+    {
+        HallID = _hallID;
+    }
+    void setname(string _name)
+    {
+        Name = _name;
+    }
+    void setaddress(string _address)
+    {
+        Address = _address;
+    }
+    void setcapacity(int _capacity)
+    {
+        Capacity = _capacity;
+    }
+    int gethallid() { return HallID; }
+    string getname() { return Name; }
+    string getaddress() { return Address; }
+    int getcapacity() { return Capacity; }
 };
