@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <vector>
 using namespace std;
 
 class Student
@@ -222,7 +223,7 @@ public:
         Created_at = _createdat;
     }
     int getReservationid() const { return Reservation_ID; }
-    const Student& getStudent()const { return student ; }
+    const Student &getStudent() const { return student; }
     Status getStatus() const { return status; }
     time_t gettime() const { return Created_at; }
     bool CancelReservation()
@@ -245,4 +246,20 @@ public:
         cout << "Status :" << getStatus() << endl;
         cout << "Created at :" << ctime(&Created_at) << endl;
     }
+};
+enum MealType
+{
+    Appetizer,
+    Mainmeal,
+    Dessert,
+    Beverage
+
+};
+class Meal
+{
+    int MealID;
+    string MealName;
+    float Price;
+    MealType Type;
+    vector<string> SideItems;
 };
