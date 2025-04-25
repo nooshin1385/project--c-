@@ -262,4 +262,21 @@ class Meal
     float Price;
     MealType Type;
     vector<string> SideItems;
+
+public:
+    Meal()
+    {
+        MealID = 0;
+        MealName = "";
+        Price = 0.0;
+        Type = Mainmeal;
+    }
+    Meal(int _mealid, string _mealname, float _price, MealType _type, vector<string> _sideitems)
+    {
+        MealID = _mealid;
+        MealName = _mealname;
+        Price = _price;
+        Type = _type;
+        SideItems = _sideitems;
+    }
 };
