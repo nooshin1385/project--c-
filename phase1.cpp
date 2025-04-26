@@ -11,7 +11,8 @@ class Student
     string Email;
     float Balance;
     bool IsActive;
-    bool Hasreservation = true; // there is any reserve or no ?
+    bool Hasreservation = false;     // there is any reserve or no ?
+    vector<Reservation> reservation; // list for reserves
 
 public:
     Student()
@@ -24,13 +25,13 @@ public:
         IsActive = true;
         Hasreservation = true;
     }
-    Student(int user_id, string student_id, string _name, string _email, float _balance, bool is_active = true)
+    Student(int user_id, string student_id, string _name, string _email, float _balance, bool is_active = true, vector<Reservation> _reservation)
     {
         try
         {
             setUserId(to_string(user_id));
-            setstudentid(student_id);
-            setemail(_email);
+            setStudentId(student_id);
+            setEmail(_email);
         }
         catch (const char *msg)
         {
@@ -42,6 +43,7 @@ public:
         Email = _email;
         Balance = _balance;
         IsActive = is_active;
+        reservation = _reservation;
     }
     Student &operator=(Student &ob)
     {
@@ -77,7 +79,7 @@ public:
 
         UserId = stoi(_userID);
     }
-    void setstudentid(string _studentID)
+    void setStudentId(string _studentID)
     {
         int count = 0;
         for (char c : _studentID)
@@ -92,11 +94,11 @@ public:
             throw "studentID must be exactly 10 digits.";
         StudentId = _studentID;
     }
-    void setname(string _name)
+    void setName(string _name)
     {
         Name = _name;
     }
-    void setemail(string _email)
+    void setEmail(string _email)
     {
         int i = _email.find('@');
         if (i == -1)
@@ -110,7 +112,7 @@ public:
         }
         Email = _email;
     }
-    void setbalance(float _balance)
+    void setBalance(float _balance)
     {
         Balance = _balance;
         if (Balance < 0)
@@ -118,22 +120,27 @@ public:
             cout << "you are in debt and you cannot reserve food";
         }
     }
-    void setisactive(bool status)
+    void setIsActive(bool status)
     {
         IsActive = status;
     }
-    void sethasreservation(bool reservationstatus)
+    void setHasrRservation(bool reservationstatus)
     {
         Hasreservation = reservationstatus;
     }
-    int getuserid() { return UserId; }
-    string getstudentid() { return StudentId; }
+    void setreservation(vector<Reservation> _reservation)
+    {
+        reservation = _reservation;
+    }
+    int getUserId() { return UserId; }
+    string getStudentId() { return StudentId; }
     string getName() { return Name; }
-    string getemail() { return Email; }
-    float getbalance() { return Balance; }
-    bool getisactive() { return IsActive; }
-    bool gethasreservation() { return Hasreservation; }
-    void reservemeal()
+    string getEmail() { return Email; }
+    float getBalance() { return Balance; }
+    bool getIsActive() { return IsActive; }
+    bool getHasReservation() { return Hasreservation; }
+    vector<Reservation> getreservatin() { return reservation; }
+    void ReserveMeal()
     {
         if (!IsActive)
         {
@@ -153,7 +160,7 @@ public:
             cout << "your meal reserved successfully ." << endl;
         }
     }
-    bool cancelreservation()
+    bool CancelReservation()
     {
         if (!Hasreservation)
         {
@@ -167,7 +174,10 @@ public:
             return true;
         }
     }
-    void print()
+    void AddReservatin(const Reservation &reservation)
+    {
+    }
+    void Print()
     {
         cout << "student information :" << endl;
         cout << "User ID :" << UserId << endl;
@@ -255,7 +265,7 @@ public:
     void printReservationinfo()
     {
         cout << "Reservation ID :" << Reservation_ID << endl;
-        cout << "Student ID :" << student.getstudentid() << endl;
+        cout << "Student ID :" << student.getStudentId() << endl;
         cout << "Student Name :" << student.getName() << endl;
         cout << "Status :" << getStatus() << endl;
         cout << "Created at :" << ctime(&Created_at) << endl;
@@ -297,7 +307,7 @@ public:
     void setmealname(string _MealName) { MealName = _MealName; }
     void setprice(float _Price) { Price = _Price; }
     void settype(MealType _Type) { Type = _Type; }
-    void setsudeitems(vector<string> _SideItems) { SideItems = _SideItems; }
+    void setsideitems(vector<string> _SideItems) { SideItems = _SideItems; }
     int getmealid() { return MealID; }
     string getmealname() { return MealName; }
     float getprice() { return Price; }
