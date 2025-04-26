@@ -191,15 +191,19 @@ class Reservation
     int Reservation_ID;
     time_t Created_at;
     Status status;
+    Meal meal;
+    DiningHall dHall;
 
 public:
-    Reservation(int _ReservationID, Student &S, Status intialstatus)
+    Reservation(int _ReservationID, Student &S, Status intialstatus, Meal _meal, DiningHall _dHall)
     {
 
         Reservation_ID = _ReservationID;
         S = student;
         status = intialstatus;
         Created_at = time(nullptr);
+        meal = _meal;
+        dHall = _dHall;
     }
     Reservation()
     {
@@ -222,10 +226,20 @@ public:
     {
         Created_at = _createdat;
     }
+    void setMeal(Meal _meal)
+    {
+        meal = _meal;
+    }
+    void setDininghall(DiningHall _dHall)
+    {
+        dHall = _dHall;
+    }
     int getReservationid() const { return Reservation_ID; }
-    const Student &getStudent() const { return student; }
+    Student getStudent() const { return student; }
     Status getStatus() const { return status; }
     time_t gettime() const { return Created_at; }
+    Meal getMeal() const { return meal; }
+    DiningHall getdHall() const { return dHall; }
     bool CancelReservation()
     {
         if (status == Confirmed || status == Pending)
