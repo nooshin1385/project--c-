@@ -2,8 +2,19 @@
 #include <ctime>
 #include <vector>
 using namespace std;
+class User
+{
+    int UserId;
+    string Name;
+    string LastName ;
+    string HashedPassword ;
+    public :
+    
 
-class Student
+
+};
+
+class Student : public User
 {
     int UserId;
     string StudentId;
@@ -13,6 +24,7 @@ class Student
     bool IsActive;
     bool Hasreservation = false;     // there is any reserve or no ?
     vector<Reservation> reservation; // list for reserves
+    int Phone;
 
 public:
     Student()
@@ -24,8 +36,9 @@ public:
         Balance = 0.0;
         IsActive = true;
         Hasreservation = true;
+        Phone = 0;
     }
-    Student(int user_id, string student_id, string _name, string _email, float _balance, bool is_active = true, vector<Reservation> _reservation)
+    Student(int user_id, string student_id, string _name, string _email, float _balance, bool is_active = true, vector<Reservation> _reservation, int _phone)
     {
         try
         {
@@ -44,6 +57,7 @@ public:
         Balance = _balance;
         IsActive = is_active;
         reservation = _reservation;
+        Phone = _phone;
     }
     Student &operator=(Student &ob)
     {
@@ -56,6 +70,7 @@ public:
             Balance = ob.Balance;
             IsActive = ob.IsActive;
             Hasreservation = ob.Hasreservation;
+            Phone = ob.Phone;
         }
         return *this;
     }
@@ -132,6 +147,10 @@ public:
     {
         reservation = _reservation;
     }
+    void setphone(int _phone)
+    {
+        Phone = _phone;
+    }
     int getUserId() { return UserId; }
     string getStudentId() { return StudentId; }
     string getName() { return Name; }
@@ -140,6 +159,7 @@ public:
     bool getIsActive() { return IsActive; }
     bool getHasReservation() { return Hasreservation; }
     vector<Reservation> getreservatin() { return reservation; }
+    int getphone() { return Phone; }
     void ReserveMeal()
     {
         if (!IsActive)
@@ -177,7 +197,12 @@ public:
     void AddReservatin(const Reservation &reservation)
     {
     }
-    void Print()
+    void Activate(){
+
+    }
+    void Deactivate(){}
+    bool Isactive(){}
+    void Print()const
     {
         cout << "student information :" << endl;
         cout << "User ID :" << UserId << endl;
