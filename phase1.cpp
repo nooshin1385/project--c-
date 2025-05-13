@@ -6,12 +6,17 @@ class User
 {
     int UserId;
     string Name;
-    string LastName ;
-    string HashedPassword ;
-    public :
-    
+    string LastName;
+    string HashedPassword;
 
-
+public:
+    User(int _userid, string _name, string _lastname, string _hpassword) : UserId(_userid), Name(_name), LastName(_lastname), HashedPassword(_hpassword) {}
+    virtual void print() const;
+    virtual void getType()
+    {
+        cout << "this is user." << endl;
+    }
+    User() {}
 };
 
 class Student : public User
@@ -197,12 +202,21 @@ public:
     void AddReservatin(const Reservation &reservation)
     {
     }
-    void Activate(){
-
+    void Activate()
+    {
+        IsActive = true;
+        cout << "student account is active .\n";
     }
-    void Deactivate(){}
-    bool Isactive(){}
-    void Print()const
+    void Deactivate()
+    {
+        IsActive = false;
+        cout << "student account is deactive .\n";
+    }
+    bool Isactive()
+    {
+        return IsActive;
+    }
+    void Print() const
     {
         cout << "student information :" << endl;
         cout << "User ID :" << UserId << endl;
