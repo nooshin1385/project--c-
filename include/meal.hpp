@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
+#pragma once
 using namespace std;
 enum Reserveday
 {
@@ -94,5 +95,27 @@ public:
             cout << SideItems[i] << " ";
         }
         cout << endl;
+    }
+    bool Isactive() const { return IsActive; }
+    void Activate()
+    {
+        if (IsActive)
+            cout << MealName << "Active already." << endl;
+        else
+        {
+            IsActive = true;
+
+            cout << MealName << "Active now." << endl;
+        }
+    }
+    void Deactivate()
+    {
+        if (!IsActive)
+            cout << MealName << "Inactive already." << endl;
+        else
+        {
+            IsActive = false;
+            cout << MealName << "Inactive now." << endl;
+        }
     }
 };

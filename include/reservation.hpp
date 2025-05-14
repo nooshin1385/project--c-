@@ -4,8 +4,9 @@
 #include "student.hpp"
 #include "meal.hpp"
 #include "dininghall.hpp"
+#pragma once
 using namespace std ;
-enum Status
+enum Rstatus
 {
     Confirmed,
     Cancelled,
@@ -13,19 +14,17 @@ enum Status
 };
 class Reservation
 {
-    Student student;
     int Reservation_ID;
     time_t Created_at;
-    Status status;
-    Meal meal;
-    DiningHall dHall;
+    Rstatus status;
+    Meal *meal;
+    DiningHall *dHall;
 
 public:
-    Reservation(int _ReservationID, Student &S, Status intialstatus, Meal _meal, DiningHall _dHall)
+    Reservation(int _ReservationID, Rstatus intialstatus, Meal *_meal, DiningHall *_dHall)
     {
 
         Reservation_ID = _ReservationID;
-        S = student;
         status = intialstatus;
         Created_at = time(nullptr);
         meal = _meal;
@@ -40,11 +39,8 @@ public:
     {
         Reservation_ID = _ID;
     }
-    void setStudent(Student _student)
-    {
-        student = _student;
-    }
-    void setStatus(Status _status)
+
+    void setStatus(Rstatus _status)
     {
         status = _status;
     }
@@ -52,20 +48,19 @@ public:
     {
         Created_at = _createdat;
     }
-    void setMeal(Meal _meal)
+    void setMeal(Meal *_meal)
     {
         meal = _meal;
     }
-    void setDininghall(DiningHall _dHall)
+    void setDininghall(DiningHall *_dHall)
     {
         dHall = _dHall;
     }
     int getReservationid() const { return Reservation_ID; }
-    Student getStudent() const { return student; }
-    Status getStatus() const { return status; }
+    Rstatus getRstatus() const { return status; }
     time_t gettime() const { return Created_at; }
-    Meal getMeal() const { return meal; }
-    DiningHall getdHall() const { return dHall; }
+    Meal* getMeal() const { return meal; }
+    DiningHall* getdHall() const { return dHall; }
     bool CancelReservation()
     {
         if (status == Confirmed || status == Pending)
@@ -81,19 +76,9 @@ public:
     void printReservationinfo()
     {
         cout << "Reservation ID :" << Reservation_ID << endl;
-        cout << "Student ID :" << student.getStudentId() << endl;
-        cout << "Student Name :" << student.getName() << endl;
-        cout << "Status :" << getStatus() << endl;
+        if(meal){
+            cout << "Meal:" << meal ->getMeal() << endl;
+        }
         cout << "Created at :" << ctime(&Created_at) << endl;
     }
-};
-enum Reserveday
-{
-    Saturday,
-    Sunday,
-    Monday,
-    Tuesday,
-    Wednesday,
-    Thursday
-
 };

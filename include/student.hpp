@@ -3,6 +3,7 @@
 #include <vector>
 #include"user.hpp"
 #include "reservation.hpp"
+#pragma once
 using namespace std ;
 class Student : public User
 {
