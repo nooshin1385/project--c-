@@ -1,23 +1,6 @@
-#include <iostream>
-#include <ctime>
-#include <vector>
-using namespace std;
-class User
-{
-    int UserId;
-    string Name;
-    string LastName;
-    string HashedPassword;
+#include "include/user.hpp"
 
-public:
-    User(int _userid, string _name, string _lastname, string _hpassword) : UserId(_userid), Name(_name), LastName(_lastname), HashedPassword(_hpassword) {}
-    virtual void print() const;
-    virtual void getType()
-    {
-        cout << "this is user." << endl;
-    }
-    User() {}
-};
+using namespace std;
 
 class Student : public User
 {
@@ -310,12 +293,22 @@ public:
         cout << "Created at :" << ctime(&Created_at) << endl;
     }
 };
+enum Reserveday
+{
+    Saturday,
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday
+
+};
 enum MealType
 {
-    Appetizer,
-    Mainmeal,
+    Breakfast,
+    Lunch,
+    Dinner,
     Dessert,
-    Beverage
 
 };
 class Meal
@@ -323,8 +316,9 @@ class Meal
     int MealID;
     string MealName;
     float Price;
-    MealType Type;
+    MealType mealtype;
     vector<string> SideItems;
+    bool IsActive;
 
 public:
     Meal()
@@ -332,25 +326,26 @@ public:
         MealID = 0;
         MealName = "";
         Price = 0.0;
-        Type = Mainmeal;
+        mealtype = Breakfast;
+        IsActive = 1;
     }
-    Meal(int _mealid, string _mealname, float _price, MealType _type, vector<string> _sideitems)
+    Meal(int _mealid, string _mealname, float _price, MealType _mealtype, vector<string> _sideitems)
     {
         MealID = _mealid;
         MealName = _mealname;
         Price = _price;
-        Type = _type;
+        mealtype = _mealtype;
         SideItems = _sideitems;
     }
     void setmealid(int _MealID) { MealID = _MealID; }
     void setmealname(string _MealName) { MealName = _MealName; }
     void setprice(float _Price) { Price = _Price; }
-    void settype(MealType _Type) { Type = _Type; }
+    void settype(MealType _mealtype) { mealtype = _mealtype; }
     void setsideitems(vector<string> _SideItems) { SideItems = _SideItems; }
     int getmealid() { return MealID; }
     string getmealname() { return MealName; }
     float getprice() { return Price; }
-    MealType gettype() { return Type; }
+    MealType gettype() { return mealtype; }
     vector<string> getsideitems() { return SideItems; }
     void UpdatPrice(float new_price)
     {
@@ -368,19 +363,19 @@ public:
         cout << "Meal Name :" << MealName << endl;
         cout << "Price :" << Price << endl;
         cout << "Type :";
-        switch (Type)
+        switch (mealtype)
         {
-        case Appetizer:
-            cout << "Appetizer";
+        case Breakfast:
+            cout << "Breakfast";
             break;
-        case Mainmeal:
-            cout << "MainMeal";
+        case Lunch:
+            cout << "Lunch";
             break;
         case Dessert:
             cout << "Dessert";
             break;
-        case Beverage:
-            cout << "Beverage";
+        case Dinner:
+            cout << "Dinner";
             break;
         }
         cout << endl;

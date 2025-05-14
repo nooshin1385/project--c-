@@ -1,0 +1,98 @@
+#include <iostream>
+#include <ctime>
+#include <vector>
+using namespace std;
+enum Reserveday
+{
+    Saturday,
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday
+
+};
+enum MealType
+{
+    Breakfast,
+    Lunch,
+    Dinner,
+    Dessert,
+
+};
+class Meal
+{
+    int MealID;
+    string MealName;
+    float Price;
+    MealType mealtype;
+    vector<string> SideItems;
+    bool IsActive;
+
+public:
+    Meal()
+    {
+        MealID = 0;
+        MealName = "";
+        Price = 0.0;
+        mealtype = Breakfast;
+        IsActive = 1;
+    }
+    Meal(int _mealid, string _mealname, float _price, MealType _mealtype, vector<string> _sideitems)
+    {
+        MealID = _mealid;
+        MealName = _mealname;
+        Price = _price;
+        mealtype = _mealtype;
+        SideItems = _sideitems;
+    }
+    void setmealid(int _MealID) { MealID = _MealID; }
+    void setmealname(string _MealName) { MealName = _MealName; }
+    void setprice(float _Price) { Price = _Price; }
+    void settype(MealType _mealtype) { mealtype = _mealtype; }
+    void setsideitems(vector<string> _SideItems) { SideItems = _SideItems; }
+    int getmealid() { return MealID; }
+    string getmealname() { return MealName; }
+    float getprice() { return Price; }
+    MealType gettype() { return mealtype; }
+    vector<string> getsideitems() { return SideItems; }
+    void UpdatPrice(float new_price)
+    {
+        Price = new_price;
+        cout << "new price of" << MealName << "is" << Price << "." << endl;
+    }
+    void Addsideitem(string item)
+    {
+        SideItems.push_back(item);
+        cout << item << "Added to" << MealName << "as an item ." << endl;
+    }
+    void printmealinfo()
+    {
+        cout << "Meal ID:" << MealID << endl;
+        cout << "Meal Name :" << MealName << endl;
+        cout << "Price :" << Price << endl;
+        cout << "Type :";
+        switch (mealtype)
+        {
+        case Breakfast:
+            cout << "Breakfast";
+            break;
+        case Lunch:
+            cout << "Lunch";
+            break;
+        case Dessert:
+            cout << "Dessert";
+            break;
+        case Dinner:
+            cout << "Dinner";
+            break;
+        }
+        cout << endl;
+        cout << "SideItems :";
+        for (int i = 0; i < SideItems.size(); i++)
+        {
+            cout << SideItems[i] << " ";
+        }
+        cout << endl;
+    }
+};
