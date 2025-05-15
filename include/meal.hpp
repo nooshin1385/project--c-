@@ -96,7 +96,7 @@ public:
         }
         cout << endl;
         cout << "SideItems :";
-        for (int i = 0; i < SideItems.size(); i++)
+        for (size_t i = 0; i < SideItems.size(); i++)
         {
             cout << SideItems[i] << " ";
         }
@@ -124,7 +124,7 @@ public:
             break;
         }
     }
-    bool IsActive() const { return IsActive; }
+    bool isActive() const { return IsActive; }
     void Activate()
     {
         if (IsActive)
