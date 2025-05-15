@@ -1,10 +1,11 @@
+#pragma once
 #include <iostream>
 #include <ctime>
 #include <vector>
 #include "student.hpp"
 #include "meal.hpp"
 #include "dininghall.hpp"
-#pragma once
+
 using namespace std ;
 enum Rstatus
 {
@@ -77,7 +78,7 @@ public:
     {
         cout << "Reservation ID :" << Reservation_ID << endl;
         if(meal){
-            cout << "Meal:" << meal ->getMeal() << endl;
+            cout << "Meal:" << meal ->getmealname() << endl;
         }
         cout << "Created at :" << ctime(&Created_at) << endl;
     }
