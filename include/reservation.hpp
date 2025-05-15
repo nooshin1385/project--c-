@@ -6,7 +6,7 @@
 #include "meal.hpp"
 #include "dininghall.hpp"
 
-using namespace std ;
+using namespace std;
 enum Rstatus
 {
     Confirmed,
@@ -57,11 +57,11 @@ public:
     {
         dHall = _dHall;
     }
-    int getReservationid() const { return Reservation_ID; }
-    Rstatus getRstatus() const { return status; }
+    int getReservationId() const { return Reservation_ID; }
+    Rstatus getstatus() const { return status; }
     time_t gettime() const { return Created_at; }
-    Meal* getMeal() const { return meal; }
-    DiningHall* getdHall() const { return dHall; }
+    Meal *getMeal() const { return meal; }
+    DiningHall *getdHall() const { return dHall; }
     bool CancelReservation()
     {
         if (status == Confirmed || status == Pending)
@@ -74,11 +74,29 @@ public:
             return false;
         }
     }
-    void printReservationinfo()
+    void printReservationinfo() const
     {
         cout << "Reservation ID :" << Reservation_ID << endl;
-        if(meal){
-            cout << "Meal:" << meal ->getmealname() << endl;
+        if (meal)
+        {
+            cout << "Meal:" << meal->getmealname() << endl;
+        }
+        if (dHall)
+        {
+            cout << "Dining hall :" << dHall->getname() << endl;
+        }
+        cout << "Status :";
+        switch (status)
+        {
+        case Pending:
+            cout << "Pending ";
+            break;
+        case Confirmed:
+            cout << "Confirmed";
+            break;
+        case Cancelled:
+            cout << "Cancelled";
+            break;
         }
         cout << "Created at :" << ctime(&Created_at) << endl;
     }

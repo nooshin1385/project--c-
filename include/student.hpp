@@ -2,15 +2,13 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
-#include"user.hpp"
+#include "user.hpp"
 #include "reservation.hpp"
 
-using namespace std ;
+using namespace std;
 class Student : public User
 {
-    int UserId;
     string StudentId;
-    string Name;
     string Email;
     float Balance;
     bool IsActive;
@@ -21,20 +19,18 @@ class Student : public User
 public:
     Student()
     {
-        UserId = 0;
+
         StudentId = "0000000000";
-        Name = "ABC";
         Email = "abc@gmail.com";
         Balance = 0.0;
         IsActive = true;
         Hasreservation = true;
         Phone = 0;
     }
-    Student(int user_id, string student_id, string _name, string _email, float _balance, bool is_active = true, vector<Reservation> _reservation, int _phone)
+    Student(string student_id, string _email, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, int _phone = 0)
     {
         try
         {
-            setUserId(to_string(user_id));
             setStudentId(student_id);
             setEmail(_email);
         }
@@ -44,7 +40,6 @@ public:
         }
 
         StudentId = student_id;
-        Name = _name;
         Email = _email;
         Balance = _balance;
         IsActive = is_active;
@@ -55,9 +50,7 @@ public:
     {
         if (this != &ob)
         {
-            UserId = ob.UserId;
             StudentId = ob.StudentId;
-            Name = ob.Name;
             Email = ob.Email;
             Balance = ob.Balance;
             IsActive = ob.IsActive;
@@ -67,25 +60,6 @@ public:
         return *this;
     }
 
-    void setUserId(string _userID)
-    {
-        int count = 0;
-        for (char c : _userID)
-        {
-            if (!isdigit(c))
-            {
-                throw "UserID must be just digits.";
-            }
-            count++;
-        }
-
-        if (count != 10)
-        {
-            throw "UserID must be exactly 10 digits.";
-        }
-
-        UserId = stoi(_userID);
-    }
     void setStudentId(string _studentID)
     {
         int count = 0;
@@ -100,10 +74,6 @@ public:
         if (count != 10)
             throw "studentID must be exactly 10 digits.";
         StudentId = _studentID;
-    }
-    void setName(string _name)
-    {
-        Name = _name;
     }
     void setEmail(string _email)
     {
@@ -143,14 +113,12 @@ public:
     {
         Phone = _phone;
     }
-    int getUserId() { return UserId; }
     string getStudentId() { return StudentId; }
-    string getName() { return Name; }
     string getEmail() { return Email; }
     float getBalance() { return Balance; }
     bool getIsActive() { return IsActive; }
     bool getHasReservation() { return Hasreservation; }
-    vector<Reservation> getreservatin() { return reservation; }
+    vector<Reservation> getReserves() const { return reservation; }
     int getphone() { return Phone; }
     void ReserveMeal()
     {
@@ -186,8 +154,10 @@ public:
             return true;
         }
     }
-    void AddReservatin(const Reservation &reservation)
+    void AddReservation(const Reservation &r)
     {
+        reservation.push_back(r);
+        Hasreservation = true;
     }
     void Activate()
     {
@@ -205,10 +175,9 @@ public:
     }
     void Print() const
     {
+        User ::print();
         cout << "student information :" << endl;
-        cout << "User ID :" << UserId << endl;
         cout << "Student ID :" << StudentId << endl;
-        cout << "Name :" << Name << endl;
         cout << "Email :" << Email << endl;
         cout << "Balance :" << Balance << endl;
         cout << "Active :" << (IsActive ? "yes" : "no") << endl;
