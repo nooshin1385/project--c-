@@ -1,7 +1,7 @@
+#pragma once
 #include <iostream>
 #include <ctime>
 #include <vector>
-#pragma once
 using namespace std;
 enum Reserveday
 {
@@ -27,6 +27,7 @@ class Meal
     string MealName;
     float Price;
     MealType mealtype;
+    Reserveday reserveday;
     vector<string> SideItems;
     bool IsActive;
 
@@ -38,24 +39,28 @@ public:
         Price = 0.0;
         mealtype = Breakfast;
         IsActive = 1;
+        reserveday = Saturday;
     }
-    Meal(int _mealid, string _mealname, float _price, MealType _mealtype, vector<string> _sideitems)
+    Meal(int _mealid, string _mealname, float _price, MealType _mealtype, vector<string> _sideitems, Reserveday _reserveday)
     {
         MealID = _mealid;
         MealName = _mealname;
         Price = _price;
         mealtype = _mealtype;
+        reserveday = _reserveday;
         SideItems = _sideitems;
     }
     void setmealid(int _MealID) { MealID = _MealID; }
     void setmealname(string _MealName) { MealName = _MealName; }
     void setprice(float _Price) { Price = _Price; }
     void settype(MealType _mealtype) { mealtype = _mealtype; }
+    void setreserveday(Reserveday _Reserveday) { reserveday = _Reserveday; }
     void setsideitems(vector<string> _SideItems) { SideItems = _SideItems; }
     int getmealid() { return MealID; }
     string getmealname() { return MealName; }
     float getprice() { return Price; }
     MealType gettype() { return mealtype; }
+    Reserveday getreserveday() { return reserveday; }
     vector<string> getsideitems() { return SideItems; }
     void UpdatPrice(float new_price)
     {
@@ -72,6 +77,7 @@ public:
         cout << "Meal ID:" << MealID << endl;
         cout << "Meal Name :" << MealName << endl;
         cout << "Price :" << Price << endl;
+        cout << "Active :" << (IsActive ? "yes" : "No") << endl;
         cout << "Type :";
         switch (mealtype)
         {
@@ -95,8 +101,30 @@ public:
             cout << SideItems[i] << " ";
         }
         cout << endl;
+        cout << "\nDay :";
+        switch (reserveday)
+        {
+        case Saturday:
+            cout << "Saturday";
+            break;
+        case Sunday:
+            cout << "Sunday";
+            break;
+        case Monday:
+            cout << "Monday";
+            break;
+        case Tuesday:
+            cout << "Tuesday";
+            break;
+        case Wednesday:
+            cout << "Wednesday";
+            break;
+        case Thursday:
+            cout << "Thursday";
+            break;
+        }
     }
-    bool Isactive() const { return IsActive; }
+    bool IsActive() const { return IsActive; }
     void Activate()
     {
         if (IsActive)
