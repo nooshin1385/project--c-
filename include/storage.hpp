@@ -16,4 +16,11 @@ public:
         MealIDCounter = 0;
         DiningHallIDCounter = 0;
     }
+    Storage(const Storage &) = delete;
+    Storage operator=(const Storage &) = delete;
+    static Storage& instance()
+    {
+        static Storage storageinstace;
+        return storageinstace;
+    }
 };
