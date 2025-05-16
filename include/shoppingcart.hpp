@@ -15,13 +15,18 @@ public:
     }
     void removeReservation(int ID)
     {
+        vector<Reservation> temp;
         for (size_t i = 0; i < reservation.size(); i++)
         {
             if (reservation[i].getReservationId() == ID)
             {
+                i++;
             }
+            temp.push_back(reservation[i]);
         }
+        reservation = temp;
     }
+
     void viewShoppingCartItems()
     {
         if (reservation.empty())
@@ -43,7 +48,8 @@ public:
         reservation.clear();
         cout << "Shopping cart si clear now.\n";
     }
-    const vector <Reservation>&getreservation() const {
-        return reservation ;
+    const vector<Reservation> &getreservation() const
+    {
+        return reservation;
     }
 };
