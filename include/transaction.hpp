@@ -19,4 +19,13 @@ class Transaction
     TransactionStatus Status;
     TransactionType Type;
     time_t CreatedAt;
+
+public:
+    Transaction() {};
+    Transaction(int ID, string _TrackingCode, float _Amount, TransactionType _Type, TransactionStatus _Status) : TransactionID(ID), TrackingCode(_TrackingCode), Amount(_Amount),
+                                                                                                                 Status(_Status), Type(_Type)
+    {
+        CreatedAt = time(nullptr);
+    }
+    
 };
