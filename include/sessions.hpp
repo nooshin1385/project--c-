@@ -73,22 +73,50 @@ public:
         return Statuse;
     }
 };
-namespace AdminSession
+namespace StudentSession
 {
-    class SrssionManger : public SessionsBase
+    class StudentManager : public SessionsBase
     {
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
+        static StudentManager *getinstance();
 
     public:
-        void load_session() override;
-        void save_session() override;
-        void login(string username, string password) override;
+        StudentManager()
+        {
+            CurrentStudent = nullptr;
+            Shopping_Cart = nullptr;
+            StudentID = 0;
+            setSessionstatus(Sessionstatus ::Anonymous);
+            setcreatedat(time(nullptr));
+        }
+        StudentManager() {};
+        void load_Session() override;
+        void save_Session() override;
+        void Login_Seesion(string username, string password) override;
         void logout() override;
+        Student CurrentStudent();
+        ShoppingCart shoppingCart();
+        static StudentManager *getinstance()
+        {
+            if (!instance)
+            {
+                instance = new StudentManager();
+                return instance;
+            }
+        }
+        Student *getCurrentStudent() const
+        {
+            return CurrentStudent;
+        }
+        ShoppingCart *getShopping_Cart() const
+        {
+            return Shopping_Cart;
+        }
     };
 }
-namespace StudentSession
+namespace AdminSession
 {
     class SrssionManger : public SessionsBase
     {
