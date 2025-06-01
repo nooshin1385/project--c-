@@ -1,6 +1,7 @@
 #include <iostream>
 #include "student.hpp"
 #include "shoppingcart.hpp"
+#include "admin.hpp"
 using namespace std;
 enum Sessionstatus
 {
@@ -118,7 +119,22 @@ namespace StudentSession
 }
 namespace AdminSession
 {
-    class SrssionManger : public SessionsBase
+    class SessionManger : public SessionsBase
     {
+        Admin *CurrentAdmin;
+        int AdminID;
+
+    public:
+        void load_Session() override;
+        void load_Session() override;
+        void Login_Seesion(string, string) override;
+        void logout() override;
+        static SessionManger instance()
+        Admin CurrentAdmin() {
+
+        }
+        static SessionManger instance () {
+
+        }
     };
 }
