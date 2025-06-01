@@ -1,4 +1,6 @@
 #include <iostream>
+#include "student.hpp"
+#include "shoppingcart.hpp"
 using namespace std;
 enum Sessionstatus
 {
@@ -71,3 +73,24 @@ public:
         return Statuse;
     }
 };
+namespace AdminSession
+{
+    class SrssionManger : public SessionsBase
+    {
+        Student *CurrentStudent;
+        ShoppingCart *Shopping_Cart;
+        int StudentID;
+
+    public:
+        void load_session() override;
+        void save_session() override;
+        void login(string username, string password) override;
+        void logout() override;
+    };
+}
+namespace StudentSession
+{
+    class SrssionManger : public SessionsBase
+    {
+    };
+}
