@@ -81,7 +81,6 @@ namespace StudentSession
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
-        static StudentManager *getinstance();
 
     public:
         StudentManager()
@@ -99,14 +98,6 @@ namespace StudentSession
         void logout() override;
         Student CurrentStudent();
         ShoppingCart shoppingCart();
-        static StudentManager *getinstance()
-        {
-            if (!instance)
-            {
-                instance = new StudentManager();
-                return instance;
-            }
-        }
         Student *getCurrentStudent() const
         {
             return CurrentStudent;
@@ -129,12 +120,6 @@ namespace AdminSession
         void load_Session() override;
         void Login_Seesion(string, string) override;
         void logout() override;
-        static SessionManger instance()
-        Admin CurrentAdmin() {
-
-        }
-        static SessionManger instance () {
-
-        }
+        Admin CurrentAdmin();
     };
 }
