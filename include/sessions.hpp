@@ -81,7 +81,7 @@ namespace StudentSession
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
-       // static SessionManager *instace;
+        static SessionManager *instace;
 
     public:
         SessionManager()
@@ -93,11 +93,11 @@ namespace StudentSession
             setcreatedat(time(nullptr));
         }
         //   StudentManager() {};
-        void load_Session() override{
-
+        void load_Session() override
+        {
         }
-        void save_Session() override{
-
+        void save_Session() override
+        {
         }
         void Login_Session(string username, string password) override
         {
@@ -107,16 +107,16 @@ namespace StudentSession
             setlasttimeLogin(time(nullptr));
             cout << "Student" << username << "Logged in .\n";
         }
-        void logout() override{
-            delete CurrentStudent ;
-            delete Shopping_Cart ;
-            CurrentStudent = nullptr; 
-            Shopping_Cart = nullptr ;
-            StudentID = 0 ;
-            setSessionstatus(Anonymous) ;
-            cout << "Logged out.\n" ;
+        void logout() override
+        {
+            delete CurrentStudent;
+            delete Shopping_Cart;
+            CurrentStudent = nullptr;
+            Shopping_Cart = nullptr;
+            StudentID = 0;
+            setSessionstatus(Anonymous);
+            cout << "Logged out.\n";
         }
-     
 
         Student *getCurrentStudent() const
         {
@@ -131,8 +131,8 @@ namespace StudentSession
             if (!instance)
             {
                 instance = new SessionManager();
-                return instance;
             }
+            return instance;
         }
     };
 
