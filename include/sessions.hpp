@@ -8,7 +8,7 @@ enum Sessionstatus
     Authenticated,
     Anonymous
 };
-class SessionsBase
+class SessionBase
 {
 protected:
     time_t Created_At;     // zaman shro jalase
@@ -16,7 +16,7 @@ protected:
     Sessionstatus Statuse; // vasiat jalase
 
 public:
-    SessionsBase()
+    SessionBase()
     {
         Created_At = time_t(nullptr);
         LastTimeLogin = 0;
@@ -25,7 +25,7 @@ public:
 
     virtual void load_Session() = 0;
     virtual void save_Session() = 0;
-    virtual void Login_Seesion(string username, string password) = 0;
+    virtual void Login_Session(string username, string password) = 0;
     virtual void logout() = 0;
     void setcreatedat(time_t T)
     {
@@ -76,14 +76,14 @@ public:
 };
 namespace StudentSession
 {
-    class StudentManager : public SessionsBase
+    class SessionManager : public SessionBase
     {
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
 
     public:
-        StudentManager()
+        SessionManager()
         {
             CurrentStudent = nullptr;
             Shopping_Cart = nullptr;
@@ -91,13 +91,13 @@ namespace StudentSession
             setSessionstatus(Sessionstatus ::Anonymous);
             setcreatedat(time(nullptr));
         }
-        StudentManager() {};
+        //   StudentManager() {};
         void load_Session() override;
         void save_Session() override;
-        void Login_Seesion(string username, string password) override;
+        void Login_Session(string username, string password) override;
         void logout() override;
-        Student CurrentStudent();
-        ShoppingCart shoppingCart();
+        static SessionManager instance();
+
         Student *getCurrentStudent() const
         {
             return CurrentStudent;
@@ -106,20 +106,22 @@ namespace StudentSession
         {
             return Shopping_Cart;
         }
+        static SessionManager instance();
     };
 }
 namespace AdminSession
 {
-    class SessionManger : public SessionsBase
+    class SessionManger : public SessionBase
     {
         Admin *CurrentAdmin;
         int AdminID;
 
     public:
         void load_Session() override;
-        void load_Session() override;
-        void Login_Seesion(string, string) override;
+        void save_Session() override;
+        void Login_Session(string, string) override;
         void logout() override;
-        Admin CurrentAdmin();
+        Admin *getCurrentAdmin() const;
+        static SessionManger instance();
     };
 }

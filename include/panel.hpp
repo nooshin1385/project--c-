@@ -18,7 +18,7 @@ public:
 
     void viewReservations();
 
-    void addReservation(Reservation);
+    void addReservation();
 
     void addToShoppingCart();
 
