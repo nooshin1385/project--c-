@@ -50,6 +50,7 @@ public:
         reserveday = _reserveday;
         SideItems = _sideitems;
     }
+    Meal() {} ;
     void setmealid(int _MealID) { MealID = _MealID; }
     void setmealname(string _MealName) { MealName = _MealName; }
     void setprice(float _Price) { Price = _Price; }

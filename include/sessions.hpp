@@ -81,9 +81,7 @@ namespace StudentSession
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
-        static SessionManager *instace;
-
-    public:
+        static SessionManager *instance;
         SessionManager()
         {
             CurrentStudent = nullptr;
@@ -91,6 +89,17 @@ namespace StudentSession
             StudentID = 0;
             setSessionstatus(Sessionstatus ::Anonymous);
             setcreatedat(time(nullptr));
+        }
+
+    public:
+        static SessionManager *getinstance()
+        {
+            if (!instance)
+            {
+                instance = new SessionManager();
+                return instance;
+                
+            }
         }
         //   StudentManager() {};
         void load_Session() override
@@ -126,15 +135,8 @@ namespace StudentSession
         {
             return Shopping_Cart;
         }
-        static SessionManager *getinstance()
-        {
-            if (!instance)
-            {
-                instance = new SessionManager();
-            }
-            return instance;
-        }
     };
+    SessionManager *StudentSession ::SessionManager ::instance = nullptr;
 
 }
 namespace AdminSession
@@ -150,14 +152,5 @@ namespace AdminSession
         void Login_Session(string, string) override;
         void logout() override;
         Admin *getCurrentAdmin() const;
-        static SessionManager *instance;
-        static SessionManager *getinstance()
-        {
-            if (!instance)
-            {
-                instance = new SessionManager();
-                return instance;
-            }
-        }
     };
 }
