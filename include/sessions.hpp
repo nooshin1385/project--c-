@@ -38,7 +38,7 @@ public:
             cout << "time is in future!" << endl;
         }
     }
-    void settimeLogin(time_t t)
+    void setlasttimeLogin(time_t t)
     {
         if (t <= time(nullptr) && t >= Created_At)
         {
@@ -81,6 +81,7 @@ namespace StudentSession
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
+       // static SessionManager *instace;
 
     public:
         SessionManager()
@@ -92,11 +93,30 @@ namespace StudentSession
             setcreatedat(time(nullptr));
         }
         //   StudentManager() {};
-        void load_Session() override;
-        void save_Session() override;
-        void Login_Session(string username, string password) override;
-        void logout() override;
-        static SessionManager instance();
+        void load_Session() override{
+
+        }
+        void save_Session() override{
+
+        }
+        void Login_Session(string username, string password) override
+        {
+            CurrentStudent = new Student();
+            StudentID = stoi(username);
+            setSessionstatus(Authenticated);
+            setlasttimeLogin(time(nullptr));
+            cout << "Student" << username << "Logged in .\n";
+        }
+        void logout() override{
+            delete CurrentStudent ;
+            delete Shopping_Cart ;
+            CurrentStudent = nullptr; 
+            Shopping_Cart = nullptr ;
+            StudentID = 0 ;
+            setSessionstatus(Anonymous) ;
+            cout << "Logged out.\n" ;
+        }
+     
 
         Student *getCurrentStudent() const
         {
@@ -106,12 +126,20 @@ namespace StudentSession
         {
             return Shopping_Cart;
         }
-        static SessionManager instance();
+        static SessionManager *getinstance()
+        {
+            if (!instance)
+            {
+                instance = new SessionManager();
+                return instance;
+            }
+        }
     };
+
 }
 namespace AdminSession
 {
-    class SessionManger : public SessionBase
+    class SessionManager : public SessionBase
     {
         Admin *CurrentAdmin;
         int AdminID;
@@ -122,6 +150,14 @@ namespace AdminSession
         void Login_Session(string, string) override;
         void logout() override;
         Admin *getCurrentAdmin() const;
-        static SessionManger instance();
+        static SessionManager *instance;
+        static SessionManager *getinstance()
+        {
+            if (!instance)
+            {
+                instance = new SessionManager();
+                return instance;
+            }
+        }
     };
 }
