@@ -38,7 +38,9 @@ private:
             return;
 
         }
-        Meal m (1 , "Salad" , 15000 , Lunch) {} ;
+        Meal m(1 , string("Salad") , 15000 , Lunch , vector<string>(), Saturday); 
+    StudentSession ::SessionManager ::getinstance()->getShopping_Cart()->addReservation(const&m)
+
     }
     
 
