@@ -4,8 +4,10 @@
 #include <vector>
 #include "user.hpp"
 #include "reservation.hpp"
+#include <json.hpp>
 
 using namespace std;
+using json = nlohmann::json;
 class Student : public User
 {
     string StudentId;
@@ -58,6 +60,27 @@ public:
             Phone = ob.Phone;
         }
         return *this;
+    }
+    json to_json() const override
+    {
+        json j = User ::to_json();
+        j["StudentId"] = StudentId;
+        j["Email"] = Email;
+        j["Balance"] = Balance;
+        j["IsActive"] = IsActive;
+        j["Hasreservation"] = Hasreservation;
+        j["Phone"] = Phone;
+        return j;
+    }
+    void from_json(const json &j) override
+    {
+        User ::from_json(j);
+        StudentId = j.at("StudentId").get<string>();
+        Email = j.at("Email").get<string>();
+        Balance = j.at("Balance").get<float>();
+        IsActive = j.at("IsActive").get<bool>();
+        Hasreservation = j.at("Hasreservation").get<bool>();
+        Phone = j.at("Phone").get<int>();
     }
 
     void setStudentId(string _studentID)

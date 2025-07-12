@@ -1,6 +1,6 @@
 #include <iostream>
 #include "sessions.hpp"
-#include "meal.hpp" 
+#include "meal.hpp"
 
 using namespace std;
 class StudentPanel
@@ -36,13 +36,10 @@ private:
         {
             cout << " Please first Login!\n";
             return;
-
         }
-        Meal m(1 , string("Salad") , 15000 , Lunch , vector<string>(), Saturday); 
-    StudentSession ::SessionManager ::getinstance()->getShopping_Cart()->addReservation(const&m)
-
+        Meal m(1, string("Salad"), 15000, Lunch, vector<string>(), Saturday);
+        StudentSession ::SessionManager ::getinstance()->getShopping_Cart()->addReservation();
     }
-    
 
 public:
     StudentPanel() {}
@@ -68,9 +65,10 @@ public:
             switch (choice)
             {
             case 1:
-                LoginStudent()
+                LoginStudent();
 
-                    default : break;
+            default:
+                break;
             }
         }
     }
