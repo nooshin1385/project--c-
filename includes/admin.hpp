@@ -9,7 +9,9 @@
 class Admin : public User
 {
 public:
-    Admin(int userId, string name, string lastname, string password) {}
+    Admin()
+    {
+    }
     void getType()
     {
         cout << "this is Admin ." << endl;

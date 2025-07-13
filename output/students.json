@@ -1,0 +1,11 @@
+{
+    "Balance": 100000.0,
+    "Email": "seyed@example.com",
+    "Hasreservation": false,
+    "IsActive": true,
+    "LastName": "",
+    "Name": "Seyed",
+    "Phone": 0,
+    "StudentId": "0000000000",
+    "UserId": 1234567890
+}

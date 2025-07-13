@@ -32,8 +32,6 @@ class Meal
     bool IsActive;
 
 public:
-    Meal() {} 
-
     Meal()
     {
         MealID = 0;
@@ -52,7 +50,7 @@ public:
         reserveday = _reserveday;
         SideItems = _sideitems;
     }
-  
+
     void setmealid(int _MealID) { MealID = _MealID; }
     void setmealname(string _MealName) { MealName = _MealName; }
     void setprice(float _Price) { Price = _Price; }

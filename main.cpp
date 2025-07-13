@@ -4,7 +4,7 @@
 #include "includes/student.hpp"
 #include "includes/dininghall.hpp"
 #include "includes/meal.hpp"
-//#include "includes/user.hpp"
+#include "includes/user.hpp"
 #include <fstream>
 
 
