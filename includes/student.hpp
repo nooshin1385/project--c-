@@ -11,7 +11,6 @@ using json = nlohmann::json;
 class Student : public User
 {
     string StudentId;
-    string Email;
     float Balance;
     bool IsActive;
     bool Hasreservation = false;     // there is any reserve or no ?
@@ -23,26 +22,23 @@ public:
     {
 
         StudentId = "0000000000";
-        Email = "abc@gmail.com";
         Balance = 0.0;
         IsActive = true;
         Hasreservation = true;
         Phone = 0;
     }
-    Student(string student_id, string _email, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, int _phone = 0)
+    Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, int _phone = 0)
     {
         try
         {
             setStudentId(student_id);
-            setEmail(_email);
-        }
+                }
         catch (const char *msg)
         {
             cout << msg << endl;
         }
 
         StudentId = student_id;
-        Email = _email;
         Balance = _balance;
         IsActive = is_active;
         reservation = _reservation;
@@ -53,7 +49,6 @@ public:
         if (this != &ob)
         {
             StudentId = ob.StudentId;
-            Email = ob.Email;
             Balance = ob.Balance;
             IsActive = ob.IsActive;
             Hasreservation = ob.Hasreservation;
@@ -65,7 +60,6 @@ public:
     {
         json j = User ::to_json();
         j["StudentId"] = StudentId;
-        j["Email"] = Email;
         j["Balance"] = Balance;
         j["IsActive"] = IsActive;
         j["Hasreservation"] = Hasreservation;
@@ -76,7 +70,6 @@ public:
     {
         User ::from_json(j);
         StudentId = j.at("StudentId").get<string>();
-        Email = j.at("Email").get<string>();
         Balance = j.at("Balance").get<float>();
         IsActive = j.at("IsActive").get<bool>();
         Hasreservation = j.at("Hasreservation").get<bool>();
@@ -98,20 +91,6 @@ public:
             throw "studentID must be exactly 10 digits.";
         StudentId = _studentID;
     }
-    void setEmail(string _email)
-    {
-        int i = _email.find('@');
-        if (i == -1)
-        {
-            throw "your email address should have @ !";
-        }
-        int j = _email.find('.', i);
-        if (j == -1)
-        {
-            throw "your email address should have . !";
-        }
-        Email = _email;
-    }
     void setBalance(float _balance)
     {
         Balance = _balance;
@@ -124,7 +103,7 @@ public:
     {
         IsActive = status;
     }
-    void setHasrRservation(bool reservationstatus)
+    void setHasRservation(bool reservationstatus)
     {
         Hasreservation = reservationstatus;
     }
@@ -137,7 +116,6 @@ public:
         Phone = _phone;
     }
     string getStudentId() { return StudentId; }
-    string getEmail() { return Email; }
     float getBalance() { return Balance; }
     bool getIsActive() { return IsActive; }
     bool getHasReservation() { return Hasreservation; }
@@ -192,16 +170,11 @@ public:
         IsActive = false;
         cout << "student account is deactive .\n";
     }
-    bool Isactive()
-    {
-        return IsActive;
-    }
-    void Print() const
+    void print() const
     {
         User ::print();
         cout << "student information :" << endl;
         cout << "Student ID :" << StudentId << endl;
-        cout << "Email :" << Email << endl;
         cout << "Balance :" << Balance << endl;
         cout << "Active :" << (IsActive ? "yes" : "no") << endl;
         cout << "----------------------------------------------------------------" << endl;
