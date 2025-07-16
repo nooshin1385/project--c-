@@ -2,7 +2,11 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
+#include "json.hpp"
+#include <fstream>
 using namespace std;
+using json = nlohmann ::json;
+
 enum Reserveday
 {
     Saturday,
@@ -66,7 +70,7 @@ public:
     void UpdatPrice(float new_price)
     {
         Price = new_price;
-        cout << "new price of" << MealName << "is" << Price << "." << endl;
+        cout << "new price of " << MealName << " is " << Price << "." << endl;
     }
     void Addsideitem(string item)
     {
@@ -124,6 +128,7 @@ public:
             cout << "Thursday";
             break;
         }
+        cout << endl;
     }
     bool isActive() const { return IsActive; }
     void Activate()
@@ -147,4 +152,67 @@ public:
             cout << MealName << "Inactive now." << endl;
         }
     }
+    json to_json() const
+    {
+        return {
+            {"MealID", MealID},
+            {"MealName", MealName},
+            {"Price", Price},
+            {"mealtype", mealtype},
+            {"reserveday", reserveday},
+            {"SideItems", SideItems},
+            {"IsActive", IsActive}};
+    }
+    void from_json(const json &j)
+    {
+        MealID = j.at("MealID").get<int>();
+        MealName = j.at("MealName").get<string>();
+        Price = j.at("Price").get<float>();
+        mealtype = j.at("mealtype").get<MealType>();
+        reserveday = j.at("reserveday").get<Reserveday>();
+        IsActive = j.at("IsActive").get<bool>();
+        SideItems = j.at("SideItems").get<vector<string>>();
+    }
 };
+int main()
+{
+    // 1. ساخت یک شیء Meal
+    Meal myMeal(1, "Pizza", 75000.0, Lunch, {"Salad", "Drink"}, Tuesday);
+
+    // 2. تبدیل به json
+    json j = myMeal.to_json();
+
+    // 3. ذخیره در فایل
+    ofstream outFile("meal.json");
+    if (outFile.is_open())
+    {
+        outFile << j.dump(4); // 4 برای زیبایی خروجی
+        outFile.close();
+        cout << "Meal saved to meal.json ✅" << endl;
+    }
+    else
+    {
+        cerr << "Failed to open meal.json ❌" << endl;
+    }
+
+    // 4. خواندن مجدد از فایل
+    ifstream inFile("meal.json");
+    if (inFile.is_open())
+    {
+        json loadedJson;
+        inFile >> loadedJson;
+        inFile.close();
+
+        Meal loadedMeal;
+        loadedMeal.from_json(loadedJson);
+
+        cout << "\nLoaded meal info from JSON file:" << endl;
+        loadedMeal.printmealinfo();
+    }
+    else
+    {
+        cerr << "Failed to read meal.json ❌" << endl;
+    }
+
+    return 0;
+}

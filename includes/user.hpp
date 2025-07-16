@@ -2,7 +2,6 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
-#include <bcrypt/BCrypt.hpp>
 #include "json.hpp"
 
 using namespace std;

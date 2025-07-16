@@ -7,28 +7,45 @@
 #include "includes/user.hpp"
 #include <fstream>
 
+int main()
+{
+    // 1. ساخت یک شیء Meal
+    Meal myMeal(1, "Pizza", 75000.0, Lunch, {"Salad", "Drink"}, Tuesday);
 
-int main (){
-    Student s;
-s.setUserId(1234567890);
-s.setName("Seyed");
-s.setEmail("seyed@example.com");
-s.setBalance(100000);
-s.setIsActive(true);
-s.setHasrRservation(false);
+    // 2. تبدیل به json
+    json j = myMeal.to_json();
 
+    // 3. ذخیره در فایل
+    ofstream outFile("meal.json");
+    if (outFile.is_open())
+    {
+        outFile << j.dump(4); // 4 برای زیبایی خروجی
+        outFile.close();
+        cout << "Meal saved to meal.json ✅" << endl;
+    }
+    else
+    {
+        cerr << "Failed to open meal.json ❌" << endl;
+    }
 
-json j = s.to_json();
-ofstream out("students.json");
-out << j.dump(4);
-out.close();
+    // 4. خواندن مجدد از فایل
+    ifstream inFile("meal.json");
+    if (inFile.is_open())
+    {
+        json loadedJson;
+        inFile >> loadedJson;
+        inFile.close();
 
+        Meal loadedMeal;
+        loadedMeal.from_json(loadedJson);
 
-ifstream in("students.json");
-json j2;
-in >> j2;
-Student loaded;
-loaded.from_json(j2);
-loaded.print();
-    
+        cout << "\nLoaded meal info from JSON file:" << endl;
+        loadedMeal.printmealinfo();
+    }
+    else
+    {
+        cerr << "Failed to read meal.json ❌" << endl;
+    }
+
+    return 0;
 }

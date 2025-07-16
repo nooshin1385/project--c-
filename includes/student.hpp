@@ -170,7 +170,7 @@ public:
         IsActive = false;
         cout << "student account is deactive .\n";
     }
-    void print() const
+    void pirint() const
     {
         User ::print();
         cout << "student information :" << endl;
