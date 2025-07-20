@@ -1,7 +1,9 @@
+#pragma once
 #include <iostream>
 #include "student.hpp"
 #include "shoppingcart.hpp"
 #include "admin.hpp"
+#include "adminpanel.hpp"
 using namespace std;
 class ShoppingCart;
 enum Sessionstatus
@@ -124,6 +126,7 @@ namespace StudentSession
             Shopping_Cart = new ShoppingCart();
             CurrentStudent = new Student();
             CurrentStudent->setStudentId(username);
+            CurrentStudent->setEmail("test@gmail.com");
             setSessionstatus(Authenticated);
             setlasttimeLogin(time(nullptr));
             cout << "Student" << username << "Logged in .\n";
@@ -157,12 +160,56 @@ namespace AdminSession
     {
         Admin *CurrentAdmin;
         int AdminID;
+        static SessionManager *instance;
+
+        SessionManager()
+        {
+            CurrentAdmin = nullptr;
+            AdminID = 0;
+            setSessionstatus(Sessionstatus::Anonymous);
+            setcreatedat(time(nullptr));
+        }
 
     public:
-        void load_Session() override;
-        void save_Session() override;
-        void Login_Session(string, string) override;
-        void logout() override;
-        Admin *getCurrentAdmin() const;
+        static SessionManager *getinstance()
+        {
+            if (!instance)
+                instance = new SessionManager();
+            return instance;
+        }
+
+        void load_Session() override
+        {
+            cout << "admin session loaded.\n";
+        }
+
+        void save_Session() override
+        {
+            cout << "admin session saved.\n";
+        }
+
+        void Login_Session(string username, string /*password*/) override
+        {
+            CurrentAdmin = new Admin();
+            AdminID = stoi(username);
+            setSessionstatus(Sessionstatus::Authenticated);
+            setlasttimeLogin(time(nullptr));
+            cout << "Admin " << username << " logged in.\n";
+        }
+
+        void logout() override
+        {
+            delete CurrentAdmin;
+            CurrentAdmin = nullptr;
+            AdminID = 0;
+            setSessionstatus(Sessionstatus::Anonymous);
+            cout << "admin logged out.\n";
+        }
+
+        Admin *getCurrentAdmin() const
+        {
+            return CurrentAdmin;
+        }
     };
+    SessionManager *SessionManager::instance = nullptr;
 }

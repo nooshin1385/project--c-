@@ -7,20 +7,15 @@
 #include "includes/user.hpp"
 #include <fstream>
 #include "includes/shoppingcart.hpp"
+#include "includes/adminpanel.hpp"
 #include <iostream>
-//#include "json.hpp"
+// #include "json.hpp"
 using namespace std;
-//using json = nlohmann :: json ;
+// using json = nlohmann :: json ;
 
-
-int main() {
-    cout << "🎓 Welcome to Student Food Reservation System 🎓\n";
-
-    StudentPanel panel;
-    panel.showMenu(); 
-
-    cout << "\n🛑 Application exited. Goodbye!\n";
+int main()
+{
+    AdminPanel p;
+    p.showMenu();
     return 0;
 }
-
-
