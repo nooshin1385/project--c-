@@ -2,7 +2,9 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
+#include "json.hpp"
 using namespace std;
+using json = nlohmann::json;
 class DiningHall
 {
     int HallID;
@@ -54,5 +56,20 @@ public:
         cout << "Address :" << Address << endl;
         cout << "Capacity :" << Capacity << endl;
         cout << "----------------------" << endl;
+    }
+    json to_json() const
+    {
+        return {
+            {"HallID", HallID},
+            {"Name", Name},
+            {"Address", Address},
+            {"Capacity", Capacity}};
+    }
+    void from_json(const json &j)
+    {
+        HallID = j.at("HallID").get<int>();
+        Name = j.at("Name").get<string>();
+        Address = j.at("Address").get<string>();
+        Capacity = j.at("Capacity").get<int>();
     }
 };

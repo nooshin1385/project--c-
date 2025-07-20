@@ -173,7 +173,7 @@ public:
         IsActive = j.at("IsActive").get<bool>();
         SideItems = j.at("SideItems").get<vector<string>>();
     }
-};
+};/*
 int main()
 {
     // 1. ساخت یک شیء Meal
@@ -216,3 +216,4 @@ int main()
 
     return 0;
 }
+*/

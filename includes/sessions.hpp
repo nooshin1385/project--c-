@@ -3,6 +3,7 @@
 #include "shoppingcart.hpp"
 #include "admin.hpp"
 using namespace std;
+class ShoppingCart;
 enum Sessionstatus
 {
     Authenticated,
@@ -22,6 +23,7 @@ public:
         LastTimeLogin = 0;
         Statuse = Anonymous;
     }
+    virtual ~SessionBase() {}
 
     virtual void load_Session() = 0;
     virtual void save_Session() = 0;
@@ -97,10 +99,10 @@ namespace StudentSession
             if (!instance)
             {
                 instance = new SessionManager();
-                return instance;
-                
             }
+            return instance;
         }
+
         //   StudentManager() {};
         void load_Session() override
         {
@@ -108,10 +110,20 @@ namespace StudentSession
         void save_Session() override
         {
         }
-        void Login_Session(string username, string password) override
+        void Login_Session(string username, string /*password*/) override
         {
+            if (CurrentStudent)
+            {
+                delete CurrentStudent;
+            }
+            /* if (Shopping_Cart)
+             {
+                 delete Shopping_Cart;
+             }*/
+
+            Shopping_Cart = new ShoppingCart();
             CurrentStudent = new Student();
-            StudentID = stoi(username);
+            CurrentStudent->setStudentId(username);
             setSessionstatus(Authenticated);
             setlasttimeLogin(time(nullptr));
             cout << "Student" << username << "Logged in .\n";

@@ -1,0 +1,25 @@
+[
+    {
+        "Created_at": 1752916209,
+        "Dininghall": {
+            "Address": "North Campus",
+            "Capacity": 200,
+            "HallID": 1001,
+            "Name": "Central Hall"
+        },
+        "Meal": {
+            "IsActive": true,
+            "MealID": 1,
+            "MealName": "Pasta",
+            "Price": 85000.0,
+            "SideItems": [
+                "Salad",
+                "Juice"
+            ],
+            "mealtype": 1,
+            "reserveday": 3
+        },
+        "Reservation_ID": 112,
+        "status": 2
+    }
+]

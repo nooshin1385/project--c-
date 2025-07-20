@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
+#include "include/bcrypt/BCrypt.hpp"
 #include "json.hpp"
 
 using namespace std;
@@ -88,4 +89,5 @@ public:
     {
         return BCrypt::validatePassword(rawpassword, HashedPassword);
     }
+    virtual ~User() {}
 };

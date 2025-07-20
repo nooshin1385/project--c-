@@ -100,4 +100,28 @@ public:
         }
         cout << "Created at :" << ctime(&Created_at) << endl;
     }
+    json to_json() const
+    {
+        return {
+            {"Reservation_ID", Reservation_ID},
+            {"Created_at", Created_at},
+            {"status", status},
+            {"Meal", meal->to_json()},
+            {"Dininghall", dHall->to_json()}};
+    }
+    void from_json(const json &j)
+    {
+        Reservation_ID = j.at("Reservation_ID").get<int>();
+        Created_at = j.at("Created_at").get<time_t>();
+        status = j.at("status").get<Rstatus>();
+        meal = new Meal() ;
+        meal->from_json(j.at("Meal"));
+        dHall=new DiningHall();
+        dHall->from_json(j.at("Dininghall"));
+    }
+    NLOHMANN_JSON_SERIALIZE_ENUM(Rstatus, {{Pending, "Pending"},
+                                           {Confirmed, "Confirmed"},
+                                           {Cancelled, "Cancelled"}})
+
+                                           
 };
