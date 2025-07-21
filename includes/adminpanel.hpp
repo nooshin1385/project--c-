@@ -1,12 +1,9 @@
 #pragma once
+#include "sessions.hpp"
 #include <iostream>
 #include "meal.hpp"
 #include "dininghall.hpp"
-#include "sessions.hpp"
 #include "admin.hpp"
-
-using namespace AdminSession;
-class session ;
 
 using namespace std;
 

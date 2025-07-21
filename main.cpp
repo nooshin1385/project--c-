@@ -7,12 +7,11 @@
 #include "includes/user.hpp"
 #include <fstream>
 #include "includes/shoppingcart.hpp"
+#include "includes/sessions.hpp"
 #include "includes/adminpanel.hpp"
 #include <iostream>
-// #include "json.hpp"
-using namespace std;
-// using json = nlohmann :: json ;
 
+using namespace std;
 int main()
 {
     AdminPanel p;

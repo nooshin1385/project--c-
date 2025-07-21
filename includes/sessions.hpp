@@ -211,5 +211,6 @@ namespace AdminSession
             return CurrentAdmin;
         }
     };
+
     SessionManager *SessionManager::instance = nullptr;
 }
