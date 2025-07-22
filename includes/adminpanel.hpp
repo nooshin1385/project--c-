@@ -108,10 +108,53 @@ private:
             }
         }
     }
+    void saveDininghallsToFile(const string &filename = "dininghalls.json")
+    {
+        json j;
+        for (const DiningHall &d : halls)
+        {
+            j.push_back(d.to_json());
+        }
+        ofstream out(filename);
+        if (out.is_open())
+        {
+            out << j.dump(4);
+            out.close();
+            cout << "Dining halls saved to file\n";
+        }
+        else
+        {
+            cerr << "Failed to open file for writing.\n";
+        }
+    }
+    void loadDininghallsFromFile(const string &filename = "dininghalls.json")
+    {
+        ifstream in(filename);
+        if (!in.is_open())
+        {
+            cerr << "Could not open dininghalls file.\n";
+            return;
+        }
+
+        json j;
+        in >> j;
+        in.close();
+
+        halls.clear();
+        for (const auto &item : j)
+        {
+            DiningHall d;
+            d.from_json(item);
+            halls.push_back(d);
+        }
+
+        cout << "Dining halls loaded from file\n";
+    }
 
 public:
     void showMenu()
     {
+        loadDininghallsFromFile();
         int choice;
         do
         {
@@ -147,6 +190,7 @@ public:
                 Listdininghalls();
                 break;
             case 7:
+                saveDininghallsToFile();
                 cout << "exiting admin panel...\n";
                 break;
             default:

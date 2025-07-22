@@ -48,7 +48,7 @@ public:
     string getaddress() { return Address; }
     int getcapacity() { return Capacity; }
 
-    void printdininghallinfo()
+    void printdininghallinfo() const
     {
         cout << "Dining hall info :" << endl;
         cout << "ID :" << HallID << endl;
