@@ -77,6 +77,37 @@ private:
             }
         }
     }
+    void Adddininghall()
+    {
+        int Id, Capacity;
+        string Name, Address;
+        cout << "Enter dininghall Id :";
+        cin >> Id;
+        cout << "Enter Name :";
+        cin.ignore();
+        getline(cin, Name);
+        cout << "Enter address :";
+        getline(cin, Address);
+        cout << "Enter capacity:";
+        cin >> Capacity;
+        DiningHall hall(Id, Name, Address, Capacity);
+        halls.push_back(hall);
+        cout << "Dininghall added successfully.\n";
+    }
+    void Listdininghalls()
+    {
+        if (halls.empty())
+        {
+            cout << "There is not any Dininghall \n";
+        }
+        else
+        {
+            for (const DiningHall &h : halls)
+            {
+                h.printdininghallinfo();
+            }
+        }
+    }
 
 public:
     void showMenu()
@@ -89,7 +120,9 @@ public:
             cout << "2. Add meal\n";
             cout << "3. View meals\n";
             cout << "4. Logout\n";
-            cout << "5. Exit\n";
+            cout << "5. Add dining hall\n";
+            cout << "6. View dining hall\n";
+            cout << "7. Exit\n";
             cout << "choice: ";
             cin >> choice;
 
@@ -108,6 +141,12 @@ public:
                 logout();
                 break;
             case 5:
+                Adddininghall();
+                break;
+            case 6:
+                Listdininghalls();
+                break;
+            case 7:
                 cout << "exiting admin panel...\n";
                 break;
             default:

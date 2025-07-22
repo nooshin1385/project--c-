@@ -3,7 +3,6 @@
 #include "student.hpp"
 #include "shoppingcart.hpp"
 #include "admin.hpp"
-#include "adminpanel.hpp"
 using namespace std;
 class ShoppingCart;
 enum Sessionstatus
@@ -159,13 +158,13 @@ namespace AdminSession
     class SessionManager : public SessionBase
     {
         Admin *CurrentAdmin;
-        int AdminID;
+        string AdminID;
         static SessionManager *instance;
 
         SessionManager()
         {
             CurrentAdmin = nullptr;
-            AdminID = 0;
+            AdminID = "";
             setSessionstatus(Sessionstatus::Anonymous);
             setcreatedat(time(nullptr));
         }
@@ -191,7 +190,7 @@ namespace AdminSession
         void Login_Session(string username, string /*password*/) override
         {
             CurrentAdmin = new Admin();
-            AdminID = stoi(username);
+            AdminID = username;
             setSessionstatus(Sessionstatus::Authenticated);
             setlasttimeLogin(time(nullptr));
             cout << "Admin " << username << " logged in.\n";
@@ -201,7 +200,7 @@ namespace AdminSession
         {
             delete CurrentAdmin;
             CurrentAdmin = nullptr;
-            AdminID = 0;
+            AdminID = "";
             setSessionstatus(Sessionstatus::Anonymous);
             cout << "admin logged out.\n";
         }
