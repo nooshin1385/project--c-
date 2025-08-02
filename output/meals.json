@@ -1,0 +1,15 @@
+[
+    {
+        "IsActive": true,
+        "MealID": 1002,
+        "MealName": "Kabab",
+        "Price": 15000.0,
+        "SideItems": [
+            "goje",
+            "kare",
+            "dogh"
+        ],
+        "mealtype": 2,
+        "reserveday": 2
+    }
+]

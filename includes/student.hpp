@@ -2,49 +2,51 @@
 #include <iostream>
 #include <ctime>
 #include <vector>
+#include <fstream>
 #include "user.hpp"
 #include "reservation.hpp"
 #include "json.hpp"
 
 using namespace std;
 using json = nlohmann::json;
+
 class Student : public User
 {
     string StudentId;
     float Balance;
     bool IsActive;
-    bool Hasreservation = false;     // there is any reserve or no ?
-    vector<Reservation> reservation; // list for reserves
+    bool Hasreservation = false;
+    vector<Reservation> reservation;
     int Phone;
 
 public:
     Student()
     {
-
         StudentId = "0000000000";
         Balance = 0.0;
         IsActive = true;
         Hasreservation = true;
         Phone = 0;
     }
+
     Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, int _phone = 0)
     {
         try
         {
             setStudentId(student_id);
-                }
+        }
         catch (const char *msg)
         {
             cout << msg << endl;
         }
 
-        StudentId = student_id;
         Balance = _balance;
         IsActive = is_active;
         reservation = _reservation;
         Phone = _phone;
     }
-    Student &operator=(Student &ob)
+
+    Student &operator=(const Student &ob)
     {
         if (this != &ob)
         {
@@ -53,12 +55,14 @@ public:
             IsActive = ob.IsActive;
             Hasreservation = ob.Hasreservation;
             Phone = ob.Phone;
+            reservation = ob.reservation;
         }
         return *this;
     }
+
     json to_json() const override
     {
-        json j = User ::to_json();
+        json j = User::to_json();
         j["StudentId"] = StudentId;
         j["Balance"] = Balance;
         j["IsActive"] = IsActive;
@@ -66,9 +70,10 @@ public:
         j["Phone"] = Phone;
         return j;
     }
+
     void from_json(const json &j) override
     {
-        User ::from_json(j);
+        User::from_json(j);
         StudentId = j.at("StudentId").get<string>();
         Balance = j.at("Balance").get<float>();
         IsActive = j.at("IsActive").get<bool>();
@@ -82,65 +87,48 @@ public:
         for (char c : _studentID)
         {
             if (!isdigit(c))
-            {
                 throw "studentID must be just digits.";
-            }
             count++;
         }
         if (count != 10)
             throw "studentID must be exactly 10 digits.";
         StudentId = _studentID;
     }
+
     void setBalance(float _balance)
     {
         Balance = _balance;
         if (Balance < 0)
-        {
             cout << "you are in debt and you cannot reserve food";
-        }
     }
-    void setIsActive(bool status)
-    {
-        IsActive = status;
-    }
-    void setHasRservation(bool reservationstatus)
-    {
-        Hasreservation = reservationstatus;
-    }
-    void setreservation(vector<Reservation> _reservation)
-    {
-        reservation = _reservation;
-    }
-    void setphone(int _phone)
-    {
-        Phone = _phone;
-    }
-    string getStudentId() { return StudentId; }
+
+    void setIsActive(bool status) { IsActive = status; }
+    void setHasRservation(bool reservationstatus) { Hasreservation = reservationstatus; }
+    void setreservation(vector<Reservation> _reservation) { reservation = _reservation; }
+    void setphone(int _phone) { Phone = _phone; }
+
+    string getStudentId() const { return StudentId; }
     float getBalance() { return Balance; }
     bool getIsActive() { return IsActive; }
     bool getHasReservation() { return Hasreservation; }
     vector<Reservation> getReserves() const { return reservation; }
     int getphone() { return Phone; }
+
     void ReserveMeal()
     {
         if (!IsActive)
-        {
             cout << "you cannot reserve food because your account not active !" << endl;
-        }
         else if (Balance < 0)
-        {
             cout << "you are in debt and you can not reserve meal !" << endl;
-        }
         else if (Hasreservation)
-        {
             cout << "you already has a reservation !" << endl;
-        }
         else
         {
             Hasreservation = true;
             cout << "your meal reserved successfully ." << endl;
         }
     }
+
     bool CancelReservation()
     {
         if (!Hasreservation)
@@ -155,11 +143,13 @@ public:
             return true;
         }
     }
+
     void AddReservation(const Reservation &r)
     {
         reservation.push_back(r);
         Hasreservation = true;
     }
+
     void Activate()
     {
         IsActive = true;
@@ -170,9 +160,10 @@ public:
         IsActive = false;
         cout << "student account is deactive .\n";
     }
-    void pirint() const
+
+    void print() const
     {
-        User ::print();
+        User::print();
         cout << "student information :" << endl;
         cout << "Student ID :" << StudentId << endl;
         cout << "Balance :" << Balance << endl;
@@ -180,3 +171,36 @@ public:
         cout << "----------------------------------------------------------------" << endl;
     }
 };
+inline void to_json(json &j, const Student &s)
+{
+    j = s.to_json();
+}
+
+inline void from_json(const json &j, Student &s)
+{
+    s.from_json(j);
+}
+inline void save_student_to_file(const Student &student, const string &filename)
+{
+    json j = student.to_json();
+    ofstream out(filename);
+    if (out.is_open())
+    {
+        out << j.dump(4);
+        out.close();
+    }
+}
+
+inline Student load_student_from_file(const string &filename)
+{
+    ifstream in(filename);
+    Student s;
+    if (in.is_open())
+    {
+        json j;
+        in >> j;
+        s.from_json(j);
+        in.close();
+    }
+    return s;
+}

@@ -3,6 +3,8 @@
 #include "student.hpp"
 #include "shoppingcart.hpp"
 #include "admin.hpp"
+#include "studentsdata.hpp"
+#include "studentreservations.hpp"
 using namespace std;
 class ShoppingCart;
 enum Sessionstatus
@@ -85,6 +87,7 @@ namespace StudentSession
         ShoppingCart *Shopping_Cart;
         int StudentID;
         static SessionManager *instance;
+        vector<Student> allStudents;
         SessionManager()
         {
             CurrentStudent = nullptr;
@@ -107,28 +110,37 @@ namespace StudentSession
         //   StudentManager() {};
         void load_Session() override
         {
+            allStudents = loadAllStudents();
         }
         void save_Session() override
         {
+            saveAllStudents(allStudents);
         }
-        void Login_Session(string username, string /*password*/) override
+
+        void Login_Session(string username, string password) override
         {
             if (CurrentStudent)
-            {
                 delete CurrentStudent;
-            }
-            /* if (Shopping_Cart)
-             {
-                 delete Shopping_Cart;
-             }*/
+            if (Shopping_Cart)
+                delete Shopping_Cart;
 
-            Shopping_Cart = new ShoppingCart();
-            CurrentStudent = new Student();
-            CurrentStudent->setStudentId(username);
-            CurrentStudent->setEmail("test@gmail.com");
-            setSessionstatus(Authenticated);
-            setlasttimeLogin(time(nullptr));
-            cout << "Student" << username << "Logged in .\n";
+            for (const auto &s : allStudents)
+            {
+                if (s.getStudentId() == username && BCrypt::validatePassword(password, s.getHashpassword()))
+                {
+                    CurrentStudent = new Student(s);
+                    Shopping_Cart = new ShoppingCart();
+                    setSessionstatus(Sessionstatus::Authenticated);
+                    setlasttimeLogin(time(nullptr));
+
+                    load_student_reservations(*CurrentStudent, "reservations_" + username + ".json");
+
+                    cout << "Student " << username << " logged in.\n";
+                    return;
+                }
+            }
+
+            cout << "Login failed: user not found or wrong password.\n";
         }
         void logout() override
         {
@@ -139,6 +151,7 @@ namespace StudentSession
             StudentID = 0;
             setSessionstatus(Anonymous);
             cout << "Logged out.\n";
+            save_student_reservations(*CurrentStudent, "reservations_" + CurrentStudent->getStudentId() + ".json");
         }
 
         Student *getCurrentStudent() const

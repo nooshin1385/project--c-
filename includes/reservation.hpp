@@ -125,3 +125,12 @@ public:
 
                                            
 };
+inline void to_json(json &j, const Reservation &r)
+{
+    j = r.to_json();
+}
+
+inline void from_json(const json &j, Reservation &r)
+{
+    r.from_json(j);
+}

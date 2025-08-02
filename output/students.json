@@ -1,11 +1,26 @@
-{
-    "Balance": 100000.0,
-    "Email": "seyed@example.com",
-    "Hasreservation": false,
-    "IsActive": true,
-    "LastName": "",
-    "Name": "Seyed",
-    "Phone": 0,
-    "StudentId": "0000000000",
-    "UserId": 1234567890
-}
+[
+    {
+        "Balance": 100000.0,
+        "Email": "seyed@example.com",
+        "HashedPassword": "",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "",
+        "Name": "Seyed",
+        "Phone": 0,
+        "StudentId": "0000000000",
+        "UserId": 1234567890
+    },
+    {
+        "Balance": 120000.0,
+        "Email": "sara@gmail.com",
+        "HashedPassword": "",
+        "Hasreservation": true,
+        "IsActive": true,
+        "LastName": "Hosseini",
+        "Name": "Sara",
+        "Phone": 0,
+        "StudentId": "1234567890",
+        "UserId": 222
+    }
+]

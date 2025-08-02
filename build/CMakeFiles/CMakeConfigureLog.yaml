@@ -91,6 +91,92 @@ events:
   -
     kind: "find-v1"
     backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake:63 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "C compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: false
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cc"
+      - "gcc"
+      - "cl"
+      - "bcc"
+      - "xlc"
+      - "icx"
+      - "clang"
+    candidate_directories:
+      - "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/"
+      - "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/usr/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "C:/Program Files/dotnet/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/Asus/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/Asus/AppData/Local/Programs/Python/Python313/"
+      - "C:/Users/Asus/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/Asus/Desktop/project-c++/build/C : /msys64/ucrt64/bin/"
+      - "C:/Users/Asus/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/msys64/ucrt64/bin/g++.exe/"
+      - "C:/mysy64/"
+      - "C:/MinGW/bin/"
+      - "C:/Users/Asus/AppData/Local/Programs/cursor/resources/app/bin/"
+      - "C:/Users/Asus/AppData/Local/GitHubDesktop/bin/"
+    searched_directories:
+      - "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/cc.com"
+      - "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/cc.exe"
+      - "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/cc"
+      - "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/gcc.com"
+    found: "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/gcc.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
+        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
+        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
+        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\usr\\bin"
+        - "C:/Windows/system32"
+        - "C:\\Windows"
+        - "C:/Windows/System32/Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:/Windows/System32/OpenSSH/"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:/msys64/ucrt64/bin"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:/Program Files/Git/cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:/Users/Asus/AppData/Local/Programs/Python/Python313/Scripts/"
+        - "C:\\Users\\Asus\\AppData\\Local\\Programs\\Python\\Python313\\"
+        - "C:/Users/Asus/AppData/Local/Microsoft/WindowsApps"
+        - "C : \\msys64\\ucrt64\\bin"
+        - "C:/Users/Asus/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "C : \\msys64\\ucrt64\\bin"
+        - "C:/msys64/ucrt64/bin/g++.exe"
+        - "C:\\mysy64"
+        - "C:/MinGW/bin"
+        - "C:\\Users\\Asus\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin"
+        - "C:/Users/Asus/AppData/Local/GitHubDesktop/bin"
+        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
@@ -2451,8 +2537,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-a3eyr9"
-      binary: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-a3eyr9"
+      source: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-4lhbyh"
+      binary: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-4lhbyh"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -2461,21 +2547,21 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-a3eyr9'
+        Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-4lhbyh'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_16e69/fast
-        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_16e69.dir\\build.make CMakeFiles/cmTC_16e69.dir/build
-        mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-a3eyr9'
-        Building C object CMakeFiles/cmTC_16e69.dir/CMakeCCompilerABI.c.obj
-        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_80e54/fast
+        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_80e54.dir\\build.make CMakeFiles/cmTC_80e54.dir/build
+        mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-4lhbyh'
+        Building C object CMakeFiles/cmTC_80e54.dir/CMakeCCompilerABI.c.obj
+        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe
         Target: x86_64-w64-mingw32
         Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=win32 --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-win32-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib '
         Thread model: win32
         gcc version 8.1.0 (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
-         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\ccJZuZPe.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
+         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\ccM3ke7G.s
         GNU C17 (x86_64-win32-seh-rev0, Built by MinGW-W64 project) version 8.1.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 8.1.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
         
@@ -2496,14 +2582,14 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: bb117049c51d03d971e874cfcb35cac9
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
-         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\ccJZuZPe.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
+         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\ccM3ke7G.s
         GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30
         COMPILER_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
-        Linking C executable cmTC_16e69.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_16e69.dir\\link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona'
+        Linking C executable cmTC_80e54.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_80e54.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe
         COLLECT_LTO_WRAPPER=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe
@@ -2513,16 +2599,16 @@ events:
         gcc version 8.1.0 (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 
         COMPILER_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_16e69.exe' '-mtune=core2' '-march=nocona'
-         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccp9BPbp.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_16e69.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_16e69.dir/objects.a --no-whole-archive --out-implib libcmTC_16e69.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_80e54.exe' '-mtune=core2' '-march=nocona'
+         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccPVlGeo.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_80e54.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_80e54.dir/objects.a --no-whole-archive --out-implib libcmTC_80e54.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
         collect2 version 8.1.0
-        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccp9BPbp.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_16e69.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_16e69.dir/objects.a --no-whole-archive --out-implib libcmTC_16e69.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
+        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccPVlGeo.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_80e54.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_80e54.dir/objects.a --no-whole-archive --out-implib libcmTC_80e54.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
         GNU ld (GNU Binutils) 2.30
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_16e69.exe' '-mtune=core2' '-march=nocona'
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_16e69.dir/objects.a
-        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\ar.exe qc CMakeFiles\\cmTC_16e69.dir/objects.a @CMakeFiles\\cmTC_16e69.dir\\objects1.rsp
-        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_16e69.dir/objects.a -Wl,--no-whole-archive -o cmTC_16e69.exe -Wl,--out-implib,libcmTC_16e69.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        mingw32-make.exe[1]: Leaving directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-a3eyr9'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_80e54.exe' '-mtune=core2' '-march=nocona'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_80e54.dir/objects.a
+        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\ar.exe qc CMakeFiles\\cmTC_80e54.dir/objects.a @CMakeFiles\\cmTC_80e54.dir\\objects1.rsp
+        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_80e54.dir/objects.a -Wl,--no-whole-archive -o cmTC_80e54.exe -Wl,--out-implib,libcmTC_80e54.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make.exe[1]: Leaving directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-4lhbyh'
         
       exitCode: 0
   -
@@ -2555,21 +2641,21 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-a3eyr9']
+        ignore line: [Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-4lhbyh']
         ignore line: []
-        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_16e69/fast]
-        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_16e69.dir\\build.make CMakeFiles/cmTC_16e69.dir/build]
-        ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-a3eyr9']
-        ignore line: [Building C object CMakeFiles/cmTC_16e69.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"]
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_80e54/fast]
+        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_80e54.dir\\build.make CMakeFiles/cmTC_80e54.dir/build]
+        ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-4lhbyh']
+        ignore line: [Building C object CMakeFiles/cmTC_80e54.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe]
         ignore line: [Target: x86_64-w64-mingw32]
         ignore line: [Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=win32 --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-win32-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib ']
         ignore line: [Thread model: win32]
         ignore line: [gcc version 8.1.0 (x86_64-win32-seh-rev0  Built by MinGW-W64 project) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
-        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\ccJZuZPe.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
+        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\ccM3ke7G.s]
         ignore line: [GNU C17 (x86_64-win32-seh-rev0  Built by MinGW-W64 project) version 8.1.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 8.1.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
         ignore line: []
@@ -2590,8 +2676,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: bb117049c51d03d971e874cfcb35cac9]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
-        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\ccJZuZPe.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
+        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\ccM3ke7G.s]
         ignore line: [GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30]
         ignore line: [COMPILER_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/]
@@ -2602,9 +2688,9 @@ events:
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_16e69.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
-        ignore line: [Linking C executable cmTC_16e69.exe]
-        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_16e69.dir\\link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_80e54.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=core2' '-march=nocona']
+        ignore line: [Linking C executable cmTC_80e54.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_80e54.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe]
         ignore line: [COLLECT_LTO_WRAPPER=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe]
@@ -2621,13 +2707,13 @@ events:
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_16e69.exe' '-mtune=core2' '-march=nocona']
-        link line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccp9BPbp.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_16e69.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_16e69.dir/objects.a --no-whole-archive --out-implib libcmTC_16e69.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_80e54.exe' '-mtune=core2' '-march=nocona']
+        link line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccPVlGeo.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_80e54.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_80e54.dir/objects.a --no-whole-archive --out-implib libcmTC_80e54.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll] ==> ignore
           arg [-plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccp9BPbp.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccPVlGeo.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
@@ -2650,7 +2736,7 @@ events:
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_16e69.exe] ==> ignore
+          arg [cmTC_80e54.exe] ==> ignore
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o] ==> obj [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o]
           arg [-LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0] ==> dir [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0]
@@ -2661,10 +2747,10 @@ events:
           arg [-LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../..] ==> dir [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_16e69.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_80e54.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_16e69.dll.a] ==> ignore
+          arg [libcmTC_80e54.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -2688,7 +2774,7 @@ events:
           arg [-lmsvcrt] ==> lib [msvcrt]
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o] ==> obj [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
         ignore line: [collect2 version 8.1.0]
-        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccp9BPbp.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_16e69.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_16e69.dir/objects.a --no-whole-archive --out-implib libcmTC_16e69.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
+        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccPVlGeo.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_80e54.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_80e54.dir/objects.a --no-whole-archive --out-implib libcmTC_80e54.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
         linker tool for 'C': C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/bin/ld.exe
         remove lib [gcc_eh]
         remove lib [msvcrt]
@@ -2728,8 +2814,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-pau5vm"
-      binary: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-pau5vm"
+      source: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-rjof1h"
+      binary: "C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-rjof1h"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -2739,21 +2825,21 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-pau5vm'
+        Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-rjof1h'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_1d59b/fast
-        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_1d59b.dir\\build.make CMakeFiles/cmTC_1d59b.dir/build
-        mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-pau5vm'
-        Building CXX object CMakeFiles/cmTC_1d59b.dir/CMakeCXXCompilerABI.cpp.obj
-        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_50371/fast
+        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_50371.dir\\build.make CMakeFiles/cmTC_50371.dir/build
+        mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-rjof1h'
+        Building CXX object CMakeFiles/cmTC_50371.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe
         Target: x86_64-w64-mingw32
         Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=win32 --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-win32-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib '
         Thread model: win32
         gcc version 8.1.0 (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
-         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\cctXiYpW.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\ccN8ulm7.s
         GNU C++14 (x86_64-win32-seh-rev0, Built by MinGW-W64 project) version 8.1.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 8.1.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
         
@@ -2780,14 +2866,14 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 768151575aea5e2fb63ae2dd7f500530
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
-         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\cctXiYpW.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\ccN8ulm7.s
         GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30
         COMPILER_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
-        Linking CXX executable cmTC_1d59b.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_1d59b.dir\\link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+        Linking CXX executable cmTC_50371.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_50371.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe
         COLLECT_LTO_WRAPPER=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe
@@ -2797,16 +2883,16 @@ events:
         gcc version 8.1.0 (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 
         COMPILER_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/;C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1d59b.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
-         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccTYVNE9.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_1d59b.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_1d59b.dir/objects.a --no-whole-archive --out-implib libcmTC_1d59b.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_50371.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+         C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccefvgpq.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_50371.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_50371.dir/objects.a --no-whole-archive --out-implib libcmTC_50371.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
         collect2 version 8.1.0
-        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccTYVNE9.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_1d59b.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_1d59b.dir/objects.a --no-whole-archive --out-implib libcmTC_1d59b.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
+        C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccefvgpq.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_50371.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_50371.dir/objects.a --no-whole-archive --out-implib libcmTC_50371.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o
         GNU ld (GNU Binutils) 2.30
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1d59b.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_1d59b.dir/objects.a
-        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\ar.exe qc CMakeFiles\\cmTC_1d59b.dir/objects.a @CMakeFiles\\cmTC_1d59b.dir\\objects1.rsp
-        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_1d59b.dir/objects.a -Wl,--no-whole-archive -o cmTC_1d59b.exe -Wl,--out-implib,libcmTC_1d59b.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        mingw32-make.exe[1]: Leaving directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-pau5vm'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_50371.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_50371.dir/objects.a
+        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\ar.exe qc CMakeFiles\\cmTC_50371.dir/objects.a @CMakeFiles\\cmTC_50371.dir\\objects1.rsp
+        C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_50371.dir/objects.a -Wl,--no-whole-archive -o cmTC_50371.exe -Wl,--out-implib,libcmTC_50371.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make.exe[1]: Leaving directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-rjof1h'
         
       exitCode: 0
   -
@@ -2845,21 +2931,21 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-pau5vm']
+        ignore line: [Change Dir: 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-rjof1h']
         ignore line: []
-        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_1d59b/fast]
-        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_1d59b.dir\\build.make CMakeFiles/cmTC_1d59b.dir/build]
-        ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-pau5vm']
-        ignore line: [Building CXX object CMakeFiles/cmTC_1d59b.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f Makefile cmTC_50371/fast]
+        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_50371.dir\\build.make CMakeFiles/cmTC_50371.dir/build]
+        ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Asus/Desktop/project-c++/build/CMakeFiles/CMakeScratch/TryCompile-rjof1h']
+        ignore line: [Building CXX object CMakeFiles/cmTC_50371.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe]
         ignore line: [Target: x86_64-w64-mingw32]
         ignore line: [Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=win32 --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-win32-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib ']
         ignore line: [Thread model: win32]
         ignore line: [gcc version 8.1.0 (x86_64-win32-seh-rev0  Built by MinGW-W64 project) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
-        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\cctXiYpW.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/ -U_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=core2 -march=nocona -auxbase-strip CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\Asus\\AppData\\Local\\Temp\\ccN8ulm7.s]
         ignore line: [GNU C++14 (x86_64-win32-seh-rev0  Built by MinGW-W64 project) version 8.1.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 8.1.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
         ignore line: []
@@ -2886,8 +2972,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 768151575aea5e2fb63ae2dd7f500530]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
-        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\cctXiYpW.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+        ignore line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Asus\\AppData\\Local\\Temp\\ccN8ulm7.s]
         ignore line: [GNU assembler version 2.30 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.30]
         ignore line: [COMPILER_PATH=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/]
@@ -2898,9 +2984,9 @@ events:
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_1d59b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
-        ignore line: [Linking CXX executable cmTC_1d59b.exe]
-        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_1d59b.dir\\link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_50371.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+        ignore line: [Linking CXX executable cmTC_50371.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_50371.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe]
         ignore line: [COLLECT_LTO_WRAPPER=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe]
@@ -2917,13 +3003,13 @@ events:
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1d59b.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona']
-        link line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccTYVNE9.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_1d59b.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_1d59b.dir/objects.a --no-whole-archive --out-implib libcmTC_1d59b.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_50371.exe' '-shared-libgcc' '-mtune=core2' '-march=nocona']
+        link line: [ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccefvgpq.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_50371.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_50371.dir/objects.a --no-whole-archive --out-implib libcmTC_50371.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll] ==> ignore
           arg [-plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccTYVNE9.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccefvgpq.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
@@ -2946,7 +3032,7 @@ events:
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_1d59b.exe] ==> ignore
+          arg [cmTC_50371.exe] ==> ignore
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o] ==> obj [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o]
           arg [-LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0] ==> dir [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0]
@@ -2957,10 +3043,10 @@ events:
           arg [-LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../..] ==> dir [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_1d59b.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_50371.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_1d59b.dll.a] ==> ignore
+          arg [libcmTC_50371.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -2985,7 +3071,7 @@ events:
           arg [-lmsvcrt] ==> lib [msvcrt]
           arg [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o] ==> obj [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
         ignore line: [collect2 version 8.1.0]
-        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccTYVNE9.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_1d59b.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_1d59b.dir/objects.a --no-whole-archive --out-implib libcmTC_1d59b.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
+        ignore line: [C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/liblto_plugin-0.dll -plugin-opt=C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Asus\\AppData\\Local\\Temp\\ccefvgpq.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw810/x86_64-810-win32-seh-rt_v6-rev0/mingw64 -m i386pep -Bdynamic -o cmTC_50371.exe C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtbegin.o -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0 -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib -LC:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_50371.dir/objects.a --no-whole-archive --out-implib libcmTC_50371.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/crtend.o]
         linker tool for 'CXX': C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/bin/ld.exe
         remove lib [msvcrt]
         remove lib [msvcrt]
@@ -3014,70 +3100,4 @@ events:
     message: |
       Running the CXX compiler's linker: "C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.30
-  -
-    kind: "find-v1"
-    backtrace:
-      - "CMakeLists.txt:6 (find_library)"
-    mode: "library"
-    variable: "bcrypt_lib"
-    description: "Path to a library."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "NAME"
-    candidate_directories:
-      - "C:/Users/Asus/Desktop/project-c++/bcrypt/"
-      - "C:/Users/Asus/Desktop/project-c++/PATH/"
-      - "C:/Users/Asus/Desktop/project-c++/"
-    searched_directories:
-      - "C:/Users/Asus/Desktop/project-c++/bcrypt/"
-      - "C:/Users/Asus/Desktop/project-c++/PATH/"
-      - "C:/Users/Asus/Desktop/project-c++/"
-    found: false
-    search_context:
-      ENV{PATH}:
-        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
-        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
-        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
-        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\usr\\bin"
-        - "C:/Windows/system32"
-        - "C:\\Windows"
-        - "C:/Windows/System32/Wbem"
-        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:/Windows/System32/OpenSSH/"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
-        - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:/msys64/ucrt64/bin"
-        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
-        - "C:/Program Files/Git/cmd"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:/Users/Asus/AppData/Local/Programs/Python/Python313/Scripts/"
-        - "C:\\Users\\Asus\\AppData\\Local\\Programs\\Python\\Python313\\"
-        - "C:/Users/Asus/AppData/Local/Microsoft/WindowsApps"
-        - "C : \\msys64\\ucrt64\\bin"
-        - "C:/Users/Asus/AppData/Local/Programs/Microsoft VS Code/bin"
-        - "C : \\msys64\\ucrt64\\bin"
-        - "C:/msys64/ucrt64/bin/g++.exe"
-        - "C:\\mysy64"
-        - "C:/MinGW/bin"
-        - "C:\\Users\\Asus\\AppData\\Local\\Programs\\cursor\\resources\\app\\bin"
-        - "C:/Users/Asus/AppData/Local/GitHubDesktop/bin"
-        - "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/hashing"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "C:/Program Files"
-        - "C:/Program Files (x86)"
-        - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/hashing"
-      CMAKE_SYSTEM_LIBRARY_PATH:
-        - "C:/Program Files (x86)/hashing/bin"
-        - "C:/Program Files/CMake/bin"
-        - "/bin"
 ...

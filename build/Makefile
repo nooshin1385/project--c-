@@ -91,13 +91,6 @@ all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Asus\Desktop\project-c++\build\CMakeFiles 0
 .PHONY : all
 
-# The main codegen target
-codegen: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Asus\Desktop\project-c++\build\CMakeFiles C:\Users\Asus\Desktop\project-c++\build\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 codegen
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Asus\Desktop\project-c++\build\CMakeFiles 0
-.PHONY : codegen
-
 # The main clean target
 clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
@@ -123,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named hashing
+# Target rules for targets named main_exec
 
 # Build rule for target.
-hashing: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 hashing
-.PHONY : hashing
+main_exec: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 main_exec
+.PHONY : main_exec
 
 # fast build rule for target.
-hashing/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\hashing.dir\build.make CMakeFiles/hashing.dir/build
-.PHONY : hashing/fast
+main_exec/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/build
+.PHONY : main_exec/fast
 
-source.obj: source.cpp.obj
-.PHONY : source.obj
+main.obj: main.cpp.obj
+.PHONY : main.obj
 
 # target to build an object file
-source.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\hashing.dir\build.make CMakeFiles/hashing.dir/source.cpp.obj
-.PHONY : source.cpp.obj
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-source.i: source.cpp.i
-.PHONY : source.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-source.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\hashing.dir\build.make CMakeFiles/hashing.dir/source.cpp.i
-.PHONY : source.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-source.s: source.cpp.s
-.PHONY : source.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-source.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\hashing.dir\build.make CMakeFiles/hashing.dir/source.cpp.s
-.PHONY : source.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -165,13 +158,12 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... codegen
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... hashing
-	@echo ... source.obj
-	@echo ... source.i
-	@echo ... source.s
+	@echo ... main_exec
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

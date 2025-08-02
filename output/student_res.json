@@ -1,0 +1,12 @@
+{
+    "Balance": 50000.0,
+    "Email": "ali@example.com",
+    "HashedPassword": "",
+    "Hasreservation": true,
+    "IsActive": true,
+    "LastName": "Ahmadi",
+    "Name": "Ali",
+    "Phone": 0,
+    "StudentId": "1234567890",
+    "UserId": 1001
+}

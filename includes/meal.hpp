@@ -9,7 +9,7 @@ using json = nlohmann ::json;
 
 enum Reserveday
 {
-    Saturday,
+    Saturday = 1,
     Sunday,
     Monday,
     Tuesday,

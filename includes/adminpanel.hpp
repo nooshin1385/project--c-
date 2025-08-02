@@ -152,6 +152,48 @@ private:
     }
 
 public:
+    void saveMealsToFile()
+    {
+        json j;
+        for (const Meal &m : meals)
+        {
+            j.push_back(m.to_json());
+        }
+
+        ofstream out("meals.json");
+        if (out.is_open())
+        {
+            out << j.dump(4);
+            out.close();
+            cout << "Meals saved successfully.\n";
+        }
+        else
+        {
+            cout << "Failed to save meals to file.\n";
+        }
+    }
+    void loadMealsFromFile()
+    {
+        ifstream in("meals.json");
+        if (!in.is_open())
+        {
+            cout << "No previous meals data found.\n";
+            return;
+        }
+
+        json j;
+        in >> j;
+        meals.clear();
+
+        for (const auto &item : j)
+        {
+            Meal m;
+            m.from_json(item);
+            meals.push_back(m);
+        }
+
+        cout << "Meals loaded successfully.\n";
+    }
     void showMenu()
     {
         loadDininghallsFromFile();
@@ -163,6 +205,8 @@ public:
             cout << "2. Add meal\n";
             cout << "3. View meals\n";
             cout << "4. Logout\n";
+            cout << "5. Save meals to file\n";
+            cout << "6. Load meals from file\n";
             cout << "5. Add dining hall\n";
             cout << "6. View dining hall\n";
             cout << "7. Exit\n";
@@ -184,18 +228,24 @@ public:
                 logout();
                 break;
             case 5:
-                Adddininghall();
+                saveMealsToFile();
                 break;
             case 6:
-                Listdininghalls();
+                loadMealsFromFile();
                 break;
             case 7:
+                Adddininghall();
+                break;
+            case 8:
+                Listdininghalls();
+                break;
+            case 9:
                 saveDininghallsToFile();
                 cout << "exiting admin panel...\n";
                 break;
             default:
                 cout << "invalid choice.\n";
             }
-        } while (choice != 5);
+        } while (choice != 9);
     }
 };
