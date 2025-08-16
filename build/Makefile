@@ -152,6 +152,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+studentreservationdef.obj: studentreservationdef.cpp.obj
+.PHONY : studentreservationdef.obj
+
+# target to build an object file
+studentreservationdef.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/studentreservationdef.cpp.obj
+.PHONY : studentreservationdef.cpp.obj
+
+studentreservationdef.i: studentreservationdef.cpp.i
+.PHONY : studentreservationdef.i
+
+# target to preprocess a source file
+studentreservationdef.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/studentreservationdef.cpp.i
+.PHONY : studentreservationdef.cpp.i
+
+studentreservationdef.s: studentreservationdef.cpp.s
+.PHONY : studentreservationdef.s
+
+# target to generate assembly for a file
+studentreservationdef.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/studentreservationdef.cpp.s
+.PHONY : studentreservationdef.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -164,6 +188,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... studentreservationdef.obj
+	@echo ... studentreservationdef.i
+	@echo ... studentreservationdef.s
 .PHONY : help
 
 

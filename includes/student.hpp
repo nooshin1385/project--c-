@@ -68,6 +68,12 @@ public:
         j["IsActive"] = IsActive;
         j["Hasreservation"] = Hasreservation;
         j["Phone"] = Phone;
+        j["reservations"] = json::array();
+        for (const auto &r : reservation)
+        {
+            j["reservations"].push_back(r.to_json());
+        }
+
         return j;
     }
 
@@ -79,6 +85,17 @@ public:
         IsActive = j.at("IsActive").get<bool>();
         Hasreservation = j.at("Hasreservation").get<bool>();
         Phone = j.at("Phone").get<int>();
+
+        reservation.clear();
+        if (j.contains("reservations") && j["reservations"].is_array())
+        {
+            for (const auto &item : j["reservations"])
+            {
+                Reservation r;
+                r.from_json(item);
+                reservation.push_back(r);
+            }
+        }
     }
 
     void setStudentId(string _studentID)
@@ -104,7 +121,7 @@ public:
 
     void setIsActive(bool status) { IsActive = status; }
     void setHasRservation(bool reservationstatus) { Hasreservation = reservationstatus; }
-    void setreservation(vector<Reservation> _reservation) { reservation = _reservation; }
+    void setreservation(const vector<Reservation> &_reservation) { reservation = _reservation; }
     void setphone(int _phone) { Phone = _phone; }
 
     string getStudentId() const { return StudentId; }

@@ -7,6 +7,7 @@
 #include "dininghall.hpp"
 
 using namespace std;
+class Student;
 enum Rstatus
 {
     Confirmed,
@@ -20,9 +21,10 @@ class Reservation
     Rstatus status;
     Meal *meal;
     DiningHall *dHall;
+    Student *student;
 
 public:
-    Reservation(int _ReservationID, Rstatus intialstatus, Meal *_meal, DiningHall *_dHall)
+    Reservation(int _ReservationID, Rstatus intialstatus, Meal *_meal, DiningHall *_dHall, Student *_student)
     {
 
         Reservation_ID = _ReservationID;
@@ -30,6 +32,12 @@ public:
         Created_at = time(nullptr);
         meal = _meal;
         dHall = _dHall;
+        student = _student;
+    }
+    ~Reservation()
+    {
+       // delete meal;
+        //delete dHall;
     }
     Reservation()
     {
@@ -102,28 +110,52 @@ public:
     }
     json to_json() const
     {
-        return {
-            {"Reservation_ID", Reservation_ID},
-            {"Created_at", Created_at},
-            {"status", status},
-            {"Meal", meal->to_json()},
-            {"Dininghall", dHall->to_json()}};
+        json j;
+        j["Reservation_ID"] = Reservation_ID;
+        j["Created_at"] = Created_at;
+        j["status"] = static_cast<int>(status);
+
+        if (meal)
+            j["Meal"] = meal->to_json();
+        else
+            j["Meal"] = nullptr;
+
+        if (dHall)
+            j["Dininghall"] = dHall->to_json();
+        else
+            j["Dininghall"] = nullptr;
+
+        return j;
     }
     void from_json(const json &j)
     {
         Reservation_ID = j.at("Reservation_ID").get<int>();
         Created_at = j.at("Created_at").get<time_t>();
-        status = j.at("status").get<Rstatus>();
-        meal = new Meal() ;
-        meal->from_json(j.at("Meal"));
-        dHall=new DiningHall();
-        dHall->from_json(j.at("Dininghall"));
+        status = static_cast<Rstatus>(j.at("status").get<int>());
+
+        if (j.contains("Meal") && !j["Meal"].is_null())
+        {
+            meal = new Meal();
+            meal->from_json(j["Meal"]);
+        }
+        else
+        {
+            meal = nullptr;
+        }
+
+        if (j.contains("Dininghall") && !j["Dininghall"].is_null())
+        {
+            dHall = new DiningHall();
+            dHall->from_json(j["Dininghall"]);
+        }
+        else
+        {
+            dHall = nullptr;
+        }
     }
     NLOHMANN_JSON_SERIALIZE_ENUM(Rstatus, {{Pending, "Pending"},
                                            {Confirmed, "Confirmed"},
                                            {Cancelled, "Cancelled"}})
-
-                                           
 };
 inline void to_json(json &j, const Reservation &r)
 {

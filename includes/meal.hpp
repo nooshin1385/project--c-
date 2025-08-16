@@ -19,7 +19,7 @@ enum Reserveday
 };
 enum MealType
 {
-    Breakfast,
+    Breakfast =1,
     Lunch,
     Dinner,
     Dessert,
@@ -61,12 +61,12 @@ public:
     void settype(MealType _mealtype) { mealtype = _mealtype; }
     void setreserveday(Reserveday _Reserveday) { reserveday = _Reserveday; }
     void setsideitems(vector<string> _SideItems) { SideItems = _SideItems; }
-    int getmealid() { return MealID; }
-    string getmealname() { return MealName; }
-    float getprice() { return Price; }
-    MealType gettype() { return mealtype; }
-    Reserveday getreserveday() { return reserveday; }
-    vector<string> getsideitems() { return SideItems; }
+    int getmealid() const { return MealID; }
+    string getmealname() const { return MealName; }
+    float getprice() const { return Price; }
+    MealType gettype() const { return mealtype; }
+    Reserveday getreserveday() const { return reserveday; }
+    vector<string> getsideitems() const { return SideItems; }
     void UpdatPrice(float new_price)
     {
         Price = new_price;

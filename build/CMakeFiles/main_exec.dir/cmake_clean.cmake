@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main_exec.dir/main.cpp.obj"
   "CMakeFiles/main_exec.dir/main.cpp.obj.d"
+  "CMakeFiles/main_exec.dir/studentreservationdef.cpp.obj"
+  "CMakeFiles/main_exec.dir/studentreservationdef.cpp.obj.d"
   "libmain_exec.dll.a"
   "main_exec.exe"
   "main_exec.exe.manifest"

@@ -133,9 +133,8 @@ namespace StudentSession
                     setSessionstatus(Sessionstatus::Authenticated);
                     setlasttimeLogin(time(nullptr));
 
+                    cout << "Welcome, " << CurrentStudent->getname() << " " << CurrentStudent->getlastname() << " logged in.\n";
                     load_student_reservations(*CurrentStudent, "reservations_" + username + ".json");
-
-                    cout << "Student " << username << " logged in.\n";
                     return;
                 }
             }
@@ -144,14 +143,21 @@ namespace StudentSession
         }
         void logout() override
         {
-            delete CurrentStudent;
-            delete Shopping_Cart;
+            if (CurrentStudent)
+            {
+                save_student_reservations(*CurrentStudent, "reservations_" + CurrentStudent->getStudentId() + ".json");
+                delete CurrentStudent;
+            }
+
+            if (Shopping_Cart)
+                delete Shopping_Cart;
+
             CurrentStudent = nullptr;
             Shopping_Cart = nullptr;
             StudentID = 0;
             setSessionstatus(Anonymous);
+
             cout << "Logged out.\n";
-            save_student_reservations(*CurrentStudent, "reservations_" + CurrentStudent->getStudentId() + ".json");
         }
 
         Student *getCurrentStudent() const

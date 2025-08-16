@@ -4,5 +4,11 @@
   "command": "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe  @CMakeFiles/main_exec.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\main_exec.dir\\main.cpp.obj -c C:\\Users\\Asus\\Desktop\\project-c++\\main.cpp",
   "file": "C:/Users/Asus/Desktop/project-c++/main.cpp",
   "output": "CMakeFiles/main_exec.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Asus/Desktop/project-c++/build",
+  "command": "C:\\Users\\Asus\\Downloads\\mingw!\\x86_64-8.1.0-win32-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe  @CMakeFiles/main_exec.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\main_exec.dir\\studentreservationdef.cpp.obj -c C:\\Users\\Asus\\Desktop\\project-c++\\studentreservationdef.cpp",
+  "file": "C:/Users/Asus/Desktop/project-c++/studentreservationdef.cpp",
+  "output": "CMakeFiles/main_exec.dir/studentreservationdef.cpp.obj"
 }
 ]

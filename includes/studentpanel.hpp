@@ -2,20 +2,32 @@
 #include "sessions.hpp"
 #include "meal.hpp"
 #include "student.hpp"
-
+#include "studentreservations.hpp"
+#include "shoppingcart.hpp"
 using namespace std;
+
 class StudentPanel
 {
 private:
+    vector<Reservation> items;
     void LoginStudent()
     {
         string username, password;
-        cout << "UserNmae :";
+        cout << "UserName : ";
         cin >> username;
-        cout << "Password :";
+        cout << "Password : ";
         cin >> password;
-
-        StudentSession ::SessionManager ::getinstance()->Login_Session(username, password);
+        StudentSession::SessionManager *session = StudentSession::SessionManager::getinstance();
+        session->Login_Session(username, password);
+        Student *student = session->getCurrentStudent();
+        if (student)
+        {
+            load_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
+        }
+        else
+        {
+            cout << "Login failed or no student found.\n";
+        }
     }
     void ShowProfile()
     {
@@ -35,34 +47,44 @@ private:
     }
     void AddMealtocart()
     {
-        if (StudentSession ::SessionManager ::getinstance()->getstatus() != Authenticated)
+        if (StudentSession::SessionManager::getinstance()->getstatus() != Authenticated)
         {
-            cout << " Please first Login!\n";
+            cout << "please login first.\n";
             return;
         }
-        Meal *m = new Meal(1, "Salad", 15000, Lunch, vector<string>{"Yogurt"}, Saturday);
-        Reservation r(100, Pending, m, nullptr);
-        StudentSession ::SessionManager ::getinstance()->getShopping_Cart()->addReservation(r);
-        delete m;
-    }
-    void confirmShoppingCart()
-    {
-        auto *session = StudentSession::SessionManager::getinstance();
-        if (session->getstatus() != Authenticated)
+        vector<Meal> availableMeals = {
+            Meal(1, "Salad", 15000, Breakfast, {}, Saturday),
+            Meal(2, "Chicken", 30000, Lunch, {}, Saturday),
+            Meal(3, "Pasta", 25000, Dinner, {}, Sunday),
+            Meal(4, "Kebab", 40000, Lunch, {}, Monday)};
+
+        cout << "\n--- Available Meals ---\n";
+        for (auto &m : availableMeals)
         {
-            cout << "please login first!\n";
+            cout << m.getmealid() << ". " << m.getmealname()
+                 << " - Price: " << m.getprice()
+                 << " - Day: " << static_cast<int>(m.getreserveday()) << "\n";
+        }
+
+        int mealId;
+        cout << "Enter meal ID to add: ";
+        cin >> mealId;
+
+        auto it = find_if(availableMeals.begin(), availableMeals.end(),
+                          [mealId](const Meal &m)
+                          { return m.getmealid() == mealId; });
+
+        if (it == availableMeals.end())
+        {
+            cout << "Invalid meal ID.\n";
             return;
         }
 
-        auto confirmed = session->getShopping_Cart()->coniform();
-        Student *s = session->getCurrentStudent();
+        Student *s = StudentSession::SessionManager::getinstance()->getCurrentStudent();
+        Reservation r(100 + rand() % 900, Pending, new Meal(*it), nullptr, s);
 
-        for (const Reservation &r : confirmed)
-        {
-            s->AddReservation(r);
-        }
-
-        cout << "all items confirmed and moved from cart to student reservations.\n";
+        if (StudentSession::SessionManager::getinstance()->getShopping_Cart()->addReservation(r, s))
+            ;
     }
 
     void checkBalance()
@@ -76,22 +98,118 @@ private:
         StudentSession::SessionManager::getinstance()->logout();
     }
 
-    void viewReservations()
+    void ViewReservations()
     {
-        Student *s = StudentSession::SessionManager::getinstance()->getCurrentStudent();
-        for (const Reservation &r : s->getReserves())
+        StudentSession::SessionManager *session = StudentSession::SessionManager::getinstance();
+        Student *student = session->getCurrentStudent();
+
+        if (!student)
         {
-            r.printReservationinfo();
+            cout << "No student logged in.\n";
+            return;
+        }
+
+        string filename = "reservations_" + student->getStudentId() + ".json";
+        ifstream in(filename);
+
+        if (!in.is_open())
+        {
+            cout << "No reservations found for this student.\n";
+            return;
+        }
+
+        json j;
+        try
+        {
+            in >> j;
+        }
+        catch (const json::parse_error &e)
+        {
+            cout << "Error reading reservations file: " << e.what() << "\n";
+            return;
+        }
+        in.close();
+
+        if (j.empty())
+        {
+            cout << "No reservations available.\n";
+            return;
+        }
+
+        cout << "\n----- Your Reservations -----\n";
+        for (const auto &item : j)
+        {
+            Reservation r;
+            r.from_json(item);
+
+            cout << "Reservation ID: " << r.getReservationId() << "\n";
+            if (r.getMeal())
+                cout << "Meal: " << r.getMeal()->getmealname() << "\n";
+            if (r.getdHall())
+                cout << "Dining hall: " << r.getdHall()->getname() << "\n";
+
+            cout << "Status: ";
+            switch (r.getstatus())
+            {
+            case Pending:
+                cout << "Pending";
+                break;
+            case Confirmed:
+                cout << "Confirmed";
+                break;
+            case Cancelled:
+                cout << "Cancelled";
+                break;
+            }
+            time_t t = r.gettime();
+            cout << "\nCreated at: " << ctime(&t);
+            cout << "-------------------------\n";
         }
     }
 
-    void removeShoppingCartItem()
+    void removeReservationById()
     {
+        Student *student = StudentSession::SessionManager::getinstance()->getCurrentStudent();
+        if (!student)
+        {
+            cout << "Please login first.\n";
+            return;
+        }
+
         int id;
-        cout << "enter reservation ID to remove from cart: ";
+        cout << "Enter reservation ID to remove: ";
         cin >> id;
 
-        StudentSession::SessionManager::getinstance()->getShopping_Cart()->removeReservation(id);
+        if (StudentSession::SessionManager::getinstance()->getShopping_Cart()->removeItemById(id))
+        {
+            cout << "Reservation removed from cart.\n";
+            return;
+        }
+
+        vector<Reservation> reserves = student->getReserves();
+        bool found = false;
+        for (auto &r : reserves)
+        {
+            if (r.getReservationId() == id && r.getstatus() == Confirmed)
+            {
+                float refund = r.getMeal()->getprice() * 0.8f; 
+                student->setBalance(student->getBalance() + refund);
+                r.setStatus(Cancelled);
+                found = true;
+                cout << "Reservation cancelled. 20% penalty applied. Refund: " << refund << "\n";
+                break;
+            }
+        }
+
+        if (found)
+        {
+            student->setreservation(reserves);
+            save_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
+        }
+        else
+        {
+            cout << "Reservation ID not found.\n";
+        }
     }
 
     void increaseBalance()
@@ -107,6 +225,40 @@ private:
 
 public:
     StudentPanel() {}
+    const vector<Reservation> &getItems() const
+    {
+        return items;
+    }
+
+    void addItem(const Reservation &r)
+    {
+        items.push_back(r);
+    }
+    void confirmShoppingCart()
+    {
+        using namespace StudentSession;
+
+        SessionManager *session = SessionManager::getinstance();
+        Student *student = session->getCurrentStudent();
+        ShoppingCart *cart = session->getShopping_Cart();
+
+        if (!student || !cart)
+        {
+            cout << "No student or shopping cart found.\n";
+            return;
+        }
+
+        if (cart->getreservation().empty())
+        {
+            cout << " Shopping cart is empty.\n";
+            return;
+        }
+
+        cart->confirm(student);
+        // save_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
+        cout << "CONFIRMING...\n";
+        cout << "Cart items: " << cart->getreservation().size() << endl;
+    }
 
     void Action(int)
     {
@@ -132,7 +284,7 @@ public:
             if (cin.fail())
             {
                 cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "invalid inupt!! please enter a number \n";
                 continue;
             }
@@ -158,13 +310,13 @@ public:
                 StudentSession::SessionManager::getinstance()->getShopping_Cart()->viewShoppingCartItems();
                 break;
             case 7:
-                removeShoppingCartItem();
+                removeReservationById();
                 break;
             case 8:
                 increaseBalance();
                 break;
             case 9:
-                viewReservations();
+                ViewReservations();
                 break;
             case 10:
                 Exitpanel();
@@ -188,7 +340,6 @@ public:
             cout << "you should login first to see your information.\n";
         }
     }
-
     void addToShoppingCart()
     {
         if (StudentSession::SessionManager::getinstance()->getstatus() != Authenticated)
@@ -225,10 +376,18 @@ public:
             sideItems.push_back(item);
         }
 
-        Meal *meal = new Meal(mealId, name, price, static_cast<MealType>(type), sideItems, static_cast<Reserveday>(day));
-        Reservation reservation(200 + rand() % 1000, Pending, meal, nullptr);
+        Student *s = StudentSession::SessionManager::getinstance()->getCurrentStudent();
+        if (!s)
+        {
+            cout << "No student found.\n";
+            return;
+        }
 
-        StudentSession::SessionManager::getinstance()->getShopping_Cart()->addReservation(reservation);
+        Meal *meal = new Meal(mealId, name, price, static_cast<MealType>(type), sideItems, static_cast<Reserveday>(day));
+        Reservation reservation(200 + rand() % 1000, Pending, meal, nullptr, s);
+
+        StudentSession::SessionManager::getinstance()->getShopping_Cart()->addReservation(reservation, s);
+
         cout << "meal added to cart successfully!\n";
     }
 

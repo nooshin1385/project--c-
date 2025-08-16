@@ -166,6 +166,7 @@ public:
             out << j.dump(4);
             out.close();
             cout << "Meals saved successfully.\n";
+            system("notepad meals.json");
         }
         else
         {
@@ -196,6 +197,7 @@ public:
     }
     void showMenu()
     {
+        loadMealsFromFile();
         loadDininghallsFromFile();
         int choice;
         do
@@ -207,9 +209,9 @@ public:
             cout << "4. Logout\n";
             cout << "5. Save meals to file\n";
             cout << "6. Load meals from file\n";
-            cout << "5. Add dining hall\n";
-            cout << "6. View dining hall\n";
-            cout << "7. Exit\n";
+            cout << "7. Add dining hall\n";
+            cout << "8. View dining hall\n";
+            cout << "9. Exit\n";
             cout << "choice: ";
             cin >> choice;
 
@@ -240,6 +242,7 @@ public:
                 Listdininghalls();
                 break;
             case 9:
+                saveMealsToFile();
                 saveDininghallsToFile();
                 cout << "exiting admin panel...\n";
                 break;

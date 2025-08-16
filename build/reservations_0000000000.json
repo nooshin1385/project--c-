@@ -1,0 +1,79 @@
+[
+    {
+        "Created_at": 1755171908,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": false,
+            "MealID": 1,
+            "MealName": "Salad",
+            "Price": 15000.0,
+            "SideItems": [
+                "Yogurt"
+            ],
+            "mealtype": 2,
+            "reserveday": 1
+        },
+        "Reservation_ID": 1755171914,
+        "status": 0
+    },
+    {
+        "Created_at": 1755342099,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": false,
+            "MealID": 2,
+            "MealName": "Chicken",
+            "Price": 30000.0,
+            "SideItems": [],
+            "mealtype": 2,
+            "reserveday": 1
+        },
+        "Reservation_ID": 1755342138,
+        "status": 0
+    },
+    {
+        "Created_at": 1755369003,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": true,
+            "MealID": 4,
+            "MealName": "Kebab",
+            "Price": 40000.0,
+            "SideItems": [],
+            "mealtype": 2,
+            "reserveday": 3
+        },
+        "Reservation_ID": 1755369010,
+        "status": 1
+    },
+    {
+        "Created_at": 1755369750,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": false,
+            "MealID": 3,
+            "MealName": "Pasta",
+            "Price": 25000.0,
+            "SideItems": [],
+            "mealtype": 3,
+            "reserveday": 2
+        },
+        "Reservation_ID": 1755369756,
+        "status": 0
+    },
+    {
+        "Created_at": 1755370294,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": true,
+            "MealID": 4,
+            "MealName": "Kebab",
+            "Price": 40000.0,
+            "SideItems": [],
+            "mealtype": 2,
+            "reserveday": 3
+        },
+        "Reservation_ID": 1755370305,
+        "status": 0
+    }
+]

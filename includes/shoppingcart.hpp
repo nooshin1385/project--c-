@@ -3,6 +3,8 @@
 #include <vector>
 #include "reservation.hpp"
 #include "json.hpp"
+#include "student.hpp"
+#include "studentreservations.hpp"
 using namespace std;
 using json = nlohmann ::json;
 class ShoppingCart
@@ -10,27 +12,85 @@ class ShoppingCart
     vector<Reservation> reservation;
 
 public:
-    void addReservation(const Reservation &r)
+    void confirm(Student *student);
+    bool addReservation(const Reservation &r, const Student *student);
+
+    /* void confirm(Student *student)
+     {
+         if (!student)
+         {
+             cout << "No student logged in.\n";
+             return;
+         }
+
+         if (reservation.empty())
+         {
+             cout << "Cart is empty.\n";
+             return;
+         }
+
+         float total = 0;
+         for (auto &r : reservation)
+         {
+             if (r.getMeal())
+                 total += r.getMeal()->getprice();
+         }
+
+         if (student->getBalance() < total)
+         {
+             cout << "Not enough balance to confirm reservations.\n";
+             cout << "Please increase your balance (Option 8).\n";
+             return;
+         }
+
+         vector<Reservation> currentReserves = student->getReserves();
+
+         for (auto &r : reservation)
+         {
+             r.setStatus(Confirmed);
+             r.setReservationID(time(nullptr));
+             currentReserves.push_back(r);
+             student->setBalance(student->getBalance() - r.getMeal()->getprice());
+         }
+
+         student->setreservation(currentReserves);
+         save_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
+
+         reservation.clear();
+
+         cout << "Reservations confirmed and saved.\n";
+         cout << "Remaining balance: " << student->getBalance() << "\n";
+     }*/
+    /* void removeReservation(int ID)
+      {
+          auto it =
+              remove_if(reservation.begin(), reservation.end(), [ID](const Reservation &r)
+                        { return r.getReservationId() == ID; });
+          if (it != reservation.end())
+          {
+              reservation.erase(it, reservation.end());
+              cout << "reservaes removed from cart.\n";
+          }
+          else
+          {
+              cout << " reservation IDnot found .\n";
+          }
+      }*/
+    bool removeItemById(int id)
     {
-        reservation.push_back(r);
-        cout << "reserve added to cart .\n";
-    }
-    void removeReservation(int ID)
-    {
-        auto it =
-            remove_if(reservation.begin(), reservation.end(), [ID](const Reservation &r)
-                      { return r.getReservationId() == ID; });
+        auto it = remove_if(reservation.begin(), reservation.end(),
+                            [id](const Reservation &r)
+                            {
+                                return r.getReservationId() == id;
+                            });
+
         if (it != reservation.end())
         {
             reservation.erase(it, reservation.end());
-            cout << "reservaes removed from cart.\n";
+            return true;
         }
-        else
-        {
-            cout << " reservation IDnot found .\n";
-        }
+        return false;
     }
-
     void viewShoppingCartItems()
     {
         if (reservation.empty())
@@ -47,7 +107,7 @@ public:
             }
         }
     }
-    void clear()
+    void clearcart()
     {
         reservation.clear();
         cout << "Shopping cart is clear now.\n";
@@ -59,7 +119,7 @@ public:
     vector<Reservation> coniform()
     {
         vector<Reservation> coniformed = reservation;
-        clear();
+        clearcart();
         return coniformed;
     }
     json to_json() const
@@ -82,3 +142,122 @@ public:
         }
     }
 };
+void ShoppingCart::confirm(Student *student)
+{
+    if (!student)
+    {
+        cout << "No student logged in.\n";
+        return;
+    }
+    if (reservation.empty())
+    {
+        cout << "Cart is empty.\n";
+        return;
+    }
+
+    vector<Reservation> current = student->getReserves();
+    vector<Reservation> toConfirm;
+    float total = 0;
+
+    auto sameMealDay = [](const Reservation &a, const Reservation &b)
+    {
+        return a.getMeal() && b.getMeal() &&
+               a.getMeal()->getmealid() == b.getMeal()->getmealid() &&
+               a.getMeal()->getreserveday() == b.getMeal()->getreserveday();
+    };
+
+    for (const auto &r : reservation)
+    {
+        if (!r.getMeal())
+            continue;
+
+        bool duplicate = any_of(current.begin(), current.end(),
+                                [&](const Reservation &x)
+                                { return sameMealDay(x, r) && x.getstatus() != Cancelled; });
+
+        if (duplicate)
+        {
+            cout << "Skipped duplicate: " << r.getMeal()->getmealname()
+                 << " (day " << (int)r.getMeal()->getreserveday() << ")\n";
+            continue;
+        }
+
+        toConfirm.push_back(r);
+        total += r.getMeal()->getprice();
+    }
+
+    if (toConfirm.empty())
+    {
+        cout << "Nothing to confirm.\n";
+        reservation.clear();
+        return;
+    }
+
+    if (student->getBalance() < total)
+    {
+        cout << "Not enough balance (" << student->getBalance()
+             << " < " << total << "). Use option 8 to increase balance.\n";
+        return;
+    }
+
+      for (auto &r : toConfirm)
+    {
+        r.setStatus(Confirmed);
+        r.setReservationID(time(nullptr));
+        student->setBalance(student->getBalance() - r.getMeal()->getprice());
+        current.push_back(r);
+    }
+
+    student->setreservation(current);
+    save_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
+    reservation.clear();
+
+    cout << "Reservations confirmed and saved.\n";
+    cout << "Remaining balance: " << student->getBalance() << "\n";
+}
+bool ShoppingCart::addReservation(const Reservation &r, const Student *student)
+{
+    if (!r.getMeal())
+    {
+        cout << "Meal is invalid.\n";
+        return false;
+    }
+
+    int mid = r.getMeal()->getmealid();
+    auto mday = r.getMeal()->getreserveday();
+
+    bool dupInCart = any_of(reservation.begin(), reservation.end(),
+                            [mid, mday](const Reservation &x)
+                            {
+                                return x.getMeal() &&
+                                       x.getMeal()->getmealid() == mid &&
+                                       x.getMeal()->getreserveday() == mday;
+                            });
+    if (dupInCart)
+    {
+        cout << "This meal for that day is already in your cart.\n";
+        return false;
+    }
+
+    if (student)
+    {
+        const auto &confirmed = student->getReserves();
+        bool dupConfirmed = any_of(confirmed.begin(), confirmed.end(),
+                                   [mid, mday](const Reservation &x)
+                                   {
+                                       return x.getMeal() &&
+                                              x.getMeal()->getmealid() == mid &&
+                                              x.getMeal()->getreserveday() == mday &&
+                                              x.getstatus() != Cancelled;
+                                   });
+        if (dupConfirmed)
+        {
+            cout << "You already reserved this meal for that day.\n";
+            return false;
+        }
+    }
+
+    reservation.push_back(r);
+    cout << "Reservation added to cart.\n";
+    return true;
+}

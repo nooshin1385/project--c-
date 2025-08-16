@@ -1,0 +1,25 @@
+[
+    {
+        "IsActive": true,
+        "MealID": 2,
+        "MealName": "morgh",
+        "Price": 12000.0,
+        "SideItems": [
+            "yougurt"
+        ],
+        "mealtype": 2,
+        "reserveday": 1
+    },
+    {
+        "IsActive": true,
+        "MealID": 1,
+        "MealName": "m",
+        "Price": 12000.0,
+        "SideItems": [
+            "u",
+            "i"
+        ],
+        "mealtype": 1,
+        "reserveday": 2
+    }
+]
