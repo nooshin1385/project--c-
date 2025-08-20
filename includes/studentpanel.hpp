@@ -10,6 +10,7 @@ class StudentPanel
 {
 private:
     vector<Reservation> items;
+    Student *loggedInStudent = nullptr;
     void LoginStudent()
     {
         string username, password;
@@ -29,6 +30,7 @@ private:
             cout << "Login failed or no student found.\n";
         }
     }
+
     void ShowProfile()
     {
         auto *session = StudentSession ::SessionManager ::getinstance();
@@ -83,8 +85,7 @@ private:
         Student *s = StudentSession::SessionManager::getinstance()->getCurrentStudent();
         Reservation r(100 + rand() % 900, Pending, new Meal(*it), nullptr, s);
 
-        if (StudentSession::SessionManager::getinstance()->getShopping_Cart()->addReservation(r, s))
-            ;
+        StudentSession::SessionManager::getinstance()->getShopping_Cart()->addReservation(r, s);
     }
 
     void checkBalance()
@@ -192,7 +193,7 @@ private:
         {
             if (r.getReservationId() == id && r.getstatus() == Confirmed)
             {
-                float refund = r.getMeal()->getprice() * 0.8f; 
+                float refund = r.getMeal()->getprice() * 0.8f;
                 student->setBalance(student->getBalance() + refund);
                 r.setStatus(Cancelled);
                 found = true;
@@ -225,6 +226,7 @@ private:
 
 public:
     StudentPanel() {}
+    void setStudent(Student *s) { loggedInStudent = s; }
     const vector<Reservation> &getItems() const
     {
         return items;

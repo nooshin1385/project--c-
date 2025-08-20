@@ -128,6 +128,54 @@ main_exec/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/build
 .PHONY : main_exec/fast
 
+adminrep.obj: adminrep.cpp.obj
+.PHONY : adminrep.obj
+
+# target to build an object file
+adminrep.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/adminrep.cpp.obj
+.PHONY : adminrep.cpp.obj
+
+adminrep.i: adminrep.cpp.i
+.PHONY : adminrep.i
+
+# target to preprocess a source file
+adminrep.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/adminrep.cpp.i
+.PHONY : adminrep.cpp.i
+
+adminrep.s: adminrep.cpp.s
+.PHONY : adminrep.s
+
+# target to generate assembly for a file
+adminrep.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/adminrep.cpp.s
+.PHONY : adminrep.cpp.s
+
+loginflow.obj: loginflow.cpp.obj
+.PHONY : loginflow.obj
+
+# target to build an object file
+loginflow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/loginflow.cpp.obj
+.PHONY : loginflow.cpp.obj
+
+loginflow.i: loginflow.cpp.i
+.PHONY : loginflow.i
+
+# target to preprocess a source file
+loginflow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/loginflow.cpp.i
+.PHONY : loginflow.cpp.i
+
+loginflow.s: loginflow.cpp.s
+.PHONY : loginflow.s
+
+# target to generate assembly for a file
+loginflow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/loginflow.cpp.s
+.PHONY : loginflow.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -151,6 +199,30 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+studentdata.obj: studentdata.cpp.obj
+.PHONY : studentdata.obj
+
+# target to build an object file
+studentdata.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/studentdata.cpp.obj
+.PHONY : studentdata.cpp.obj
+
+studentdata.i: studentdata.cpp.i
+.PHONY : studentdata.i
+
+# target to preprocess a source file
+studentdata.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/studentdata.cpp.i
+.PHONY : studentdata.cpp.i
+
+studentdata.s: studentdata.cpp.s
+.PHONY : studentdata.s
+
+# target to generate assembly for a file
+studentdata.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/studentdata.cpp.s
+.PHONY : studentdata.cpp.s
 
 studentreservationdef.obj: studentreservationdef.cpp.obj
 .PHONY : studentreservationdef.obj
@@ -185,9 +257,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main_exec
+	@echo ... adminrep.obj
+	@echo ... adminrep.i
+	@echo ... adminrep.s
+	@echo ... loginflow.obj
+	@echo ... loginflow.i
+	@echo ... loginflow.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... studentdata.obj
+	@echo ... studentdata.i
+	@echo ... studentdata.s
 	@echo ... studentreservationdef.obj
 	@echo ... studentreservationdef.i
 	@echo ... studentreservationdef.s

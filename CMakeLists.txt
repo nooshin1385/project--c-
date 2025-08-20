@@ -12,7 +12,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 link_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(main_exec main.cpp studentreservationdef.cpp)
+add_executable(main_exec main.cpp studentreservationdef.cpp adminrep.cpp studentdata.cpp loginflow.cpp)
 
 
 

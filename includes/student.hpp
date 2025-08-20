@@ -17,7 +17,7 @@ class Student : public User
     bool IsActive;
     bool Hasreservation = false;
     vector<Reservation> reservation;
-    int Phone;
+    string Phone;
 
 public:
     Student()
@@ -26,7 +26,7 @@ public:
         Balance = 0.0;
         IsActive = true;
         Hasreservation = true;
-        Phone = 0;
+        Phone = "";
     }
 
     Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, int _phone = 0)
@@ -45,6 +45,20 @@ public:
         reservation = _reservation;
         Phone = _phone;
     }
+    Student(int userId,
+            const string& firstName,
+            const string& lastName,
+            const string& passwordHash,
+            const string& email,
+            const string& studentId,
+            const string& phone,
+            long long balance = 100000)
+        : User(userId, firstName, lastName, passwordHash, email),
+          StudentId(studentId),
+          Phone(phone),
+          Balance(balance) {}
+
+    Student() : User(), Balance(0) {}
 
     Student &operator=(const Student &ob)
     {
@@ -125,11 +139,11 @@ public:
     void setphone(int _phone) { Phone = _phone; }
 
     string getStudentId() const { return StudentId; }
-    float getBalance() { return Balance; }
-    bool getIsActive() { return IsActive; }
-    bool getHasReservation() { return Hasreservation; }
+    float getBalance() const{ return Balance; }
+    bool getIsActive() const { return IsActive; }
+    bool getHasReservation() const { return Hasreservation; }
     vector<Reservation> getReserves() const { return reservation; }
-    int getphone() { return Phone; }
+    string getphone() { return Phone; }
 
     void ReserveMeal()
     {

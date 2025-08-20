@@ -2,7 +2,7 @@
 #include "student.hpp"
 #include "reservation.hpp"
 
-using namespace std ; 
+using namespace std;
 void save_student_reservations(const Student &student, const string &filename)
 {
     ofstream out(filename);
@@ -21,7 +21,7 @@ void save_student_reservations(const Student &student, const string &filename)
     out << j.dump(4);
     out.close();
 }
- void load_student_reservations(Student &student, const string &filename)
+void load_student_reservations(Student &student, const string &filename)
 {
     ifstream in(filename);
     if (!in.is_open())
@@ -54,4 +54,29 @@ void save_student_reservations(const Student &student, const string &filename)
         loaded.push_back(r);
     }
     student.setreservation(loaded);
+}
+void save_student_balance(const Student &student, const std::string &path)
+{
+    json j;
+    j["student_id"] = student.getStudentId();
+    j["balance"] = student.getBalance();
+
+    std::ofstream ofs(path);
+    ofs << j.dump(2);
+}
+
+bool load_student_balance(Student &student, const std::string &path)
+{
+    std::ifstream ifs(path);
+    if (!ifs)
+        return false;
+
+    json j;
+    ifs >> j;
+    if (j.contains("balance"))
+    {
+        student.setBalance(j["balance"].get<float>());
+        return true;
+    }
+    return false;
 }
