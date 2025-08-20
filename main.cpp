@@ -10,56 +10,71 @@
 #include "includes/sessions.hpp"
 #include "includes/adminpanel.hpp"
 #include "includes/adminrepo.hpp"
+#include "includes/studentdata.hpp"
 #include <iostream>
 // #include "bcrypt/BCrypt.hpp"
 using namespace std;
 vector<Student> allStudents;
-
 int main()
 {
-    cout << "\n Welcome to Student Food Reservation System \n";
-    AdminRepository repo("admins.json");
-    if (!repo.exists())
+    cout << "\n≡ Welcome to Student Food Reservation System ≡\n";
+
+    AdminRepository adminRepo("admins.json");
+    if (!adminRepo.exists())
     {
-        cout << "⚠️ No admin found. Please create the first system admin.\n";
+        cout << "\nNo admin found. Please create the first system admin.\n";
         string user, pass;
         cout << "Enter admin username: ";
         cin >> user;
         cout << "Enter password: ";
         cin >> pass;
-        repo.addAdmin(Admin(user, pass));
-        cout << "✅ Admin created successfully.\n";
+        adminRepo.addAdmin(Admin(user, pass));
+        cout << "Admin created successfully.\n";
     }
 
     int choice;
     do
     {
-        cout << "\nSelect Role:\n"
-             << "1. Student\n"
-             << "2. Admin\n"
-             << "3. Exit\n"
-             << "Choice: ";
+        cout << "\nSelect Role:\n1. Login\n2. Exit\nChoice: ";
         cin >> choice;
 
-        switch (choice)
+        if (choice == 1)
         {
-        case 1:
-            StudentSession::SessionManager::getinstance()->load_Session();
-            StudentPanel().showMenu();
-            break;
-
-        case 2:
-            AdminPanel().showMenu();
-            break;
-
-        case 3:
+            string username, password;
+            cout << "Username: ";
+            cin >> username;
+            cout << "Password: ";
+            cin >> password;
+            if (adminRepo.validateAdmin(username, password))
+            {
+                cout << "✔️ Admin login successful.\n";
+                AdminPanel().showMenu();
+            }
+            else
+            {
+                Student *student = StudentsData::findStudentByIdAndPassword(username, password);
+                if (student)
+                {
+                    cout << "Student login successful.\n";
+                    StudentPanel panel;
+                    panel.setStudent(student);
+                    panel.showMenu();
+                }
+                else
+                {
+                    cout << "Invalid credentials.\n";
+                }
+            }
+        }
+        else if (choice == 2)
+        {
             cout << "Exiting...\n";
-            break;
-
-        default:
+        }
+        else
+        {
             cout << "Invalid choice.\n";
         }
-    } while (choice != 3);
+    } while (choice != 2);
 
     return 0;
 }

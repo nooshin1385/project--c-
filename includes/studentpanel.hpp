@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "sessions.hpp"
 #include "meal.hpp"

@@ -144,7 +144,7 @@ public:
         }
     }
 };
-void ShoppingCart::confirm(Student *student)
+inline void ShoppingCart::confirm(Student *student)
 {
     if (!student)
     {
@@ -231,7 +231,7 @@ void ShoppingCart::confirm(Student *student)
     cout << "Reservations confirmed and saved.\n";
     cout << "Remaining balance: " << student->getBalance() << "\n";
 }
-bool ShoppingCart::addReservation(const Reservation &r, const Student *student)
+inline bool ShoppingCart::addReservation(const Reservation &r, const Student *student)
 {
     if (!r.getMeal())
     {
@@ -277,7 +277,7 @@ bool ShoppingCart::addReservation(const Reservation &r, const Student *student)
     cout << "Reservation added to cart.\n";
     return true;
 }
-void ShoppingCart::removeFromCart(int reservationID)
+inline void ShoppingCart::removeFromCart(int reservationID)
 {
     auto it = remove_if(reservation.begin(), reservation.end(),
                         [&](const Reservation &r)
@@ -293,7 +293,7 @@ void ShoppingCart::removeFromCart(int reservationID)
         cout << "Reservation ID not found in cart.\n";
     }
 }
-void ShoppingCart::removeConfirmedReservation(int reservationID, Student *student, bool hardDelete)
+inline void ShoppingCart::removeConfirmedReservation(int reservationID, Student *student, bool hardDelete)
 {
     if (!student)
     {
@@ -346,7 +346,7 @@ void ShoppingCart::removeConfirmedReservation(int reservationID, Student *studen
         cout << "Reservation ID not found.\n";
     }
 }
-bool ShoppingCart::removeReservation(Student *student, int reservationID)
+inline bool ShoppingCart::removeReservation(Student *student, int reservationID)
 {
     if (!student)
     {
@@ -362,7 +362,7 @@ bool ShoppingCart::removeReservation(Student *student, int reservationID)
     {
         if (it->getstatus() == Confirmed && it->getMeal())
         {
-            float refund = it->getMeal()->getprice() * 0.8f; // 80% برگشت
+            float refund = it->getMeal()->getprice() * 0.8f; 
             student->setBalance(student->getBalance() + refund);
             cout << "Reservation removed. 20% penalty applied. Refund: " << refund << "\n";
         }

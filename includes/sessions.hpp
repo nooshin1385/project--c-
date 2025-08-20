@@ -178,7 +178,7 @@ namespace AdminSession
     {
         Admin *CurrentAdmin;
         string AdminID;
-        static SessionManager *instance;
+        static inline SessionManager *instance = nullptr;
 
         SessionManager()
         {
@@ -230,5 +230,5 @@ namespace AdminSession
         }
     };
 
-    SessionManager *SessionManager::instance = nullptr;
+   // SessionManager *SessionManager::instance = nullptr;
 }

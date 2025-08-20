@@ -20,14 +20,14 @@ class Student : public User
     string Phone;
 
 public:
-    Student()
+   /* Student()
     {
         StudentId = "0000000000";
         Balance = 0.0;
         IsActive = true;
         Hasreservation = true;
         Phone = "";
-    }
+    } */
 
     Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, int _phone = 0)
     {
