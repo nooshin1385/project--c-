@@ -19,12 +19,12 @@ private:
         cin >> username;
         cout << "Password : ";
         cin >> password;
-        StudentSession::SessionManager *session = StudentSession::SessionManager::getinstance();
-        session->Login_Session(username, password);
-        Student *student = session->getCurrentStudent();
-        if (student)
+
+        StudentSession::SessionManager::getinstance()->Login_Session(username, password);
+
+        if (StudentSession::SessionManager::getinstance()->getCurrentStudent())
         {
-            load_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
+            cout << "Student login successful.\n";
         }
         else
         {
