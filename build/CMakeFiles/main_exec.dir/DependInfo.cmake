@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Asus/Desktop/project-c++/adminrep.cpp" "CMakeFiles/main_exec.dir/adminrep.cpp.obj" "gcc" "CMakeFiles/main_exec.dir/adminrep.cpp.obj.d"
   "C:/Users/Asus/Desktop/project-c++/loginflow.cpp" "CMakeFiles/main_exec.dir/loginflow.cpp.obj" "gcc" "CMakeFiles/main_exec.dir/loginflow.cpp.obj.d"
   "C:/Users/Asus/Desktop/project-c++/main.cpp" "CMakeFiles/main_exec.dir/main.cpp.obj" "gcc" "CMakeFiles/main_exec.dir/main.cpp.obj.d"
+  "C:/Users/Asus/Desktop/project-c++/sessions.cpp" "CMakeFiles/main_exec.dir/sessions.cpp.obj" "gcc" "CMakeFiles/main_exec.dir/sessions.cpp.obj.d"
   "C:/Users/Asus/Desktop/project-c++/studentdata.cpp" "CMakeFiles/main_exec.dir/studentdata.cpp.obj" "gcc" "CMakeFiles/main_exec.dir/studentdata.cpp.obj.d"
   "C:/Users/Asus/Desktop/project-c++/studentreservationdef.cpp" "CMakeFiles/main_exec.dir/studentreservationdef.cpp.obj" "gcc" "CMakeFiles/main_exec.dir/studentreservationdef.cpp.obj.d"
   )

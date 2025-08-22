@@ -200,6 +200,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sessions.obj: sessions.cpp.obj
+.PHONY : sessions.obj
+
+# target to build an object file
+sessions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/sessions.cpp.obj
+.PHONY : sessions.cpp.obj
+
+sessions.i: sessions.cpp.i
+.PHONY : sessions.i
+
+# target to preprocess a source file
+sessions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/sessions.cpp.i
+.PHONY : sessions.cpp.i
+
+sessions.s: sessions.cpp.s
+.PHONY : sessions.s
+
+# target to generate assembly for a file
+sessions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_exec.dir\build.make CMakeFiles/main_exec.dir/sessions.cpp.s
+.PHONY : sessions.cpp.s
+
 studentdata.obj: studentdata.cpp.obj
 .PHONY : studentdata.obj
 
@@ -266,6 +290,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... sessions.obj
+	@echo ... sessions.i
+	@echo ... sessions.s
 	@echo ... studentdata.obj
 	@echo ... studentdata.i
 	@echo ... studentdata.s

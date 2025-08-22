@@ -1,9 +1,11 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <string>
 #include "studentdata.hpp"
 #include "student.hpp"
 #include "user.hpp"
+#include "include/bcrypt/BCrypt.hpp"
 
 using namespace std;
 
@@ -32,8 +34,7 @@ vector<Student> StudentsData::loadFromCSV(const string &filename)
         getline(ss, email, ',');
         getline(ss, phone, ',');
 
-        string fullName = firstName + " " + lastName;
-
+        // ساخت شی Student با داده‌ها
         Student s(stoi(userId), firstName, lastName, passwordHash, email, studentId, phone, 100000);
         students.push_back(s);
     }
@@ -47,13 +48,13 @@ vector<Student> StudentsData::getStudents()
     return loadFromCSV("studentsCsvFile.csv");
 }
 
-Student *StudentsData::findStudentByIdAndPassword(const string &studentId, const string &passwordHash)
+Student *StudentsData::findStudentByIdAndPassword(const string &studentId, const string &rawPassword)
 {
     static vector<Student> students = loadFromCSV("studentsCsvFile.csv");
 
     for (auto &s : students)
     {
-        if (s.getStudentId() == studentId && s.getHashpassword() == passwordHash)
+        if (s.getStudentId() == studentId && BCrypt::validatePassword(rawPassword, s.getHashpassword()))
         {
             return &s;
         }

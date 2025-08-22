@@ -1,15 +1,62 @@
-
 [
     {
         "Balance": 100000.0,
-        "Email": "test@example.com",
-        "HashedPassword": "$2a$12$aYZiq4QMjg7Wshmf6JFVA.DvrCQttZAuXq2k/gByyewAhCBbTivyi",
-        "Hasreservation": true,
+        "Email": "rezvan.kazemi@example.com",
+        "HashedPassword": "$2b$12$hcHkSoRAIohLVHW0/HhtKOltcf/VxscC3iW3CF6MCWskJ2hggB6lq", 
+        "Hasreservation": false,
         "IsActive": true,
-        "LastName": "User",
-        "Name": "Test",
-        "Phone": 0,
-        "StudentId": "0000000000",
-        "UserId": 999
+        "LastName": "Kazemi",
+        "Name": "Rezvan",
+        "Phone": "09651065286",
+        "StudentId": "4022604305",
+        "UserId": 0
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "ali.reza@example.com",
+        "HashedPassword": "$2a$12$YFexXZmE4R5u4J6YwV35SOFqQph4JfZC5t1lbrgNfV0o9L4U7uHV.", 
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Rezaei",
+        "Name": "Ali",
+        "Phone": "09120000001",
+        "StudentId": "4022604306",
+        "UserId": 1
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "sara.m@example.com",
+        "HashedPassword": "$2a$12$BiYkBkFMEFmgFyemV92fcu7Am0pK61TCEapbkO2Vjfhx6UTcKzJzK", 
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Mohammadi",
+        "Name": "Sara",
+        "Phone": "09120000002",
+        "StudentId": "4022604307",
+        "UserId": 2
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "hamed.t@example.com",
+        "HashedPassword": "$2a$12$JH92ak.Td52D4gknHwGfMeF1y9TXxHqA8H5kJ9MZ2twKLVWswW8NK", 
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Taheri",
+        "Name": "Hamed",
+        "Phone": "09120000003",
+        "StudentId": "4022604308",
+        "UserId": 3
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "fatemeh.r@example.com",
+        "HashedPassword": "$2a$12$6X2wXjZZweOe0Gl5yRz4mOvQx8Mo7LBKzM1fAInE8JmSpYxXxvwF2", 
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Rahimi",
+        "Name": "Fatemeh",
+        "Phone": "09120000004",
+        "StudentId": "4022604309",
+        "UserId": 4
     }
 ]

@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main_exec.dir/loginflow.cpp.obj.d"
   "CMakeFiles/main_exec.dir/main.cpp.obj"
   "CMakeFiles/main_exec.dir/main.cpp.obj.d"
+  "CMakeFiles/main_exec.dir/sessions.cpp.obj"
+  "CMakeFiles/main_exec.dir/sessions.cpp.obj.d"
   "CMakeFiles/main_exec.dir/studentdata.cpp.obj"
   "CMakeFiles/main_exec.dir/studentdata.cpp.obj.d"
   "CMakeFiles/main_exec.dir/studentreservationdef.cpp.obj"

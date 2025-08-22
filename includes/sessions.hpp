@@ -86,7 +86,7 @@ namespace StudentSession
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
-        static SessionManager *instance;
+        static SessionManager *instance ;
         vector<Student> allStudents;
         SessionManager()
         {
@@ -169,7 +169,7 @@ namespace StudentSession
             return Shopping_Cart;
         }
     };
-    SessionManager *StudentSession ::SessionManager ::instance = nullptr;
+   // SessionManager *StudentSession ::SessionManager ::instance = nullptr;
 
 }
 namespace AdminSession
@@ -178,7 +178,7 @@ namespace AdminSession
     {
         Admin *CurrentAdmin;
         string AdminID;
-        static inline SessionManager *instance = nullptr;
+        static SessionManager *instance ;
 
         SessionManager()
         {
@@ -230,5 +230,5 @@ namespace AdminSession
         }
     };
 
-   // SessionManager *SessionManager::instance = nullptr;
+    // SessionManager *SessionManager::instance = nullptr;
 }
