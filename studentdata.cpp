@@ -34,7 +34,6 @@ vector<Student> StudentsData::loadFromCSV(const string &filename)
         getline(ss, email, ',');
         getline(ss, phone, ',');
 
-        // ساخت شی Student با داده‌ها
         Student s(stoi(userId), firstName, lastName, passwordHash, email, studentId, phone, 100000);
         students.push_back(s);
     }
@@ -47,16 +46,54 @@ vector<Student> StudentsData::getStudents()
 {
     return loadFromCSV("studentsCsvFile.csv");
 }
-
-Student *StudentsData::findStudentByIdAndPassword(const string &studentId, const string &rawPassword)
+bool StudentsData::existsInCSV(const string &studentId)
 {
-    static vector<Student> students = loadFromCSV("studentsCsvFile.csv");
+    ifstream file("studentsCsvFile.csv");
+    if (!file.is_open())
+        return false;
+
+    string line;
+
+    while (getline(file, line))
+    {
+        stringstream ss(line);
+        string userId, id;
+
+        getline(ss, userId, ',');
+        getline(ss, id, ',');
+
+        if (id == studentId)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+Student *StudentsData::findStudentByIdAndPassword(const string &studentId, const string &password)
+{
+    ifstream file("students.json");
+    if (!file.is_open())
+        return nullptr;
+
+    json students;
+    file >> students;
 
     for (auto &s : students)
     {
-        if (s.getStudentId() == studentId && BCrypt::validatePassword(rawPassword, s.getHashpassword()))
+        if (s["StudentId"] == studentId)
         {
-            return &s;
+            string hashed = s["HashedPassword"];
+
+            if (BCrypt::validatePassword(password, hashed))
+            {
+                Student *student = new Student();
+                student->from_json(s);
+                return student;
+            }
+            else
+            {
+                return nullptr;
+            }
         }
     }
     return nullptr;

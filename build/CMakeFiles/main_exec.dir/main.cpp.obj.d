@@ -246,4 +246,6 @@ CMakeFiles/main_exec.dir/main.cpp.obj: \
  C:\Users\Asus\Desktop\project-c++\includes/studentsdata.hpp \
  C:\Users\Asus\Desktop\project-c++\includes/adminpanel.hpp \
  C:\Users\Asus\Desktop\project-c++\includes/adminrepo.hpp \
+ C:\Users\Asus\Desktop\project-c++\includes/studentdata.hpp \
+ C:\Users\Asus\Desktop\project-c++\includes/loginflow.hpp \
  C:\Users\Asus\Desktop\project-c++\includes/studentdata.hpp

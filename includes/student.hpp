@@ -20,16 +20,16 @@ class Student : public User
     string Phone;
 
 public:
-   /* Student()
-    {
-        StudentId = "0000000000";
-        Balance = 0.0;
-        IsActive = true;
-        Hasreservation = true;
-        Phone = "";
-    } */
+    /* Student()
+     {
+         StudentId = "0000000000";
+         Balance = 0.0;
+         IsActive = true;
+         Hasreservation = true;
+         Phone = "";
+     } */
 
-    Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, int _phone = 0)
+    Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, string _phone = "")
     {
         try
         {
@@ -46,12 +46,12 @@ public:
         Phone = _phone;
     }
     Student(int userId,
-            const string& firstName,
-            const string& lastName,
-            const string& passwordHash,
-            const string& email,
-            const string& studentId,
-            const string& phone,
+            const string &firstName,
+            const string &lastName,
+            const string &passwordHash,
+            const string &email,
+            const string &studentId,
+            const string &phone,
             long long balance = 100000)
         : User(userId, firstName, lastName, passwordHash, email),
           StudentId(studentId),
@@ -98,7 +98,9 @@ public:
         Balance = j.at("Balance").get<float>();
         IsActive = j.at("IsActive").get<bool>();
         Hasreservation = j.at("Hasreservation").get<bool>();
-        Phone = j.at("Phone").get<int>();
+        Phone = j.at("Phone").get<string>();
+        if (j.contains("HashedPassword"))
+            setpassword(j.at("HashedPassword").get<string>());
 
         reservation.clear();
         if (j.contains("reservations") && j["reservations"].is_array())
@@ -136,10 +138,10 @@ public:
     void setIsActive(bool status) { IsActive = status; }
     void setHasRservation(bool reservationstatus) { Hasreservation = reservationstatus; }
     void setreservation(const vector<Reservation> &_reservation) { reservation = _reservation; }
-    void setphone(int _phone) { Phone = _phone; }
+    void setphone(string _phone) { Phone = _phone; }
 
     string getStudentId() const { return StudentId; }
-    float getBalance() const{ return Balance; }
+    float getBalance() const { return Balance; }
     bool getIsActive() const { return IsActive; }
     bool getHasReservation() const { return Hasreservation; }
     vector<Reservation> getReserves() const { return reservation; }

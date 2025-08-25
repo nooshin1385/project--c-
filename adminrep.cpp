@@ -40,12 +40,6 @@ void AdminRepository::save()
     out.close();
 }
 
-void AdminRepository::addAdmin(const Admin &admin)
-{
-    admins.push_back(admin);
-    save();
-}
-
 Admin *AdminRepository::findByUsername(const string &username)
 {
     for (auto &a : admins)
@@ -54,11 +48,6 @@ Admin *AdminRepository::findByUsername(const string &username)
             return &a;
     }
     return nullptr;
-}
-
-bool AdminRepository::exists()
-{
-    return !admins.empty();
 }
 
 bool AdminRepository::removeAdmin(const string &username)
@@ -74,14 +63,66 @@ bool AdminRepository::removeAdmin(const string &username)
     }
     return false;
 }
-bool AdminRepository::validateAdmin(const string &username, const string &password)
+bool AdminRepository::exists() const
 {
+    ifstream file(filename);
+    return file.good();
+}
+bool AdminRepository::userExists(const string &username) const
+{
+    ifstream file(filename);
+    if (!file.is_open())
+        return false;
+
+    json admins;
+    file >> admins;
+
     for (auto &a : admins)
     {
-        if (a.getUsername() == username && a.getPassword() == password)
+        if (a["username"] == username)
         {
             return true;
         }
     }
     return false;
+}
+
+bool AdminRepository::validateAdmin(const string &username, const string &password)
+{
+    ifstream file(filename);
+    if (!file.is_open())
+        return false;
+
+    json admins;
+    file >> admins;
+
+    for (auto &a : admins)
+    {
+        if (a["username"] == username)
+        {
+            string hashed = a["password"];
+            return BCrypt::validatePassword(password, hashed);
+        }
+    }
+    return false;
+}
+
+void AdminRepository::addAdmin(const Admin &admin)
+{
+    json admins;
+    ifstream infile(filename);
+    if (infile.is_open())
+    {
+        infile >> admins;
+    }
+    infile.close();
+
+    json newAdmin = {
+        {"username", admin.getUsername()},
+        {"password", admin.getPassword()}};
+
+    admins.push_back(newAdmin);
+
+    ofstream outfile(filename);
+    outfile << admins.dump(4);
 }

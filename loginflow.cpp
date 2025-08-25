@@ -1,39 +1,57 @@
 #include "loginflow.hpp"
+#include "adminrepo.hpp"
+#include "studentdata.hpp"
 #include "studentpanel.hpp"
 #include "adminpanel.hpp"
 #include <iostream>
-
 using namespace std;
 
 void LoginFlow::login()
 {
-    cout << "Enter username (studentId or admin username): ";
+    AdminRepository adminRepo("admins.json");
+
     string username;
+    cout << "Username: ";
     cin >> username;
 
-    cout << "Enter password: ";
-    string password;
-    cin >> password;
-    AdminRepository adminRepo("admins.json");
-    if (adminRepo.exists())
+    if (adminRepo.userExists(username))
     {
+        string password;
+        cout << "Password: ";
+        cin >> password;
         if (adminRepo.validateAdmin(username, password))
         {
             cout << "Admin login successful.\n";
             AdminPanel().showMenu();
-            return;
         }
+        else
+        {
+            cout << "Invalid admin password.\n";
+        }
+        return;
     }
 
-   Student* student = StudentsData::findStudentByIdAndPassword(username, password);
+    if (StudentsData::existsInCSV(username))
+    {
+        cout << "Student ID found. Please enter your password:\n";
+        string password;
+        cout << "Password: ";
+        cin >> password;
 
-if (student) {
-    cout << "Student login successful.\n";
-    StudentPanel panel;         
-    panel.setStudent(student);   
-    panel.showMenu();           
-    return;
-}
+        Student *student = StudentsData::findStudentByIdAndPassword(username, password);
+        if (student)
+        {
+            cout << "✔️ Student login successful.\n";
+            StudentPanel panel;
+            panel.setStudent(student);
+            panel.showMenu();
+        }
+        else
+        {
+            cout << "Invalid student password.\n";
+        }
+        return;
+    }
 
-    cout << "Invalid username or password.\n";
+    cout << "Invalid username.\n";
 }

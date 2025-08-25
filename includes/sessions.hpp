@@ -86,7 +86,7 @@ namespace StudentSession
         Student *CurrentStudent;
         ShoppingCart *Shopping_Cart;
         int StudentID;
-        static SessionManager *instance ;
+        static SessionManager *instance;
         vector<Student> allStudents;
         SessionManager()
         {
@@ -124,7 +124,9 @@ namespace StudentSession
             if (Shopping_Cart)
                 delete Shopping_Cart;
 
-            for (const auto &s : allStudents)
+            vector<Student> students = loadAllStudents();
+
+            for (const auto &s : students)
             {
                 if (s.getStudentId() == username && BCrypt::validatePassword(password, s.getHashpassword()))
                 {
@@ -169,7 +171,7 @@ namespace StudentSession
             return Shopping_Cart;
         }
     };
-   // SessionManager *StudentSession ::SessionManager ::instance = nullptr;
+    // SessionManager *StudentSession ::SessionManager ::instance = nullptr;
 
 }
 namespace AdminSession
@@ -178,7 +180,7 @@ namespace AdminSession
     {
         Admin *CurrentAdmin;
         string AdminID;
-        static SessionManager *instance ;
+        static SessionManager *instance;
 
         SessionManager()
         {

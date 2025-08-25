@@ -18,7 +18,8 @@ public:
 
     void addAdmin(const Admin &admin);
     Admin *findByUsername(const string &username);
-    bool exists();
+    bool exists()const;
     bool removeAdmin(const string &username);
     bool validateAdmin(const string& username, const string& password);
+    bool userExists(const string &username)const;
 };

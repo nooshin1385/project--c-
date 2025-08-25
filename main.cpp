@@ -11,60 +11,36 @@
 #include "includes/adminpanel.hpp"
 #include "includes/adminrepo.hpp"
 #include "includes/studentdata.hpp"
+#include "includes/loginflow.hpp"
 #include <iostream>
-// #include "bcrypt/BCrypt.hpp"
 using namespace std;
 vector<Student> allStudents;
+#include <limits>
 int main()
 {
-    cout << "\n≡ Welcome to Student Food Reservation System ≡\n";
+    cout << "\n--Welcome to Student Food Reservation System--\n";
 
-    AdminRepository adminRepo("admins.json");
-    if (!adminRepo.exists())
-    {
-        cout << "\nNo admin found. Please create the first system admin.\n";
-        string user, pass;
-        cout << "Enter admin username: ";
-        cin >> user;
-        cout << "Enter password: ";
-        cin >> pass;
-        adminRepo.addAdmin(Admin(user, pass));
-        cout << "Admin created successfully.\n";
-    }
+    LoginFlow flow;
 
-    int choice;
+    // اگه در LoginFlow تابع ensureAdmin داری، این خط فعال باشه:
+    // flow.ensureAdmin();
+
+    int choice = 0;
     do
     {
         cout << "\nSelect Role:\n1. Login\n2. Exit\nChoice: ";
-        cin >> choice;
+
+        if (!(cin >> choice))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number.\n";
+            continue;
+        }
 
         if (choice == 1)
         {
-            string username, password;
-            cout << "Username: ";
-            cin >> username;
-            cout << "Password: ";
-            cin >> password;
-            if (adminRepo.validateAdmin(username, password))
-            {
-                cout << "✔️ Admin login successful.\n";
-                AdminPanel().showMenu();
-            }
-            else
-            {
-                Student *student = StudentsData::findStudentByIdAndPassword(username, password);
-                if (student)
-                {
-                    cout << "Student login successful.\n";
-                    StudentPanel panel;
-                    panel.setStudent(student);
-                    panel.showMenu();
-                }
-                else
-                {
-                    cout << "Invalid credentials.\n";
-                }
-            }
+            flow.login();
         }
         else if (choice == 2)
         {
@@ -74,6 +50,7 @@ int main()
         {
             cout << "Invalid choice.\n";
         }
+
     } while (choice != 2);
 
     return 0;
