@@ -1,4 +1,122 @@
-{
-  "balance": 85000.0,
-  "student_id": "4024828179"
-}
+[
+    {
+        "Balance": 100000.0,
+        "Email": "Rezvan.Kazemi801@gmail.com",
+        "HashedPassword": "$2a$12$q14OMYpD5LH8ONNgLF3x/Or6l9Lr0fUD8btaFUw2y.Pw73bIegWYW",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Kazemi",
+        "Name": "Rezvan",
+        "Phone": "09651065286",
+        "StudentId": "4022604305",
+        "UserId": 0
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "KianJafari365@gmail.com",
+        "HashedPassword": "$2a$12$TnjLl8S7XbCyN67vi2i2yOVDpaIXX4OXKshLaah.V.B3Xv9ZrdJua",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Jafari",
+        "Name": "Kian",
+        "Phone": "09624072199",
+        "StudentId": "4024828179",
+        "UserId": 1
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "ChavoshAmini575@gmail.com",
+        "HashedPassword": "$2a$12$3k.p4CU64QoaO95BStihBePnNsh3gxguChH3w4jj/m5kHwvhH8DxG",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Amini",
+        "Name": "Chavosh",
+        "Phone": "09472853524",
+        "StudentId": "4032070231",
+        "UserId": 2
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "Chavosh.Ebrahimi.304@gmail.com",
+        "HashedPassword": "$2a$12$VaCfDoYGn1E2daubFmiYuuu9I6RB1.cPdW.ESBurEICF5.h1GQ0ue",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Ebrahimi",
+        "Name": "Chavosh",
+        "Phone": "09451255502",
+        "StudentId": "4026307892",
+        "UserId": 3
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "Amir.Fakhri687@gmail.com",
+        "HashedPassword": "$2a$12$XlGZYQv6hg8vdaLYzyTVvueCaHuKf47piS0dtz3g2I1arM2IFFgI6",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Fakhri",
+        "Name": "Amir",
+        "Phone": "09331667952",
+        "StudentId": "4016789424",
+        "UserId": 4
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "Shahin.Tehrani907@gmail.com",
+        "HashedPassword": "$2a$12$PjFPLroyLd.SpWMStFfp8eCaKoDo1JrmCxSlI.vOljknEFmYNOGda",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Tehrani",
+        "Name": "Shahin",
+        "Phone": "09978674742",
+        "StudentId": "4039899104",
+        "UserId": 5
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "Amir Hossein.Maleki999@gmail.com",
+        "HashedPassword": "$2a$12$MIy0LMm0h7lj9M8Jm0uJze1M9bR87quAUiFxbDIEVfSgEv4wvk/XW",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Maleki",
+        "Name": "Amir Hossein",
+        "Phone": "09416865213",
+        "StudentId": "4014163323",
+        "UserId": 6
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "Mohammad.Momeni419@gmail.com",
+        "HashedPassword": "$2a$12$6E3WFoKBjakngHR1rkoTOuIKhH3RtdzTmD5q0GUe/tzWFkceSkFTi",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Momeni",
+        "Name": "Mohammad",
+        "Phone": "09128344034",
+        "StudentId": "4021555306",
+        "UserId": 7
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "BahramNazeri947@gmail.com",
+        "HashedPassword": "$2a$12$MRXrjz5EaOgaaDN6PQ.jKeYLnZEoAfrEMp8ntOv3oNS.tP93M2qy2",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Nazeri",
+        "Name": "Bahram",
+        "Phone": "09811323713",
+        "StudentId": "4017104712",
+        "UserId": 8
+    },
+    {
+        "Balance": 100000.0,
+        "Email": "RezaRostami875@gmail.com",
+        "HashedPassword": "$2a$12$klmhoS8FxiKwYoSFzAQvoul5HPe95jNWBUr0gjDZylJ4u7qC7Pjvm",
+        "Hasreservation": false,
+        "IsActive": true,
+        "LastName": "Rostami",
+        "Name": "Reza",
+        "Phone": "09708641812",
+        "StudentId": "4037634811",
+        "UserId": 9
+    }
+]

@@ -7,7 +7,7 @@ using json = nlohmann::json;
 using namespace std;
 
 inline void saveAllStudents(const vector<Student>& students, const string& filename = "students.json") {
-    json j;
+    json j = json::array();
     for (const auto& s : students) {
         j.push_back(s.to_json());
     }
