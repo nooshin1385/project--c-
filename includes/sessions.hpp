@@ -116,6 +116,7 @@ namespace StudentSession
         {
             saveAllStudents(allStudents);
         }
+        
 
         void Login_Session(string username, string password) override
         {
@@ -231,6 +232,4 @@ namespace AdminSession
             return CurrentAdmin;
         }
     };
-
-    // SessionManager *SessionManager::instance = nullptr;
 }

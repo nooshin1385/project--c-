@@ -89,19 +89,11 @@ bool AdminRepository::userExists(const string &username) const
 
 bool AdminRepository::validateAdmin(const string &username, const string &password)
 {
-    ifstream file(filename);
-    if (!file.is_open())
-        return false;
-
-    json admins;
-    file >> admins;
-
-    for (auto &a : admins)
+    for (auto &admin : admins)
     {
-        if (a["username"] == username)
+        if (admin.getUsername() == username && admin.getPassword() == password)
         {
-            string hashed = a["password"];
-            return BCrypt::validatePassword(password, hashed);
+            return true;
         }
     }
     return false;

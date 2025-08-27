@@ -1,0 +1,19 @@
+[
+    {
+        "Created_at": 1756326797,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": true,
+            "MealID": 2,
+            "MealName": "chicken",
+            "Price": 15000.0,
+            "SideItems": [
+                "yougurt"
+            ],
+            "mealtype": 2,
+            "reserveday": 1
+        },
+        "Reservation_ID": 1756326814,
+        "status": 1
+    }
+]

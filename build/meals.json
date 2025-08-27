@@ -2,8 +2,8 @@
     {
         "IsActive": true,
         "MealID": 2,
-        "MealName": "morgh",
-        "Price": 12000.0,
+        "MealName": "chicken",
+        "Price": 15000.0,
         "SideItems": [
             "yougurt"
         ],
@@ -12,14 +12,26 @@
     },
     {
         "IsActive": true,
-        "MealID": 1,
-        "MealName": "m",
-        "Price": 12000.0,
+        "MealID": 3,
+        "MealName": "lazania",
+        "Price": 20000.0,
         "SideItems": [
-            "u",
-            "i"
+            "soda",
+            "sauce"
         ],
-        "mealtype": 1,
+        "mealtype": 3,
+        "reserveday": 1
+    },
+    {
+        "IsActive": true,
+        "MealID": 2,
+        "MealName": "Chicken",
+        "Price": 17000.0,
+        "SideItems": [
+            "yogurt",
+            "soda"
+        ],
+        "mealtype": 2,
         "reserveday": 2
     }
 ]

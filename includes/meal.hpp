@@ -19,7 +19,7 @@ enum Reserveday
 };
 enum MealType
 {
-    Breakfast =1,
+    Breakfast = 1,
     Lunch,
     Dinner,
     Dessert,
@@ -76,6 +76,19 @@ public:
     {
         SideItems.push_back(item);
         cout << item << "Added to" << MealName << "as an item ." << endl;
+    }
+    void Removesideitem(const string &item)
+    {
+        auto it = remove(SideItems.begin(), SideItems.end(), item);
+        if (it != SideItems.end())
+        {
+            SideItems.erase(it, SideItems.end());
+            cout << item << " removed from " << MealName << "." << endl;
+        }
+        else
+        {
+            cout << item << " not found in " << MealName << "." << endl;
+        }
     }
     void printmealinfo()
     {
@@ -173,47 +186,4 @@ public:
         IsActive = j.at("IsActive").get<bool>();
         SideItems = j.at("SideItems").get<vector<string>>();
     }
-};/*
-int main()
-{
-    // 1. ساخت یک شیء Meal
-    Meal myMeal(1, "Pizza", 75000.0, Lunch, {"Salad", "Drink"}, Tuesday);
-
-    // 2. تبدیل به json
-    json j = myMeal.to_json();
-
-    // 3. ذخیره در فایل
-    ofstream outFile("meal.json");
-    if (outFile.is_open())
-    {
-        outFile << j.dump(4); // 4 برای زیبایی خروجی
-        outFile.close();
-        cout << "Meal saved to meal.json ✅" << endl;
-    }
-    else
-    {
-        cerr << "Failed to open meal.json ❌" << endl;
-    }
-
-    // 4. خواندن مجدد از فایل
-    ifstream inFile("meal.json");
-    if (inFile.is_open())
-    {
-        json loadedJson;
-        inFile >> loadedJson;
-        inFile.close();
-
-        Meal loadedMeal;
-        loadedMeal.from_json(loadedJson);
-
-        cout << "\nLoaded meal info from JSON file:" << endl;
-        loadedMeal.printmealinfo();
-    }
-    else
-    {
-        cerr << "Failed to read meal.json ❌" << endl;
-    }
-
-    return 0;
-}
-*/
+};

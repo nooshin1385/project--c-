@@ -20,15 +20,6 @@ class Student : public User
     string Phone;
 
 public:
-    /* Student()
-     {
-         StudentId = "0000000000";
-         Balance = 0.0;
-         IsActive = true;
-         Hasreservation = true;
-         Phone = "";
-     } */
-
     Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, string _phone = "")
     {
         try
@@ -44,6 +35,7 @@ public:
         IsActive = is_active;
         reservation = _reservation;
         Phone = _phone;
+        loadBalanceFromFile();
     }
     Student(int userId,
             const string &firstName,
@@ -52,14 +44,62 @@ public:
             const string &email,
             const string &studentId,
             const string &phone,
-            long long balance = 100000)
+            long long balance = 0)
         : User(userId, firstName, lastName, passwordHash, email),
           StudentId(studentId),
           Phone(phone),
           Balance(balance) {}
 
     Student() : User(), Balance(0) {}
+    void loadBalanceFromFile()
+    {
+        ifstream in("balance.json");
+        if (in.is_open())
+        {
+            json j;
+            in >> j;
+            if (j.contains(StudentId))
+            {
+                Balance = j[StudentId];
+            }
+            else
+            {
+                Balance = 0;
+            }
+            in.close();
+        }
+        else
+        {
+            Balance = 0;
+        }
+    }
+    void saveBalanceToFile()
+    {
+        json j;
+        ifstream in("balance.json");
+        if (in.is_open())
+        {
+            in >> j;
+            in.close();
+        }
+        j[StudentId] = Balance;
 
+        ofstream out("balance.json");
+        out << j.dump(4);
+        out.close();
+    }
+
+    void deposit(float amount)
+    {
+        if (amount <= 0)
+        {
+            cout << "The amount is invalid ." << endl;
+            return;
+        }
+        Balance += amount;
+        saveBalanceToFile();
+        cout << "Deposit successfully completed , Current balance:" << Balance << endl;
+    }
     Student &operator=(const Student &ob)
     {
         if (this != &ob)

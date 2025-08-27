@@ -61,6 +61,106 @@ private:
         meals.push_back(m);
         cout << "meal added.\n";
     }
+    void EditMeal(vector<Meal> &meals)
+    {
+        int id;
+        cout << "Enter Meal ID to edit: ";
+        cin >> id;
+
+        auto it = find_if(meals.begin(), meals.end(),
+                          [id](const Meal &m)
+                          { return m.getmealid() == id; });
+
+        if (it != meals.end())
+        {
+            int choice;
+            do
+            {
+                cout << "\n--- Editing Meal: " << it->getmealname() << " ---\n";
+                cout << "1. Change name\n";
+                cout << "2. Change price\n";
+                cout << "3. Show side items\n";
+                cout << "4. Add side item\n";
+                cout << "5. Remove side item\n";
+                cout << "6. Finish editing\n";
+                cout << "Choice: ";
+                cin >> choice;
+
+                switch (choice)
+                {
+                case 1:
+                {
+                    string newName;
+                    cout << "New name: ";
+                    cin >> newName;
+                    it->setmealname(newName);
+                    break;
+                }
+                case 2:
+                {
+                    float newPrice;
+                    cout << "New price: ";
+                    cin >> newPrice;
+                    it->setprice(newPrice);
+                    break;
+                }
+                case 3:
+                {
+                    cout << "Side items:\n";
+                    for (auto &s : it->getsideitems())
+                        cout << " - " << s << "\n";
+                    break;
+                }
+                case 4:
+                {
+                    string side;
+                    cout << "Enter new side item: ";
+                    cin >> side;
+                    it->Addsideitem(side);
+                    break;
+                }
+                case 5:
+                {
+                    string side;
+                    cout << "Enter side item to remove: ";
+                    cin >> side;
+                    it->Removesideitem(side);
+                    break;
+                }
+                case 6:
+                    cout << "Editing finished.\n";
+                    break;
+                default:
+                    cout << "Invalid choice.\n";
+                }
+            } while (choice != 6);
+        }
+        else
+        {
+            cout << "Meal not found.\n";
+        }
+    }
+
+    void DeleteMeal()
+    {
+        int id;
+        cout << "Enter Meal ID to delete: ";
+        cin >> id;
+
+        auto it = remove_if(meals.begin(), meals.end(),
+                            [id](const Meal &m)
+                            { return m.getmealid() == id; });
+
+        if (it != meals.end())
+        {
+            meals.erase(it, meals.end());
+            cout << "Meal deleted.\n";
+        }
+        else
+        {
+            cout << "Meal not found.\n";
+        }
+    }
 
     void listMeals()
     {
@@ -205,13 +305,15 @@ public:
             cout << "\n----- ADMIN PANEL -----\n";
             cout << "1. Login\n";
             cout << "2. Add meal\n";
-            cout << "3. View meals\n";
-            cout << "4. Logout\n";
-            cout << "5. Save meals to file\n";
-            cout << "6. Load meals from file\n";
-            cout << "7. Add dining hall\n";
-            cout << "8. View dining hall\n";
-            cout << "9. Exit\n";
+            cout << "3. Edit meal\n";
+            cout << "4. Delete meal\n";
+            cout << "5. View meals\n";
+            cout << "6. Logout\n";
+            cout << "7. Save meals to file\n";
+            cout << "8. Load meals from file\n";
+            cout << "9. Add dining hall\n";
+            cout << "10. View dining hall\n";
+            cout << "11. Exit\n";
             cout << "choice: ";
             cin >> choice;
 
@@ -224,24 +326,30 @@ public:
                 addMeal();
                 break;
             case 3:
-                listMeals();
+                EditMeal(meals);
                 break;
             case 4:
-                logout();
+                DeleteMeal();
                 break;
             case 5:
-                saveMealsToFile();
+                listMeals();
                 break;
             case 6:
-                loadMealsFromFile();
+                logout();
                 break;
             case 7:
-                Adddininghall();
+                saveMealsToFile();
                 break;
             case 8:
-                Listdininghalls();
+                loadMealsFromFile();
                 break;
             case 9:
+                Adddininghall();
+                break;
+            case 10:
+                Listdininghalls();
+                break;
+            case 11:
                 saveMealsToFile();
                 saveDininghallsToFile();
                 cout << "exiting admin panel...\n";
@@ -249,6 +357,6 @@ public:
             default:
                 cout << "invalid choice.\n";
             }
-        } while (choice != 9);
+        } while (choice != 11);
     }
 };

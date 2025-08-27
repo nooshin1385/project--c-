@@ -11,6 +11,7 @@ class StudentPanel
 {
 private:
     vector<Reservation> items;
+    vector<Meal> meals;
     Student *loggedInStudent = nullptr;
     void LoginStudent()
     {
@@ -48,45 +49,84 @@ private:
             cout << "You are not Login!" << endl;
         }
     }
+    void showAvailableMeals()
+    {
+        ifstream file("meals.json");
+        if (!file.is_open())
+        {
+            cout << "meals.json not found.\n";
+            return;
+        }
+
+        json j;
+        file >> j;
+
+        cout << "\n--- Available Meals ---\n";
+        for (const auto &item : j)
+        {
+            Meal meal;
+            meal.from_json(item);
+            meal.printmealinfo();
+            cout << "-------------------\n";
+        }
+    }
+
     void AddMealtocart()
     {
-        if (StudentSession::SessionManager::getinstance()->getstatus() != Authenticated)
+        auto session = StudentSession::SessionManager::getinstance();
+        if (!session->getCurrentStudent() || !session->getShopping_Cart())
         {
             cout << "please login first.\n";
             return;
         }
-        vector<Meal> availableMeals = {
-            Meal(1, "Salad", 15000, Breakfast, {}, Saturday),
-            Meal(2, "Chicken", 30000, Lunch, {}, Saturday),
-            Meal(3, "Pasta", 25000, Dinner, {}, Sunday),
-            Meal(4, "Kebab", 40000, Lunch, {}, Monday)};
-
-        cout << "\n--- Available Meals ---\n";
-        for (auto &m : availableMeals)
+        Student *s = session->getCurrentStudent();
+        ifstream in("meals.json");
+        if (!in.is_open())
         {
+            cout << " meals.json not found.\n";
+            return;
+        }
+        json j;
+        try
+        {
+            in >> j;
+        }
+        catch (...)
+        {
+            cout << "invalid meals.json\n";
+            return;
+        }
+        cout << "\n--- Available Meals ---\n";
+        for (const auto &item : j)
+        {
+            Meal m;
+            m.from_json(item);
             cout << m.getmealid() << ". " << m.getmealname()
                  << " - Price: " << m.getprice()
                  << " - Day: " << static_cast<int>(m.getreserveday()) << "\n";
         }
-
-        int mealId;
         cout << "Enter meal ID to add: ";
+        int mealId;
         cin >> mealId;
-
-        auto it = find_if(availableMeals.begin(), availableMeals.end(),
-                          [mealId](const Meal &m)
-                          { return m.getmealid() == mealId; });
-
-        if (it == availableMeals.end())
+        for (const auto &item : j)
         {
-            cout << "Invalid meal ID.\n";
-            return;
+            Meal m;
+            m.from_json(item);
+            if (m.getmealid() == mealId)
+            {
+                Meal *mealPtr = new Meal(m);
+                int rid = 100000 + (int)(time(nullptr) % 900000);
+
+                Reservation r(rid, Pending, mealPtr, /*dining hall*/ nullptr, s);
+                bool ok = session->getShopping_Cart()->addReservation(r, s);
+                if (ok)
+                    cout << "✔️ " << m.getmealname() << " added to your cart.\n";
+                else
+                    cout << "could not add to cart.\n";
+                return;
+            }
         }
-
-        Student *s = StudentSession::SessionManager::getinstance()->getCurrentStudent();
-        Reservation r(100 + rand() % 900, Pending, new Meal(*it), nullptr, s);
-
-        StudentSession::SessionManager::getinstance()->getShopping_Cart()->addReservation(r, s);
+        cout << "Meal not found.\n";
     }
 
     void checkBalance()
@@ -274,14 +314,15 @@ public:
             cout << "\n----- STUDENT PANEL -----\n";
             cout << "1.Login\n";
             cout << "2.Veiw panel\n";
-            cout << "3.Add meal to cart\n";
-            cout << "4.Confirm resevation\n";
-            cout << "5.Logout\n";
-            cout << "6.Veiw shopping cart\n";
-            cout << "7.Remove item from cart\n";
-            cout << "8.Increase balance\n";
-            cout << "9.Veiw reservations\n";
-            cout << "10. Exit\n";
+            cout << "3.Show available meals\n";
+            cout << "4.Add meal to cart\n";
+            cout << "5.Confirm resevation\n";
+            cout << "6.Logout\n";
+            cout << "7.Veiw shopping cart\n";
+            cout << "8.Remove item from cart\n";
+            cout << "9.Increase balance\n";
+            cout << "10.Veiw reservations\n";
+            cout << "11. Exit\n";
             cout << "Enter number of your choice :" << endl;
             cin >> choice;
             if (cin.fail())
@@ -301,33 +342,36 @@ public:
                 ShowProfile();
                 break;
             case 3:
-                AddMealtocart();
+                showAvailableMeals();
                 break;
             case 4:
-                confirmShoppingCart();
+                AddMealtocart();
                 break;
             case 5:
-                logout();
+                confirmShoppingCart();
                 break;
             case 6:
-                StudentSession::SessionManager::getinstance()->getShopping_Cart()->viewShoppingCartItems();
+                logout();
                 break;
             case 7:
-                removeReservationById();
+                StudentSession::SessionManager::getinstance()->getShopping_Cart()->viewShoppingCartItems();
                 break;
             case 8:
-                increaseBalance();
+                removeReservationById();
                 break;
             case 9:
-                ViewReservations();
+                increaseBalance();
                 break;
             case 10:
+                ViewReservations();
+                break;
+            case 11:
                 Exitpanel();
                 break;
             default:
                 cout << "invalid choice! \n";
             }
-        } while (choice != 10);
+        } while (choice != 11);
     }
 
     void ShowStudentInfo()
