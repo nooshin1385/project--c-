@@ -256,13 +256,46 @@ private:
 
     void increaseBalance()
     {
+        std::string cardNumber, expiryDate, cvv;
         float amount;
-        cout << "enter amount to increase: ";
+        cout << "Enter 16-digit card number: ";
+        cin >> cardNumber;
+        if (cardNumber.length() != 16 || !all_of(cardNumber.begin(), cardNumber.end(), ::isdigit))
+        {
+            cout << "Invalid card number!\n";
+            return;
+        }
+
+        cout << "Enter expiry date (MM/YY): ";
+        cin >> expiryDate;
+        if (expiryDate.length() != 5 || expiryDate[2] != '/' ||
+            !isdigit(expiryDate[0]) || !isdigit(expiryDate[1]) ||
+            !isdigit(expiryDate[3]) || !isdigit(expiryDate[4]))
+        {
+            cout << "Invalid expiry date!\n";
+            return;
+        }
+
+        cout << "Enter CVV (3 digits): ";
+        cin >> cvv;
+        if (cvv.length() != 3 || !all_of(cvv.begin(), cvv.end(), ::isdigit))
+        {
+            cout << "Invalid CVV!\n";
+            return;
+        }
+
+        cout << "Enter amount to increase: ";
         cin >> amount;
+        if (amount <= 0)
+        {
+            cout << "Amount must be positive!\n";
+            return;
+        }
 
         Student *s = StudentSession::SessionManager::getinstance()->getCurrentStudent();
         s->setBalance(s->getBalance() + amount);
-        cout << "balance updated.\n";
+
+        cout << "Balance updated. New balance: " << s->getBalance() << " IRR\n";
     }
 
 public:
@@ -298,7 +331,6 @@ public:
         }
 
         cart->confirm(student);
-        // save_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
         cout << "CONFIRMING...\n";
         cout << "Cart items: " << cart->getreservation().size() << endl;
     }

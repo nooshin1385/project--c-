@@ -17,67 +17,7 @@ public:
     bool addReservation(const Reservation &r, const Student *student);
     void removeConfirmedReservation(int reservationID, Student *student, bool hardDelete);
     void removeFromCart(int reservationId);
-    /* void confirm(Student *student)
-     {
-         if (!student)
-         {
-             cout << "No student logged in.\n";
-             return;
-         }
 
-         if (reservation.empty())
-         {
-             cout << "Cart is empty.\n";
-             return;
-         }
-
-         float total = 0;
-         for (auto &r : reservation)
-         {
-             if (r.getMeal())
-                 total += r.getMeal()->getprice();
-         }
-
-         if (student->getBalance() < total)
-         {
-             cout << "Not enough balance to confirm reservations.\n";
-             cout << "Please increase your balance (Option 8).\n";
-             return;
-         }
-
-         vector<Reservation> currentReserves = student->getReserves();
-
-         for (auto &r : reservation)
-         {
-             r.setStatus(Confirmed);
-             r.setReservationID(time(nullptr));
-             currentReserves.push_back(r);
-             student->setBalance(student->getBalance() - r.getMeal()->getprice());
-         }
-
-         student->setreservation(currentReserves);
-         save_student_reservations(*student, "reservations_" + student->getStudentId() + ".json");
-
-         reservation.clear();
-
-         cout << "Reservations confirmed and saved.\n";
-         cout << "Remaining balance: " << student->getBalance() << "\n";
-     }*/
-    /* void removeReservation(int ID)
-      {
-          auto it =
-              remove_if(reservation.begin(), reservation.end(), [ID](const Reservation &r)
-                        { return r.getReservationId() == ID; });
-          if (it != reservation.end())
-          {
-              reservation.erase(it, reservation.end());
-              cout << "reservaes removed from cart.\n";
-          }
-          else
-          {
-              cout << " reservation IDnot found .\n";
-          }
-      }*/
     bool removeItemById(int id)
     {
         auto it = remove_if(reservation.begin(), reservation.end(),
@@ -205,7 +145,7 @@ inline void ShoppingCart::confirm(Student *student)
     if (student->getBalance() < total)
     {
         cout << "Not enough balance (" << student->getBalance()
-             << " < " << total << "). Use option 8 to increase balance.\n";
+             << " < " << total << "). Use option 9 to increase balance.\n";
         return;
     }
 
