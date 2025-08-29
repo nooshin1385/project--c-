@@ -45,7 +45,7 @@ public:
         IsActive = 1;
         reserveday = Saturday;
     }
-    Meal(int _mealid, string _mealname, float _price, MealType _mealtype, vector<string> _sideitems, Reserveday _reserveday)
+    Meal(int _mealid, string _mealname, float _price, MealType _mealtype, vector<string> _sideitems, Reserveday _reserveday, bool isActive = true)
     {
         MealID = _mealid;
         MealName = _mealname;
@@ -53,6 +53,7 @@ public:
         mealtype = _mealtype;
         reserveday = _reserveday;
         SideItems = _sideitems;
+        IsActive = isActive;
     }
 
     void setmealid(int _MealID) { MealID = _MealID; }
@@ -61,12 +62,14 @@ public:
     void settype(MealType _mealtype) { mealtype = _mealtype; }
     void setreserveday(Reserveday _Reserveday) { reserveday = _Reserveday; }
     void setsideitems(vector<string> _SideItems) { SideItems = _SideItems; }
+    void setisactive(float Isactive) { IsActive = Isactive; }
     int getmealid() const { return MealID; }
     string getmealname() const { return MealName; }
     float getprice() const { return Price; }
     MealType gettype() const { return mealtype; }
     Reserveday getreserveday() const { return reserveday; }
     vector<string> getsideitems() const { return SideItems; }
+    bool getisactive() const { return IsActive; }
     void UpdatPrice(float new_price)
     {
         Price = new_price;

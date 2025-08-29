@@ -179,12 +179,16 @@ private:
         }
 
         cout << "\n----- Your Reservations -----\n";
-        for (const auto &item : j)
+        for (auto &item : j)
         {
+            if (!item.contains("Reservation_ID"))
+                item["Reservation_ID"] = 0;
+
             Reservation r;
             r.from_json(item);
 
             cout << "Reservation ID: " << r.getReservationId() << "\n";
+
             if (r.getMeal())
                 cout << "Meal: " << r.getMeal()->getmealname() << "\n";
             if (r.getdHall())
@@ -295,7 +299,7 @@ private:
         Student *s = StudentSession::SessionManager::getinstance()->getCurrentStudent();
         s->setBalance(s->getBalance() + amount);
 
-        cout << "Balance updated. New balance: " << s->getBalance() << " IRR\n";
+        cout << "Balance updated. New balance: " << s->getBalance() << " Toman\n";
     }
 
 public:
@@ -329,7 +333,8 @@ public:
             cout << " Shopping cart is empty.\n";
             return;
         }
-
+        cout << "DEBUG: Student ID = " << student->getStudentId() << endl;
+        cout << "DEBUG: Cart size = " << cart->getreservation().size() << endl;
         cart->confirm(student);
         cout << "CONFIRMING...\n";
         cout << "Cart items: " << cart->getreservation().size() << endl;

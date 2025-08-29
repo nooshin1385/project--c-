@@ -1,24 +1,6 @@
 [
     {
-        "Created_at": 1756326797,
-        "Dininghall": null,
-        "Meal": {
-            "IsActive": true,
-            "MealID": 2,
-            "MealName": "chicken",
-            "Price": 15000.0,
-            "SideItems": [
-                "yougurt"
-            ],
-            "mealtype": 2,
-            "reserveday": 1
-        },
-        "Reservation_ID": 1756326814,
-        "StudentId": null,
-        "status": 1
-    },
-    {
-        "Created_at": 1756416014,
+        "Created_at": 1756504396,
         "Dininghall": null,
         "Meal": {
             "IsActive": true,
@@ -32,13 +14,26 @@
             "mealtype": 3,
             "reserveday": 1
         },
-        "Reservation_ID": 1756416033,
-        "StudentId": null,
+        "Reservation_ID": 1756504469,
+        "StudentId": "4022604305",
         "status": 0
     },
     {
-        "Balance": 5000.0,
-        "Hasreservation": false,
-        "StudentId": "4022604305"
+        "Created_at": 1756504478,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": true,
+            "MealID": 2,
+            "MealName": "chicken",
+            "Price": 15000.0,
+            "SideItems": [
+                "yougurt"
+            ],
+            "mealtype": 2,
+            "reserveday": 1
+        },
+        "Reservation_ID": 1756504483,
+        "StudentId": "4022604305",
+        "status": 0
     }
 ]

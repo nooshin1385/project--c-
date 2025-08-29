@@ -1,6 +1,6 @@
 [
     {
-        "Balance": 5000.0,
+        "Balance": 70000.0,
         "Email": "Rezvan.Kazemi801@gmail.com",
         "HashedPassword": "$2a$12$q14OMYpD5LH8ONNgLF3x/Or6l9Lr0fUD8btaFUw2y.Pw73bIegWYW",
         "Hasreservation": false,
@@ -24,7 +24,7 @@
         "UserId": 1
     },
     {
-        "Balance": 0,
+        "Balance": 15000.0,
         "Email": "ChavoshAmini575@gmail.com",
         "HashedPassword": "$2a$12$3k.p4CU64QoaO95BStihBePnNsh3gxguChH3w4jj/m5kHwvhH8DxG",
         "Hasreservation": false,

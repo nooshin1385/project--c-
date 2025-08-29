@@ -177,22 +177,22 @@ private:
             }
         }
     }
-    void Adddininghall()
+    void AddDiningHall()
     {
-        int Id, Capacity;
-        string Name, Address;
-        cout << "Enter dininghall Id :";
-        cin >> Id;
-        cout << "Enter Name :";
+        int id, capacity;
+        string name, address;
+        cout << "Enter Hall ID: ";
+        cin >> id;
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Address: ";
         cin.ignore();
-        getline(cin, Name);
-        cout << "Enter address :";
-        getline(cin, Address);
-        cout << "Enter capacity:";
-        cin >> Capacity;
-        DiningHall hall(Id, Name, Address, Capacity);
+        getline(cin, address);
+        cout << "Enter Capacity: ";
+        cin >> capacity;
+
+        DiningHall hall(id, name, address, capacity);
         halls.push_back(hall);
-        cout << "Dininghall added successfully.\n";
     }
     void Listdininghalls()
     {
@@ -295,6 +295,7 @@ public:
 
         cout << "Meals loaded successfully.\n";
     }
+
     void showMenu()
     {
         loadMealsFromFile();
@@ -344,7 +345,7 @@ public:
                 loadMealsFromFile();
                 break;
             case 9:
-                Adddininghall();
+                AddDiningHall();
                 break;
             case 10:
                 Listdininghalls();

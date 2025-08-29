@@ -57,6 +57,16 @@ public:
         cout << "Capacity :" << Capacity << endl;
         cout << "----------------------" << endl;
     }
+    string getStatusColor(int currentOccupancy) const
+    {
+        double usage = (double)currentOccupancy / Capacity;
+        if (usage < 0.5)
+            return "Green";
+        else if (usage < 0.8)
+            return "Orange";
+        else
+            return "Red";
+    }
     json to_json() const
     {
         return {
