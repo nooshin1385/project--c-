@@ -8,7 +8,7 @@ using namespace std;
 
 void LoginFlow::login()
 {
-    AdminRepository adminRepo("admins.json");
+    AdminRepository adminRepo("admin.json");
 
     string username;
     cout << "Username: ";

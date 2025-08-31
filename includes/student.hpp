@@ -18,9 +18,10 @@ class Student : public User
     bool Hasreservation = false;
     vector<Reservation> reservation;
     string Phone;
+    string dininghall;
 
 public:
-    Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, string _phone = "")
+    Student(string student_id, float _balance, bool is_active = true, vector<Reservation> _reservation = {}, string _phone = "", string _dininghall = "")
     {
         try
         {
@@ -35,6 +36,7 @@ public:
         IsActive = is_active;
         reservation = _reservation;
         Phone = _phone;
+        dininghall = _dininghall;
     }
     Student(int userId,
             const string &firstName,
@@ -129,6 +131,7 @@ public:
     void setHasRservation(bool reservationstatus) { Hasreservation = reservationstatus; }
     void setreservation(const vector<Reservation> &_reservation) { reservation = _reservation; }
     void setphone(string _phone) { Phone = _phone; }
+    void setdininghall(string dhall) { dininghall = dhall; }
 
     string getStudentId() const { return StudentId; }
     float getBalance() const { return Balance; }
@@ -136,6 +139,7 @@ public:
     bool getHasReservation() const { return Hasreservation; }
     vector<Reservation> getReserves() const { return reservation; }
     string getphone() { return Phone; }
+    string getdininghall() const { return dininghall.empty() ? "Not selscted!" : dininghall; }
 
     void ReserveMeal()
     {

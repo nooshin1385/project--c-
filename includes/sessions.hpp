@@ -88,6 +88,7 @@ namespace StudentSession
         int StudentID;
         static SessionManager *instance;
         vector<Student> allStudents;
+        vector<DiningHall> halls;
         SessionManager()
         {
             CurrentStudent = nullptr;
@@ -97,7 +98,23 @@ namespace StudentSession
             setcreatedat(time(nullptr));
         }
 
+    
     public:
+        void addHall(const DiningHall &hall)
+        {
+            halls.push_back(hall);
+        }
+
+        vector<DiningHall> &getHalls() { return halls; }
+
+        DiningHall *findHallById(int id)
+        {
+            for (auto &h : halls)
+                if (h.gethallid() == id)
+                    return &h;
+            return nullptr;
+        }
+
         static SessionManager *getinstance()
         {
             if (!instance)
@@ -116,7 +133,6 @@ namespace StudentSession
         {
             saveAllStudents(allStudents);
         }
-        
 
         void Login_Session(string username, string password) override
         {

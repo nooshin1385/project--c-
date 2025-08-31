@@ -1,7 +1,8 @@
 #include "adminrepo.hpp"
+#include "admin.hpp"
 #include <fstream>
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
 using json = nlohmann::json;
 
@@ -10,34 +11,66 @@ AdminRepository::AdminRepository(const string &file) : filename(file)
     load();
 }
 
+void AdminRepository::checkAdminJson()
+{
+    ifstream in(filename);
+    if (!in.good() || in.peek() == ifstream::traits_type::eof())
+    {
+        cout << "There is not any Admin!! Add an Admin!\n";
+        string username, password;
+        cout << "Enter new admin username: ";
+        cin >> username;
+        cout << "Enter new admin password: ";
+        cin >> password;
+
+        admins.push_back(Admin(username, password));
+        save();
+        cout << "Admin saved.\n";
+    }
+}
+
 void AdminRepository::load()
 {
     admins.clear();
+
     ifstream in(filename);
-    if (!in.is_open())
+    if (!in.is_open() || in.peek() == ifstream::traits_type::eof())
         return;
 
     json j;
     in >> j;
     in.close();
 
-    for (auto &item : j)
+    if (j.contains("admins") && j["admins"].is_array())
     {
-        admins.push_back(Admin(item["username"], item["password"]));
+        for (auto &item : j["admins"])
+        {
+            admins.push_back(Admin(item["username"], item["password"]));
+        }
     }
 }
 
 void AdminRepository::save()
 {
     json j;
+    j["admins"] = json::array();
+
     for (auto &a : admins)
     {
-        j.push_back({{"username", a.getUsername()}, {"password", a.getPassword()}});
+        j["admins"].push_back({
+            {"username", a.getUsername()},
+            {"password", a.getPassword()}});
     }
 
     ofstream out(filename);
-    out << j.dump(4);
+    out << setw(4) << j << endl;
     out.close();
+}
+
+void AdminRepository::addAdmin(const Admin &admin)
+{
+    admins.push_back(admin);
+    save();
 }
 
 Admin *AdminRepository::findByUsername(const string &username)
@@ -63,58 +96,29 @@ bool AdminRepository::removeAdmin(const string &username)
     }
     return false;
 }
+
 bool AdminRepository::exists() const
 {
     ifstream file(filename);
     return file.good();
 }
+
 bool AdminRepository::userExists(const string &username) const
 {
-    ifstream file(filename);
-    if (!file.is_open())
-        return false;
-
-    json admins;
-    file >> admins;
-
-    for (auto &a : admins)
+    for (const auto &a : admins)
     {
-        if (a["username"] == username)
-        {
+        if (a.getUsername() == username)
             return true;
-        }
     }
     return false;
 }
 
-bool AdminRepository::validateAdmin(const string &username, const string &password)
+bool AdminRepository::validateAdmin(const string &username, const string &password) const
 {
-    for (auto &admin : admins)
+    for (const auto &a : admins)
     {
-        if (admin.getUsername() == username && admin.getPassword() == password)
-        {
+        if (a.getUsername() == username && a.getPassword() == password)
             return true;
-        }
     }
     return false;
-}
-
-void AdminRepository::addAdmin(const Admin &admin)
-{
-    json admins;
-    ifstream infile(filename);
-    if (infile.is_open())
-    {
-        infile >> admins;
-    }
-    infile.close();
-
-    json newAdmin = {
-        {"username", admin.getUsername()},
-        {"password", admin.getPassword()}};
-
-    admins.push_back(newAdmin);
-
-    ofstream outfile(filename);
-    outfile << admins.dump(4);
 }

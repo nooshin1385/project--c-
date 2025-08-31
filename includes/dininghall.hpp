@@ -5,12 +5,14 @@
 #include "json.hpp"
 using namespace std;
 using json = nlohmann::json;
+
 class DiningHall
 {
     int HallID;
     string Name;
     string Address;
     int Capacity;
+    int CurrentOccupancy;
 
 public:
     DiningHall()
@@ -19,6 +21,7 @@ public:
         Name = "";
         Address = "";
         Capacity = 0;
+        CurrentOccupancy = 0;
     }
     DiningHall(int _HallID, string _Name, string _Address, int _Capacity)
     {
@@ -26,60 +29,79 @@ public:
         Name = _Name;
         Address = _Address;
         Capacity = _Capacity;
+        CurrentOccupancy = 0;
     }
-    void sethallid(int _hallID)
+
+    void sethallid(int _hallID) { HallID = _hallID; }
+    void setname(string _name) { Name = _name; }
+    void setaddress(string _address) { Address = _address; }
+    void setcapacity(int _capacity) { Capacity = _capacity; }
+    void setoccupancy(int occ) { CurrentOccupancy = occ; }
+
+    int gethallid() const { return HallID; }
+    string getname() const { return Name; }
+    string getaddress() const { return Address; }
+    int getcapacity() const { return Capacity; }
+    int getoccupancy() const { return CurrentOccupancy; }
+
+    string getStatusColor() const
     {
-        HallID = _hallID;
+        if (Capacity == 0)
+            return "\033[90m●\033[0m";
+        double usage = (double)CurrentOccupancy / Capacity;
+        if (usage < 0.5)
+            return "\033[32m●\033[0m";
+        else if (usage < 0.8)
+            return "\033[33m●\033[0m";
+        else
+            return "\033[31m●\033[0m";
     }
-    void setname(string _name)
+
+    bool isFull() const
     {
-        Name = _name;
+        return CurrentOccupancy >= Capacity;
     }
-    void setaddress(string _address)
+
+    bool reserveSeat()
     {
-        Address = _address;
+        if (!isFull())
+        {
+            CurrentOccupancy++;
+            return true;
+        }
+        return false;
     }
-    void setcapacity(int _capacity)
-    {
-        Capacity = _capacity;
-    }
-    int gethallid() { return HallID; }
-    string getname() { return Name; }
-    string getaddress() { return Address; }
-    int getcapacity() { return Capacity; }
 
     void printdininghallinfo() const
     {
         cout << "Dining hall info :" << endl;
-        cout << "ID :" << HallID << endl;
-        cout << "Name :" << Name << endl;
-        cout << "Address :" << Address << endl;
-        cout << "Capacity :" << Capacity << endl;
+        cout << "ID : " << HallID << endl;
+        cout << "Name : " << Name << endl;
+        cout << "Address : " << Address << endl;
+        cout << "Capacity : " << Capacity << endl;
+        cout << "Current Occupancy : " << CurrentOccupancy << endl;
+        cout << "Status : " << getStatusColor()
+             << " (" << CurrentOccupancy << "/" << Capacity << ")"
+             << endl;
         cout << "----------------------" << endl;
     }
-    string getStatusColor(int currentOccupancy) const
-    {
-        double usage = (double)currentOccupancy / Capacity;
-        if (usage < 0.5)
-            return "Green";
-        else if (usage < 0.8)
-            return "Orange";
-        else
-            return "Red";
-    }
+
     json to_json() const
     {
         return {
             {"HallID", HallID},
             {"Name", Name},
             {"Address", Address},
-            {"Capacity", Capacity}};
+            {"Capacity", Capacity},
+            {"CurrentOccupancy", CurrentOccupancy}};
     }
+
     void from_json(const json &j)
     {
         HallID = j.at("HallID").get<int>();
         Name = j.at("Name").get<string>();
         Address = j.at("Address").get<string>();
         Capacity = j.at("Capacity").get<int>();
+        CurrentOccupancy = j.value("CurrentOccupancy", 0);
     }
 };

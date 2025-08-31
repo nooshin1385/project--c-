@@ -339,6 +339,46 @@ public:
         cout << "CONFIRMING...\n";
         cout << "Cart items: " << cart->getreservation().size() << endl;
     }
+    void chooseDiningHall(vector<DiningHall> &halls)
+    {
+        cout << "\n--- Available Dining Halls ---\n";
+        for (const auto &hall : halls)
+        {
+            cout << hall.gethallid() << ". "
+                 << hall.getname() << " | "
+                 << hall.getaddress() << " | Capacity: "
+                 << hall.getcapacity()
+                 << " | Status: " << hall.getStatusColor()
+                 << " (" << hall.getoccupancy() << "/" << hall.getcapacity() << ")"
+                 << endl;
+        }
+
+        cout << "\nEnter Dining Hall ID: ";
+        int choice;
+        cin >> choice;
+
+        auto it = find_if(halls.begin(), halls.end(),
+                          [choice](const DiningHall &h)
+                          { return h.gethallid() == choice; });
+
+        if (it == halls.end())
+        {
+            cout << "\n Invalid Dining Hall ID!\n";
+            return;
+        }
+
+        if (it->isFull())
+        {
+            cout << "\n This hall is full!\n";
+            return;
+        }
+
+        if (it->reserveSeat())
+        {
+            cout << "\n You successfully reserved a seat in "
+                 << it->getname() << "!\n";
+        }
+    }
 
     void Action(int)
     {
@@ -354,12 +394,13 @@ public:
             cout << "3.Show available meals\n";
             cout << "4.Add meal to cart\n";
             cout << "5.Confirm resevation\n";
-            cout << "6.Logout\n";
-            cout << "7.Veiw shopping cart\n";
-            cout << "8.Remove item from cart\n";
-            cout << "9.Increase balance\n";
-            cout << "10.Veiw reservations\n";
-            cout << "11. Exit\n";
+            cout << "6.Choose DiningHall\n";
+            cout << "7.Logout\n";
+            cout << "8.Veiw shopping cart\n";
+            cout << "9.Remove item from cart\n";
+            cout << "10.Increase balance\n";
+            cout << "11.Veiw reservations\n";
+            cout << "12. Exit\n";
             cout << "Enter number of your choice :" << endl;
             cin >> choice;
             if (cin.fail())
@@ -388,21 +429,27 @@ public:
                 confirmShoppingCart();
                 break;
             case 6:
+            {
+                vector<DiningHall> halls;
+                chooseDiningHall(halls);
+                break;
+            }
+            case 7:
                 logout();
                 break;
-            case 7:
+            case 8:
                 StudentSession::SessionManager::getinstance()->getShopping_Cart()->viewShoppingCartItems();
                 break;
-            case 8:
+            case 9:
                 removeReservationById();
                 break;
-            case 9:
+            case 10:
                 increaseBalance();
                 break;
-            case 10:
+            case 11:
                 ViewReservations();
                 break;
-            case 11:
+            case 12:
                 Exitpanel();
                 break;
             default:
