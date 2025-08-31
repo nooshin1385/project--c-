@@ -18,12 +18,13 @@ vector<Student> allStudents;
 #include <limits>
 int main()
 {
+    AdminRepository ad("admin.json");
+    ad.checkAdminJson();
     cout << "\n--Welcome to Student Food Reservation System--\n";
 
     LoginFlow flow;
 
-    // اگه در LoginFlow تابع ensureAdmin داری، این خط فعال باشه:
-    // flow.ensureAdmin();
+  
 
     int choice = 0;
     do

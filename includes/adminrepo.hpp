@@ -2,6 +2,7 @@
 #include "admin.hpp"
 #include <vector>
 #include <string>
+
 using namespace std;
 
 class AdminRepository
@@ -13,13 +14,14 @@ private:
 public:
     AdminRepository(const string &file);
 
+    void checkAdminJson();
     void load();
     void save();
 
     void addAdmin(const Admin &admin);
     Admin *findByUsername(const string &username);
-    bool exists()const;
+    bool exists() const;
     bool removeAdmin(const string &username);
-    bool validateAdmin(const string& username, const string& password);
-    bool userExists(const string &username)const;
+    bool validateAdmin(const string &username, const string &password) const;
+    bool userExists(const string &username) const;
 };
