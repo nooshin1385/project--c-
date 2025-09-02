@@ -33,5 +33,17 @@
         ],
         "mealtype": 2,
         "reserveday": 2
+    },
+    {
+        "IsActive": true,
+        "MealID": 4,
+        "MealName": "mokoroni",
+        "Price": 15000.0,
+        "SideItems": [
+            "]dogh",
+            "torshi"
+        ],
+        "mealtype": 2,
+        "reserveday": 6
     }
 ]
