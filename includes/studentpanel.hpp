@@ -5,6 +5,7 @@
 #include "student.hpp"
 #include "studentreservations.hpp"
 #include "shoppingcart.hpp"
+#include "logger.hpp"
 using namespace std;
 
 class StudentPanel
@@ -144,75 +145,157 @@ private:
     {
         StudentSession::SessionManager *session = StudentSession::SessionManager::getinstance();
         Student *student = session->getCurrentStudent();
-
         if (!student)
         {
             cout << "No student logged in.\n";
             return;
         }
 
-        string filename = "reservations_" + student->getStudentId() + ".json";
-        ifstream in(filename);
+        Logger logger;
 
-        if (!in.is_open())
+        vector<Reservation> reserves = student->getReserves();
+
+        vector<pair<int, string>> week = {
+            {1, "Saturday"},
+            {2, "Sunday"},
+            {3, "Monday"},
+            {4, "Tuesday"},
+            {5, "Wednesday"},
+            {6, "Thursday"}};
+
+        time_t t = time(nullptr);
+        tm *now = localtime(&t);
+        int tmw = now->tm_wday;
+
+        int todayReserveday = -1;
+        string todayName = "";
+        switch (tmw)
         {
-            cout << "No reservations found for this student.\n";
-            return;
+        case 6:
+            todayReserveday = 1;
+            todayName = "Saturday";
+            break;
+        case 0:
+            todayReserveday = 2;
+            todayName = "Sunday";
+            break;
+        case 1:
+            todayReserveday = 3;
+            todayName = "Monday";
+            break;
+        case 2:
+            todayReserveday = 4;
+            todayName = "Tuesday";
+            break;
+        case 3:
+            todayReserveday = 5;
+            todayName = "Wednesday";
+            break;
+        case 4:
+            todayReserveday = 6;
+            todayName = "Thursday";
+            break;
+        default:
+            todayReserveday = -1;
+            todayName = "Friday";
+            break;
+        }
+        int hour = now->tm_hour;
+        int currentMealType = 2;
+        string currentMealLabel = "Lunch";
+        if (hour < 11)
+        {
+            currentMealType = 1;
+            currentMealLabel = "Breakfast";
+        }
+        else if (hour < 17)
+        {
+            currentMealType = 2;
+            currentMealLabel = "Lunch";
+        }
+        else
+        {
+            currentMealType = 3;
+            currentMealLabel = "Dinner";
         }
 
-        json j;
-        try
+        bool foundTodayMeal = false;
+
+        cout << "\n----- Weekly Reservations -----\n";
+        for (auto &p : week)
         {
-            in >> j;
-        }
-        catch (const json::parse_error &e)
-        {
-            cout << "Error reading reservations file: " << e.what() << "\n";
-            return;
-        }
-        in.close();
+            int dayId = p.first;
+            const string &dayName = p.second;
+            if (dayId == todayReserveday)
+                cout << "\033[1;32m" << dayName << "\033[0m" << " : ";
+            else
+                cout << dayName << " : ";
 
-        if (j.empty())
-        {
-            cout << "No reservations available.\n";
-            return;
-        }
+            bool any = false;
 
-        cout << "\n----- Your Reservations -----\n";
-        for (auto &item : j)
-        {
-            if (!item.contains("Reservation_ID"))
-                item["Reservation_ID"] = 0;
-
-            Reservation r;
-            r.from_json(item);
-
-            cout << "Reservation ID: " << r.getReservationId() << "\n";
-
-            if (r.getMeal())
-                cout << "Meal: " << r.getMeal()->getmealname() << "\n";
-            if (r.getdHall())
-                cout << "Dining hall: " << r.getdHall()->getname() << "\n";
-
-            cout << "Status: ";
-            switch (r.getstatus())
+            for (const auto &r : reserves)
             {
-            case Pending:
-                cout << "Pending";
-                break;
-            case Confirmed:
-                cout << "Confirmed";
-                break;
-            case Cancelled:
-                cout << "Cancelled";
-                break;
+                Meal *m = r.getMeal();
+                if (!m)
+                    continue;
+                int mealDay = m->getreserveday();
+                if (mealDay == dayId)
+                {
+                    any = true;
+
+                    cout << m->getmealname();
+                    cout << " [";
+                    switch (r.getstatus())
+                    {
+                    case Pending:
+                        cout << "Pending";
+                        break;
+                    case Confirmed:
+                        cout << "Confirmed";
+                        break;
+                    case Cancelled:
+                        cout << "Cancelled";
+                        break;
+                    }
+                    cout << "]";
+
+                    cout << " (Price: " << m->getprice() << ")";
+                    int mtype = -1;
+#ifdef GNUC
+#endif
+                    mtype = m->gettype();
+
+                    if (dayId == todayReserveday && mtype == currentMealType)
+                    {
+                        foundTodayMeal = true;
+                        cout << " \033[1;34m<-- Current meal\033[0m";
+                    }
+
+                    cout << "  ";
+                }
             }
-            time_t t = r.gettime();
-            cout << "\nCreated at: " << ctime(&t);
-            cout << "-------------------------\n";
+
+            if (!any)
+                cout << "(No reservation)";
+            cout << endl;
+            if (todayReserveday == -1)
+            {
+                cout << "\nToday is " << todayName << " — dining halls may be closed.\n";
+                return;
+            }
+            if (!foundTodayMeal)
+            {
+                cout << "\nNo reservation for today's " << currentMealLabel << ".\n";
+
+                logger.logError("Student " + student->getStudentId() +
+                                " has no reservation for " + todayName + " " + currentMealLabel);
+            }
+            else
+            {
+                cout << "\n✔️ You have a reservation for today's " << currentMealLabel << ".\n";
+            }
         }
     }
-
     void removeReservationById()
     {
         Student *student = StudentSession::SessionManager::getinstance()->getCurrentStudent();
@@ -452,10 +535,11 @@ public:
             case 12:
                 Exitpanel();
                 break;
+                return;
             default:
                 cout << "invalid choice! \n";
             }
-        } while (choice != 11);
+        } while (choice != 12);
     }
 
     void ShowStudentInfo()

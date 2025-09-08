@@ -250,6 +250,7 @@ CMakeFiles/main_exec.dir/loginflow.cpp.obj
  C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/crypt_blowfish.h
  C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/winbcrypt.h
  C:/Users/Asus/Desktop/project-c++/includes/json.hpp
+ C:/Users/Asus/Desktop/project-c++/includes/logger.hpp
  C:/Users/Asus/Desktop/project-c++/includes/loginflow.hpp
  C:/Users/Asus/Desktop/project-c++/includes/meal.hpp
  C:/Users/Asus/Desktop/project-c++/includes/reservation.hpp
@@ -719,6 +720,7 @@ CMakeFiles/main_exec.dir/main.cpp.obj
  C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/crypt_blowfish.h
  C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/winbcrypt.h
  C:/Users/Asus/Desktop/project-c++/includes/json.hpp
+ C:/Users/Asus/Desktop/project-c++/includes/logger.hpp
  C:/Users/Asus/Desktop/project-c++/includes/loginflow.hpp
  C:/Users/Asus/Desktop/project-c++/includes/meal.hpp
  C:/Users/Asus/Desktop/project-c++/includes/reservation.hpp

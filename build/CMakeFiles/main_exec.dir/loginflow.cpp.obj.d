@@ -248,4 +248,5 @@ CMakeFiles/main_exec.dir/loginflow.cpp.obj: \
  C:/Users/Asus/Desktop/project-c++/includes/shoppingcart.hpp \
  C:/Users/Asus/Desktop/project-c++/includes/studentreservations.hpp \
  C:/Users/Asus/Desktop/project-c++/includes/studentsdata.hpp \
+ C:/Users/Asus/Desktop/project-c++/includes/logger.hpp \
  C:/Users/Asus/Desktop/project-c++/includes/adminpanel.hpp

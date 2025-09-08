@@ -248,6 +248,7 @@ CMakeFiles/main_exec.dir/loginflow.cpp.obj: C:/Users/Asus/Desktop/project-c++/lo
   C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/crypt_blowfish.h \
   C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/winbcrypt.h \
   C:/Users/Asus/Desktop/project-c++/includes/json.hpp \
+  C:/Users/Asus/Desktop/project-c++/includes/logger.hpp \
   C:/Users/Asus/Desktop/project-c++/includes/loginflow.hpp \
   C:/Users/Asus/Desktop/project-c++/includes/meal.hpp \
   C:/Users/Asus/Desktop/project-c++/includes/reservation.hpp \
@@ -716,6 +717,7 @@ CMakeFiles/main_exec.dir/main.cpp.obj: C:/Users/Asus/Desktop/project-c++/main.cp
   C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/crypt_blowfish.h \
   C:/Users/Asus/Desktop/project-c++/includes/include/bcrypt/winbcrypt.h \
   C:/Users/Asus/Desktop/project-c++/includes/json.hpp \
+  C:/Users/Asus/Desktop/project-c++/includes/logger.hpp \
   C:/Users/Asus/Desktop/project-c++/includes/loginflow.hpp \
   C:/Users/Asus/Desktop/project-c++/includes/meal.hpp \
   C:/Users/Asus/Desktop/project-c++/includes/reservation.hpp \
@@ -1925,6 +1927,8 @@ C:/Users/Asus/Downloads/mingw!/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-
 C:/Users/Asus/Desktop/project-c++/loginflow.cpp:
 
 C:/Users/Asus/Desktop/project-c++/includes/adminpanel.hpp:
+
+C:/Users/Asus/Desktop/project-c++/includes/logger.hpp:
 
 C:/Users/Asus/Desktop/project-c++/includes/loginflow.hpp:
 
