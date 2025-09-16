@@ -45,7 +45,7 @@ void LoginFlow::login()
         Student *student = StudentsData::findStudentByIdAndPassword(username, password);
         if (student)
         {
-            cout << "✔️ Student login successful.\n";
+            cout << "Student login successful.\n";
             logger.log("Student login successful: " + username);
             StudentPanel panel;
             panel.setStudent(student);

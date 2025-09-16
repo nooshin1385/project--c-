@@ -1,1 +1,16 @@
-null
+[
+    {
+        "Address": "next to the central library",
+        "Capacity": 200,
+        "CurrentOccupancy": 0,
+        "HallID": 1,
+        "Name": "morvarid"
+    },
+    {
+        "Address": "in front of the dormitory",
+        "Capacity": 200,
+        "CurrentOccupancy": 0,
+        "HallID": 2,
+        "Name": "shemshad"
+    }
+]

@@ -121,7 +121,7 @@ private:
                 Reservation r(rid, Pending, mealPtr, /*dining hall*/ nullptr, s);
                 bool ok = session->getShopping_Cart()->addReservation(r, s);
                 if (ok)
-                    cout << "✔️ " << m.getmealname() << " added to your cart.\n";
+                    cout << m.getmealname() << " added to your cart.\n";
                 else
                     cout << "could not add to cart.\n";
                 return;
@@ -152,7 +152,6 @@ private:
         }
 
         Logger logger;
-
         vector<Reservation> reserves = student->getReserves();
 
         vector<pair<int, string>> week = {
@@ -166,7 +165,6 @@ private:
         time_t t = time(nullptr);
         tm *now = localtime(&t);
         int tmw = now->tm_wday;
-
         int todayReserveday = -1;
         string todayName = "";
         switch (tmw)
@@ -219,32 +217,31 @@ private:
             currentMealLabel = "Dinner";
         }
 
+        cout << "\n----- Weekly Reservations -----\n";
+
         bool foundTodayMeal = false;
 
-        cout << "\n----- Weekly Reservations -----\n";
         for (auto &p : week)
         {
             int dayId = p.first;
             const string &dayName = p.second;
+
             if (dayId == todayReserveday)
                 cout << "\033[1;32m" << dayName << "\033[0m" << " : ";
             else
                 cout << dayName << " : ";
 
             bool any = false;
-
             for (const auto &r : reserves)
             {
                 Meal *m = r.getMeal();
                 if (!m)
                     continue;
-                int mealDay = m->getreserveday();
-                if (mealDay == dayId)
+                if (m->getreserveday() == dayId)
                 {
                     any = true;
+                    cout << m->getmealname() << " [";
 
-                    cout << m->getmealname();
-                    cout << " [";
                     switch (r.getstatus())
                     {
                     case Pending:
@@ -257,15 +254,9 @@ private:
                         cout << "Cancelled";
                         break;
                     }
-                    cout << "]";
+                    cout << "] (Price: " << m->getprice() << ")";
 
-                    cout << " (Price: " << m->getprice() << ")";
-                    int mtype = -1;
-#ifdef GNUC
-#endif
-                    mtype = m->gettype();
-
-                    if (dayId == todayReserveday && mtype == currentMealType)
+                    if (dayId == todayReserveday && m->gettype() == currentMealType)
                     {
                         foundTodayMeal = true;
                         cout << " \033[1;34m<-- Current meal\033[0m";
@@ -274,26 +265,23 @@ private:
                     cout << "  ";
                 }
             }
-
             if (!any)
                 cout << "(No reservation)";
             cout << endl;
-            if (todayReserveday == -1)
-            {
-                cout << "\nToday is " << todayName << " — dining halls may be closed.\n";
-                return;
-            }
-            if (!foundTodayMeal)
-            {
-                cout << "\nNo reservation for today's " << currentMealLabel << ".\n";
-
-                logger.logError("Student " + student->getStudentId() +
-                                " has no reservation for " + todayName + " " + currentMealLabel);
-            }
-            else
-            {
-                cout << "\n✔️ You have a reservation for today's " << currentMealLabel << ".\n";
-            }
+        }
+        if (todayReserveday == -1)
+        {
+            cout << "\nToday is " << todayName << " — dining halls may be closed.\n";
+        }
+        else if (!foundTodayMeal)
+        {
+            cout << "\nNo reservation for today's " << currentMealLabel << ".\n";
+            logger.logError("Student " + student->getStudentId() +
+                            " has no reservation for " + todayName + " " + currentMealLabel);
+        }
+        else
+        {
+            cout << "\n✔️ You have a reservation for today's " << currentMealLabel << ".\n";
         }
     }
     void removeReservationById()
@@ -416,12 +404,35 @@ public:
             cout << " Shopping cart is empty.\n";
             return;
         }
-        cout << "DEBUG: Student ID = " << student->getStudentId() << endl;
-        cout << "DEBUG: Cart size = " << cart->getreservation().size() << endl;
+        // cout << "DEBUG: Student ID = " << student->getStudentId() << endl;
+        // cout << "DEBUG: Cart size = " << cart->getreservation().size() << endl;
         cart->confirm(student);
         cout << "CONFIRMING...\n";
         cout << "Cart items: " << cart->getreservation().size() << endl;
     }
+    vector<DiningHall> loadDiningHalls(const string &filename)
+    {
+        vector<DiningHall> halls;
+        ifstream file(filename);
+        if (!file.is_open())
+        {
+            cerr << "Error opening file: " << filename << endl;
+            return halls;
+        }
+
+        json j;
+        file >> j;
+
+        for (auto &item : j)
+        {
+            DiningHall hall;
+            hall.from_json(item);
+            halls.push_back(hall);
+        }
+
+        return halls;
+    }
+   // vector<DiningHall> halls = loadDiningHalls("dininghalls.json");
     void chooseDiningHall(vector<DiningHall> &halls)
     {
         cout << "\n--- Available Dining Halls ---\n";
@@ -513,7 +524,7 @@ public:
                 break;
             case 6:
             {
-                vector<DiningHall> halls;
+                vector<DiningHall> halls = loadDiningHalls("dininghalls.json");
                 chooseDiningHall(halls);
                 break;
             }

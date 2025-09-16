@@ -1,12 +1,9 @@
 #ifndef STUDENTDATA_HPP
 #define STUDENTDATA_HPP
-
 #include <vector>
 #include <string>
 #include "student.hpp"
-
 using namespace std;
-
 class StudentsData
 {
 public:

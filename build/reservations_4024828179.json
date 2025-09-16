@@ -1,0 +1,58 @@
+[
+    {
+        "Created_at": 1758055777,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": true,
+            "MealID": 21,
+            "MealName": "adasi",
+            "Price": 7500.0,
+            "SideItems": [
+                "tea",
+                "read"
+            ],
+            "mealtype": 1,
+            "reserveday": 6
+        },
+        "Reservation_ID": 1758055791,
+        "StudentId": "4024828179",
+        "status": 1
+    },
+    {
+        "Created_at": 1758055798,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": true,
+            "MealID": 19,
+            "MealName": "salad makaroni",
+            "Price": 10000.0,
+            "SideItems": [
+                "soda"
+            ],
+            "mealtype": 3,
+            "reserveday": 5
+        },
+        "Reservation_ID": 1758055801,
+        "StudentId": "4024828179",
+        "status": 0
+    },
+    {
+        "Created_at": 1758055909,
+        "Dininghall": null,
+        "Meal": {
+            "IsActive": true,
+            "MealID": 22,
+            "MealName": "kobide",
+            "Price": 12000.0,
+            "SideItems": [
+                "tomato",
+                "uttermilk"
+            ],
+            "mealtype": 2,
+            "reserveday": 6
+        },
+        "Reservation_ID": 1758055914,
+        "StudentId": "4024828179",
+        "status": 0
+    }
+]

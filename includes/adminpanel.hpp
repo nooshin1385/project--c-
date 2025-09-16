@@ -40,7 +40,8 @@ private:
         cout << "Meal ID: ";
         cin >> id;
         cout << "Name: ";
-        cin >> name;
+        cin.ignore();
+        getline(cin, name);
         cout << "Price: ";
         cin >> price;
         cout << "Type (1.Breakfast 2.Lunch 3.Dinner 4.Dessert): ";
@@ -53,7 +54,8 @@ private:
         {
             string item;
             cout << "item " << i + 1 << ": ";
-            cin >> item;
+            cin.ignore();
+            getline(cin, item);
             sides.push_back(item);
         }
 

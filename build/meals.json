@@ -1,1 +1,275 @@
-null
+[
+    {
+        "IsActive": true,
+        "MealID": 1,
+        "MealName": "cheese and walnuts",
+        "Price": 7500.0,
+        "SideItems": [
+            "bread",
+            "tea"
+        ],
+        "mealtype": 1,
+        "reserveday": 1
+    },
+    {
+        "IsActive": true,
+        "MealID": 2,
+        "MealName": "Grilled chicken",
+        "Price": 12000.0,
+        "SideItems": [
+            "Parsely onion",
+            "utter",
+            "uttermilk"
+        ],
+        "mealtype": 2,
+        "reserveday": 1
+    },
+    {
+        "IsActive": true,
+        "MealID": 3,
+        "MealName": "Pasta",
+        "Price": 12000.0,
+        "SideItems": [
+            "rihun",
+            "oda"
+        ],
+        "mealtype": 3,
+        "reserveday": 1
+    },
+    {
+        "IsActive": true,
+        "MealID": 4,
+        "MealName": "jelly",
+        "Price": 5000.0,
+        "SideItems": [],
+        "mealtype": 4,
+        "reserveday": 1
+    },
+    {
+        "IsActive": true,
+        "MealID": 5,
+        "MealName": "honey cream",
+        "Price": 7500.0,
+        "SideItems": [
+            "bread",
+            "ea"
+        ],
+        "mealtype": 1,
+        "reserveday": 2
+    },
+    {
+        "IsActive": true,
+        "MealID": 6,
+        "MealName": "ghormesabzi",
+        "Price": 10000.0,
+        "SideItems": [
+            "saladshirazi",
+            "uttermilk"
+        ],
+        "mealtype": 2,
+        "reserveday": 2
+    },
+    {
+        "IsActive": true,
+        "MealID": 7,
+        "MealName": "abgosht",
+        "Price": 12000.0,
+        "SideItems": [
+            "sabzi",
+            "uttermilk"
+        ],
+        "mealtype": 3,
+        "reserveday": 2
+    },
+    {
+        "IsActive": true,
+        "MealID": 8,
+        "MealName": "ferni",
+        "Price": 5000.0,
+        "SideItems": [],
+        "mealtype": 4,
+        "reserveday": 2
+    },
+    {
+        "IsActive": true,
+        "MealID": 9,
+        "MealName": "pancake",
+        "Price": 7500.0,
+        "SideItems": [
+            "chocolat",
+            "tea"
+        ],
+        "mealtype": 1,
+        "reserveday": 3
+    },
+    {
+        "IsActive": true,
+        "MealID": 10,
+        "MealName": "sholeh mashadi",
+        "Price": 12000.0,
+        "SideItems": [
+            "sabzi",
+            "oda"
+        ],
+        "mealtype": 2,
+        "reserveday": 3
+    },
+    {
+        "IsActive": true,
+        "MealID": 11,
+        "MealName": "ghameh bademjan",
+        "Price": 10000.0,
+        "SideItems": [
+            "pepper",
+            "aiton parvardeh"
+        ],
+        "mealtype": 3,
+        "reserveday": 3
+    },
+    {
+        "IsActive": true,
+        "MealID": 12,
+        "MealName": "panakota",
+        "Price": 5000.0,
+        "SideItems": [],
+        "mealtype": 4,
+        "reserveday": 3
+    },
+    {
+        "IsActive": true,
+        "MealID": 13,
+        "MealName": "butter jam",
+        "Price": 7500.0,
+        "SideItems": [
+            "bread",
+            "ilk"
+        ],
+        "mealtype": 1,
+        "reserveday": 4
+    },
+    {
+        "IsActive": true,
+        "MealID": 14,
+        "MealName": "lazania",
+        "Price": 12000.0,
+        "SideItems": [
+            "soda",
+            "auce",
+            "read"
+        ],
+        "mealtype": 2,
+        "reserveday": 4
+    },
+    {
+        "IsActive": true,
+        "MealID": 15,
+        "MealName": "rice & chicken",
+        "Price": 12000.0,
+        "SideItems": [
+            "salad shiraza",
+            "oup",
+            "range",
+            "uttermilk"
+        ],
+        "mealtype": 3,
+        "reserveday": 4
+    },
+    {
+        "IsActive": true,
+        "MealID": 16,
+        "MealName": "cheese cake",
+        "Price": 5000.0,
+        "SideItems": [],
+        "mealtype": 4,
+        "reserveday": 4
+    },
+    {
+        "IsActive": true,
+        "MealID": 17,
+        "MealName": "halim",
+        "Price": 7500.0,
+        "SideItems": [
+            "bread",
+            "ea"
+        ],
+        "mealtype": 1,
+        "reserveday": 5
+    },
+    {
+        "IsActive": true,
+        "MealID": 18,
+        "MealName": "sabzipolo & mahi",
+        "Price": 12000.0,
+        "SideItems": [
+            "torshi",
+            "oda",
+            "aiton parvardeh"
+        ],
+        "mealtype": 2,
+        "reserveday": 5
+    },
+    {
+        "IsActive": true,
+        "MealID": 19,
+        "MealName": "salad makaroni",
+        "Price": 10000.0,
+        "SideItems": [
+            "soda"
+        ],
+        "mealtype": 3,
+        "reserveday": 5
+    },
+    {
+        "IsActive": true,
+        "MealID": 20,
+        "MealName": "tiramiso",
+        "Price": 5000.0,
+        "SideItems": [],
+        "mealtype": 4,
+        "reserveday": 5
+    },
+    {
+        "IsActive": true,
+        "MealID": 21,
+        "MealName": "adasi",
+        "Price": 7500.0,
+        "SideItems": [
+            "tea",
+            "read"
+        ],
+        "mealtype": 1,
+        "reserveday": 6
+    },
+    {
+        "IsActive": true,
+        "MealID": 22,
+        "MealName": "kobide",
+        "Price": 12000.0,
+        "SideItems": [
+            "tomato",
+            "uttermilk"
+        ],
+        "mealtype": 2,
+        "reserveday": 6
+    },
+    {
+        "IsActive": true,
+        "MealID": 23,
+        "MealName": "pirashki",
+        "Price": 12000.0,
+        "SideItems": [
+            "suace"
+        ],
+        "mealtype": 3,
+        "reserveday": 6
+    },
+    {
+        "IsActive": true,
+        "MealID": 24,
+        "MealName": "panespania",
+        "Price": 5000.0,
+        "SideItems": [],
+        "mealtype": 4,
+        "reserveday": 6
+    }
+]

@@ -104,4 +104,26 @@ public:
         Capacity = j.at("Capacity").get<int>();
         CurrentOccupancy = j.value("CurrentOccupancy", 0);
     }
+    vector<DiningHall> loadDiningHalls(const string &filename)
+    {
+        vector<DiningHall> halls;
+        ifstream file(filename);
+        if (!file.is_open())
+        {
+            cerr << "Error opening file: " << filename << endl;
+            return halls;
+        }
+
+        json j;
+        file >> j;
+
+        for (auto &item : j)
+        {
+            DiningHall hall;
+            hall.from_json(item);
+            halls.push_back(hall);
+        }
+
+        return halls;
+    }
 };

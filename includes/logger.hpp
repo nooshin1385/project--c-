@@ -41,8 +41,6 @@ public:
     void logError(const string &message)
     {
         const string authFile = "Authentication.log";
-
-        // 1) نوشتن به Authentication.log
         ofstream outErr(authFile, ios::app);
         if (outErr.is_open())
         {

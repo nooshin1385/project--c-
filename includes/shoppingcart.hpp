@@ -13,7 +13,7 @@ class ShoppingCart
 
 public:
     void confirm(Student *student);
-    bool removeReservation(Student *student,int reservationID);
+    bool removeReservation(Student *student, int reservationID);
     bool addReservation(const Reservation &r, const Student *student);
     void removeConfirmedReservation(int reservationID, Student *student, bool hardDelete);
     void removeFromCart(int reservationId);
@@ -150,11 +150,12 @@ inline void ShoppingCart::confirm(Student *student)
     }
 
     float newBalance = student->getBalance();
+    static int uniqueCounter = 0;
 
     for (auto &r : toConfirm)
     {
         r.setStatus(Confirmed);
-        r.setReservationID(time(nullptr));
+        r.setReservationID(static_cast<long>(time(nullptr)) + uniqueCounter++);
         current.push_back(r);
 
         newBalance -= r.getMeal()->getprice();
@@ -296,13 +297,14 @@ inline bool ShoppingCart::removeReservation(Student *student, int reservationID)
 
     vector<Reservation> current = student->getReserves();
     auto it = find_if(current.begin(), current.end(),
-                      [&](const Reservation &r) { return r.getReservationId() == reservationID; });
+                      [&](const Reservation &r)
+                      { return r.getReservationId() == reservationID; });
 
     if (it != current.end())
     {
         if (it->getstatus() == Confirmed && it->getMeal())
         {
-            float refund = it->getMeal()->getprice() * 0.8f; 
+            float refund = it->getMeal()->getprice() * 0.8f;
             student->setBalance(student->getBalance() + refund);
             cout << "Reservation removed. 20% penalty applied. Refund: " << refund << "\n";
         }
@@ -311,7 +313,6 @@ inline bool ShoppingCart::removeReservation(Student *student, int reservationID)
             cout << "Reservation removed from cart.\n";
         }
 
-  
         current.erase(it);
 
         student->setreservation(current);
